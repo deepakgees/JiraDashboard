@@ -252,3 +252,4 @@ This project is licensed under the MIT License.
 - Tailwind CSS for the amazing styling framework
 - Prisma for the excellent ORM
 # JiraDashboard
+# JiraDashboard
