@@ -1,0 +1,267 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  name      String
+  role      String    @default("user") // admin, user, manager
+  avatar    String?
+  isActive  Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  
+  // Relations
+  assignedIssues Issue[]    @relation("AssignedTo")
+  createdIssues  Issue[]    @relation("CreatedBy")
+  teamMembers    TeamMember[]
+  projectMembers ProjectMember[]
+  comments       Comment[]
+  attachments    Attachment[]
+  workLogs       WorkLog[]
+  
+  @@map("users")
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  name        String
+  key         String   @unique // Project key like "PROJ"
+  description String?
+  status      String   @default("active") // active, archived, completed
+  startDate   DateTime?
+  endDate     DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  issues      Issue[]
+  sprints     Sprint[]
+  members     ProjectMember[]
+  
+  @@map("projects")
+}
+
+model Issue {
+  id          Int      @id @default(autoincrement())
+  key         String   @unique // Issue key like "PROJ-123"
+  summary     String
+  description String?
+  type        String   // bug, feature, task, story, epic
+  priority    String   @default("medium") // low, medium, high, critical
+  status      String   @default("to-do") // to-do, in-progress, in-review, done
+  storyPoints Int?
+  assigneeId  Int?
+  reporterId  Int
+  projectId   Int
+  sprintId    Int?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  assignee    User?    @relation("AssignedTo", fields: [assigneeId], references: [id])
+  reporter    User     @relation("CreatedBy", fields: [reporterId], references: [id])
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  sprint      Sprint?  @relation(fields: [sprintId], references: [id])
+  comments    Comment[]
+  attachments Attachment[]
+  workLogs    WorkLog[]
+  
+  @@map("issues")
+}
+
+model Sprint {
+  id          Int      @id @default(autoincrement())
+  name        String
+  goal        String?
+  startDate   DateTime
+  endDate     DateTime
+  status      String   @default("planned") // planned, active, completed, cancelled
+  projectId   Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  issues      Issue[]
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  @@map("sprints")
+}
+
+model Team {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  members     TeamMember[]
+  
+  @@map("teams")
+}
+
+model TeamMember {
+  id     Int @id @default(autoincrement())
+  userId Int
+  teamId Int
+  role   String @default("member") // member, lead, admin
+  
+  // Relations
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  team   Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, teamId])
+  @@map("team_members")
+}
+
+model ProjectMember {
+  id        Int @id @default(autoincrement())
+  userId    Int
+  projectId Int
+  role      String @default("member") // member, lead, admin
+  
+  // Relations
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, projectId])
+  @@map("project_members")
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  content   String
+  userId    Int
+  issueId   Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  issue     Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  
+  @@map("comments")
+}
+
+model Attachment {
+  id        Int      @id @default(autoincrement())
+  filename  String
+  filepath  String
+  filesize  Int
+  mimetype  String
+  issueId   Int
+  uploadedBy Int
+  createdAt DateTime @default(now())
+  
+  // Relations
+  issue     Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [uploadedBy], references: [id], onDelete: Cascade)
+  
+  @@map("attachments")
+}
+
+model WorkLog {
+  id          Int      @id @default(autoincrement())
+  timeSpent   Int      // Time spent in seconds
+  description String?
+  userId      Int
+  issueId     Int
+  loggedAt    DateTime @default(now())
+  
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  issue       Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  
+  @@map("work_logs")
+}
+
+// Jira Import Configuration
+model ImportConfig {
+  id                Int      @id @default(autoincrement())
+  teamName          String
+  projectKey        String   // Jira project key
+  jiraBaseUrl       String   // Jira instance URL
+  importStartDate   DateTime // Start date for data import
+  authType          String   @default("api") // "api" or "cookie"
+  authToken         String?  // Base64 encoded API token (for API auth)
+  cookies           String?  // Browser cookies (for cookie auth)
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  @@unique([teamName, projectKey])
+  @@map("import_configs")
+}
+
+// Jira Epic Data (imported from Jira)
+model JiraEpic {
+  id                  Int      @id @default(autoincrement())
+  jiraKey             String   @unique // Epic key from Jira (e.g., "PROJ-123")
+  summary             String
+  status              String
+  dueDate             DateTime?
+  priority            String?
+  fixVersions         String?  // Comma-separated fix versions
+  roughEstimate       Float?   // Story points
+  originalEstimate    Float?   // Story points
+  remainingEstimate   Float?   // Story points
+  teamName            String
+  projectKey          String
+  lastImported        DateTime @default(now())
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@map("jira_epics")
+}
+
+// Jira Issue Data (imported from Jira)
+model JiraIssue {
+  id                  Int      @id @default(autoincrement())
+  jiraKey             String   @unique // Issue key from Jira (e.g., "PROJ-123")
+  issueType           String   // Task, Story, Bug, etc.
+  summary             String
+  status              String
+  dueDate             DateTime?
+  created             DateTime
+  updated             DateTime
+  resolved            DateTime?
+  resolution          String?
+  storyPoints         Float?
+  epicLink            String?  // Link to parent epic
+  backlogPriority     Float?   // Backlog priority
+  sprintState         String?  // active, closed, future
+  lastAssignedSprint  String?  // Name of last assigned sprint
+  sprintStartDate     DateTime?
+  sprintEndDate       DateTime?
+  teamName            String
+  projectKey          String
+  lastImported        DateTime @default(now())
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@map("jira_issues")
+}
+
+// Import Log for tracking import activities
+model ImportLog {
+  id          Int      @id @default(autoincrement())
+  teamName    String
+  projectKey  String
+  importType  String   // "epic", "issue", "full"
+  status      String   // "started", "completed", "failed"
+  startTime   DateTime
+  endTime     DateTime?
+  recordsProcessed Int @default(0)
+  errorMessage String?
+  createdAt   DateTime @default(now())
+  
+  @@map("import_logs")
+}
