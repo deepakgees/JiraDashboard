@@ -7,14 +7,8 @@ import logger from './utils/logger';
 import { requestLogger, errorLogger } from './middleware/requestLogger';
 
 // Import routes
-import authRoutes from './routes/auth';
-import projectRoutes from './routes/projects';
-import issueRoutes from './routes/issues';
-import sprintRoutes from './routes/sprints';
-import teamRoutes from './routes/teams';
-import userRoutes from './routes/users';
-import importRoutes from './routes/import';
-import configRoutes from './routes/config';
+import dataRoutes from './routes/data';
+import oauthRoutes from './routes/oauth';
 
 // Load environment variables
 dotenv.config();
@@ -50,14 +44,8 @@ app.get('/api/health', (req, res) => {
 });
 
 // API routes
-app.use('/api/auth', authRoutes);
-app.use('/api/projects', projectRoutes);
-app.use('/api/issues', issueRoutes);
-app.use('/api/sprints', sprintRoutes);
-app.use('/api/teams', teamRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/import', importRoutes);
-app.use('/api/config', configRoutes);
+app.use('/api/data', dataRoutes);
+app.use('/api/oauth', oauthRoutes);
 
 // Error handling middleware
 app.use(errorLogger);

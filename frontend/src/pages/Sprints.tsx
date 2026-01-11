@@ -1,397 +1,461 @@
-import React, { useState, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
-import { PlusIcon, CalendarIcon, ClockIcon, UserGroupIcon, ChartBarIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import React, { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import apiClient from '../utils/api';
 
-interface Issue {
-  id: number;
-  key: string;
-  summary: string;
-  type: string;
-  priority: string;
-  status: string;
-  storyPoints: number;
-  assignee: string;
-  reporter: string;
-  created: string;
-  updated: string;
-}
-
-interface Sprint {
-  id: number;
-  name: string;
-  goal: string;
-  startDate: string;
-  endDate: string;
-  status: string;
+interface SprintStatistics {
+  sprintName: string;
+  totalTickets: number;
+  typeBreakdown: {
+    stories: number;
+    subtasks: number;
+    bugs: number;
+  };
+  statusBreakdown: Record<string, number>;
+  priorityBreakdown: Record<string, number>;
+  resolutionBreakdown: Record<string, number>;
+  assigneeBreakdown: Record<string, number>;
+  teamBreakdown: Record<string, number>;
   totalStoryPoints: number;
-  completedStoryPoints: number;
-  remainingDays: number;
-}
-
-interface BurndownData {
-  day: string;
-  remaining: number;
-  ideal: number;
-  actual: number;
+  dates: {
+    earliestCreated: string | null;
+    latestCreated: string | null;
+    earliestResolved: string | null;
+    latestResolved: string | null;
+  };
+  tickets: {
+    stories: Array<{
+      issueKey: string;
+      summary: string;
+      status: string;
+      assignee: string | null;
+      storyPoints: number | null;
+      priority: string | null;
+    }>;
+    subtasks: Array<{
+      issueKey: string;
+      summary: string;
+      status: string;
+      assignee: string | null;
+      storyPoints: number | null;
+      priority: string | null;
+    }>;
+    bugs: Array<{
+      issueKey: string;
+      summary: string;
+      status: string;
+      assignee: string | null;
+      storyPoints: number | null;
+      priority: string | null;
+      resolution: string | null;
+    }>;
+  };
 }
 
 const Sprints: React.FC = () => {
-  const [sprints, setSprints] = useState<Sprint[]>([]);
-  const [selectedSprint, setSelectedSprint] = useState<Sprint | null>(null);
-  const [issues, setIssues] = useState<Issue[]>([]);
-  const [burndownData, setBurndownData] = useState<BurndownData[]>([]);
-  const [showCreateSprint, setShowCreateSprint] = useState(false);
+  const [selectedSprint, setSelectedSprint] = useState<string>('');
 
-  // Mock data - replace with actual API calls
-  useEffect(() => {
-    setSprints([
-      {
-        id: 1,
-        name: 'Sprint 1',
-        goal: 'Complete user authentication and basic project setup',
-        startDate: '2024-01-15',
-        endDate: '2024-01-28',
-        status: 'active',
-        totalStoryPoints: 20,
-        completedStoryPoints: 18,
-        remainingDays: 3
-      },
-      {
-        id: 2,
-        name: 'Sprint 2',
-        goal: 'Implement issue tracking and sprint management',
-        startDate: '2024-02-01',
-        endDate: '2024-02-14',
-        status: 'planned',
-        totalStoryPoints: 25,
-        completedStoryPoints: 0,
-        remainingDays: 14
-      }
-    ]);
+  // Fetch all sprints
+  const { data: sprints, isLoading: isLoadingSprints } = useQuery({
+    queryKey: ['sprints'],
+    queryFn: async () => {
+      const response = await apiClient.get<string[]>('/api/data/sprints');
+      return response.data || [];
+    },
+  });
 
-    setIssues([
-      {
-        id: 1,
-        key: 'PROJ-101',
-        summary: 'Implement user login functionality',
-        type: 'story',
-        priority: 'high',
-        status: 'done',
-        storyPoints: 5,
-        assignee: 'John Doe',
-        reporter: 'Jane Smith',
-        created: '2024-01-15',
-        updated: '2024-01-20'
-      },
-      {
-        id: 2,
-        key: 'PROJ-102',
-        summary: 'Create project creation form',
-        type: 'story',
-        priority: 'medium',
-        status: 'in-progress',
-        storyPoints: 3,
-        assignee: 'Mike Johnson',
-        reporter: 'Jane Smith',
-        created: '2024-01-15',
-        updated: '2024-01-22'
-      },
-      {
-        id: 3,
-        key: 'PROJ-103',
-        summary: 'Fix authentication bug',
-        type: 'bug',
-        priority: 'critical',
-        status: 'to-do',
-        storyPoints: 2,
-        assignee: 'John Doe',
-        reporter: 'Mike Johnson',
-        created: '2024-01-22',
-        updated: '2024-01-22'
-      }
-    ]);
+  // Fetch sprint statistics
+  const { data: statistics, isLoading: isLoadingStats } = useQuery({
+    queryKey: ['sprint-statistics', selectedSprint],
+    queryFn: async () => {
+      if (!selectedSprint) return null;
+      const response = await apiClient.get<SprintStatistics>(
+        `/api/data/sprints/${encodeURIComponent(selectedSprint)}/statistics`
+      );
+      return response.data;
+    },
+    enabled: !!selectedSprint,
+  });
 
-    setBurndownData([
-      { day: 'Day 1', remaining: 20, ideal: 20, actual: 20 },
-      { day: 'Day 2', remaining: 18, ideal: 18, actual: 18 },
-      { day: 'Day 3', remaining: 16, ideal: 16, actual: 16 },
-      { day: 'Day 4', remaining: 14, ideal: 14, actual: 14 },
-      { day: 'Day 5', remaining: 12, ideal: 12, actual: 12 },
-      { day: 'Day 6', remaining: 10, ideal: 10, actual: 10 },
-      { day: 'Day 7', remaining: 8, ideal: 8, actual: 8 },
-      { day: 'Day 8', remaining: 6, ideal: 6, actual: 6 },
-      { day: 'Day 9', remaining: 4, ideal: 4, actual: 4 },
-      { day: 'Day 10', remaining: 2, ideal: 2, actual: 2 }
-    ]);
-  }, []);
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'to-do': return 'bg-gray-100 border-gray-300';
-      case 'in-progress': return 'bg-blue-100 border-blue-300';
-      case 'in-review': return 'bg-yellow-100 border-yellow-300';
-      case 'done': return 'bg-green-100 border-green-300';
-      default: return 'bg-gray-100 border-gray-300';
+  const formatDate = (dateStr: string | null | undefined): string => {
+    if (!dateStr) return '-';
+    try {
+      return new Date(dateStr).toLocaleDateString();
+    } catch {
+      return dateStr;
     }
-  };
-
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case 'critical': return 'bg-red-500';
-      case 'high': return 'bg-orange-500';
-      case 'medium': return 'bg-yellow-500';
-      case 'low': return 'bg-green-500';
-      default: return 'bg-gray-500';
-    }
-  };
-
-  const getTypeIcon = (type: string) => {
-    switch (type) {
-      case 'story': return '📖';
-      case 'bug': return '🐛';
-      case 'task': return '📋';
-      case 'epic': return '🎯';
-      default: return '📄';
-    }
-  };
-
-  const columns = ['to-do', 'in-progress', 'in-review', 'done'];
-
-  const getIssuesByStatus = (status: string) => {
-    return issues.filter(issue => issue.status === status);
-  };
-
-  const handleDragStart = (e: React.DragEvent, issue: Issue) => {
-    e.dataTransfer.setData('issue', JSON.stringify(issue));
-  };
-
-  const handleDrop = (e: React.DragEvent, status: string) => {
-    e.preventDefault();
-    const issue = JSON.parse(e.dataTransfer.getData('issue'));
-    // Update issue status - replace with API call
-    setIssues(prev => prev.map(i => i.id === issue.id ? { ...i, status } : i));
-  };
-
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
   };
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Sprint Board</h1>
-          <p className="mt-2 text-sm text-gray-700">
-            Manage your sprints and track progress with Kanban board
-          </p>
-        </div>
-        <button
-          onClick={() => setShowCreateSprint(true)}
-          className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-        >
-          <PlusIcon className="w-5 h-5 mr-2" />
-          Create Sprint
-        </button>
+        <h1 className="text-3xl font-bold text-gray-900">Sprints</h1>
       </div>
 
       {/* Sprint Selection */}
       <div className="bg-white shadow rounded-lg p-6">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Select Sprint</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {sprints.map(sprint => (
-            <div
-              key={sprint.id}
-              onClick={() => setSelectedSprint(sprint)}
-              className={`p-4 border rounded-lg cursor-pointer transition-all ${
-                selectedSprint?.id === sprint.id
-                  ? 'border-blue-500 bg-blue-50'
-                  : 'border-gray-200 hover:border-gray-300'
-              }`}
-            >
-              <div className="flex justify-between items-start mb-2">
-                <h4 className="font-medium text-gray-900">{sprint.name}</h4>
-                <span className={`px-2 py-1 text-xs rounded-full ${
-                  sprint.status === 'active' ? 'bg-green-100 text-green-800' :
-                  sprint.status === 'planned' ? 'bg-blue-100 text-blue-800' :
-                  'bg-gray-100 text-gray-800'
-                }`}>
-                  {sprint.status}
-                </span>
-              </div>
-              <p className="text-sm text-gray-600 mb-3">{sprint.goal}</p>
-              <div className="flex justify-between text-sm text-gray-500">
-                <span>{sprint.remainingDays} days left</span>
-                <span>{sprint.completedStoryPoints}/{sprint.totalStoryPoints} SP</span>
-              </div>
-            </div>
+        <label htmlFor="sprint-select" className="block text-sm font-medium text-gray-700 mb-2">
+          Select Sprint
+        </label>
+        <select
+          id="sprint-select"
+          value={selectedSprint}
+          onChange={(e) => setSelectedSprint(e.target.value)}
+          className="block w-full max-w-md rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+          disabled={isLoadingSprints}
+        >
+          <option value="">-- Select a sprint --</option>
+          {sprints?.map((sprint) => (
+            <option key={sprint} value={sprint}>
+              {sprint}
+            </option>
           ))}
-        </div>
+        </select>
       </div>
 
-      {selectedSprint && (
-        <>
-          {/* Sprint Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      {/* Statistics Display */}
+      {selectedSprint && statistics && (
+        <div className="space-y-6">
+          {/* Overview Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="bg-white shadow rounded-lg p-6">
-              <div className="flex items-center">
-                <CalendarIcon className="w-8 h-8 text-blue-500" />
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-500">Sprint Duration</p>
-                  <p className="text-2xl font-bold text-gray-900">{selectedSprint.remainingDays} days</p>
-                </div>
+              <div className="text-sm font-medium text-gray-500">Total Tickets</div>
+              <div className="mt-2 text-3xl font-bold text-gray-900">{statistics.totalTickets}</div>
+            </div>
+            <div className="bg-white shadow rounded-lg p-6">
+              <div className="text-sm font-medium text-gray-500">Total Story Points</div>
+              <div className="mt-2 text-3xl font-bold text-gray-900">
+                {statistics.totalStoryPoints.toFixed(1)}
               </div>
             </div>
             <div className="bg-white shadow rounded-lg p-6">
-              <div className="flex items-center">
-                <ChartBarIcon className="w-8 h-8 text-green-500" />
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-500">Story Points</p>
-                  <p className="text-2xl font-bold text-gray-900">{selectedSprint.completedStoryPoints}/{selectedSprint.totalStoryPoints}</p>
-                </div>
+              <div className="text-sm font-medium text-gray-500">Stories</div>
+              <div className="mt-2 text-3xl font-bold text-blue-600">{statistics.typeBreakdown.stories}</div>
+            </div>
+            <div className="bg-white shadow rounded-lg p-6">
+              <div className="text-sm font-medium text-gray-500">Subtasks</div>
+              <div className="mt-2 text-3xl font-bold text-green-600">{statistics.typeBreakdown.subtasks}</div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-white shadow rounded-lg p-6">
+              <div className="text-sm font-medium text-gray-500 mb-2">Bugs</div>
+              <div className="text-3xl font-bold text-red-600">{statistics.typeBreakdown.bugs}</div>
+            </div>
+            <div className="bg-white shadow rounded-lg p-6">
+              <div className="text-sm font-medium text-gray-500 mb-2">Earliest Created</div>
+              <div className="text-lg font-semibold text-gray-900">
+                {formatDate(statistics.dates.earliestCreated)}
               </div>
             </div>
             <div className="bg-white shadow rounded-lg p-6">
-              <div className="flex items-center">
-                <ClockIcon className="w-8 h-8 text-yellow-500" />
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-500">Progress</p>
-                  <p className="text-2xl font-bold text-gray-900">
-                    {Math.round((selectedSprint.completedStoryPoints / selectedSprint.totalStoryPoints) * 100)}%
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white shadow rounded-lg p-6">
-              <div className="flex items-center">
-                <UserGroupIcon className="w-8 h-8 text-purple-500" />
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-500">Active Issues</p>
-                  <p className="text-2xl font-bold text-gray-900">{issues.filter(i => i.status !== 'done').length}</p>
-                </div>
+              <div className="text-sm font-medium text-gray-500 mb-2">Latest Resolved</div>
+              <div className="text-lg font-semibold text-gray-900">
+                {formatDate(statistics.dates.latestResolved)}
               </div>
             </div>
           </div>
 
-          {/* Burndown Chart */}
-          <div className="bg-white shadow rounded-lg p-6">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">Sprint Burndown</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={burndownData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="day" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="ideal" stroke="#6B7280" strokeDasharray="5 5" name="Ideal" />
-                <Line type="monotone" dataKey="actual" stroke="#3B82F6" strokeWidth={2} name="Actual" />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-
-          {/* Kanban Board */}
-          <div className="bg-white shadow rounded-lg p-6">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">Issue Board</h3>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              {columns.map(column => (
-                <div key={column} className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h4 className="font-medium text-gray-900 capitalize">{column.replace('-', ' ')}</h4>
-                    <span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded-full">
-                      {getIssuesByStatus(column).length}
-                    </span>
-                  </div>
-                  <div
-                    className="min-h-[400px] p-3 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300"
-                    onDrop={(e) => handleDrop(e, column)}
-                    onDragOver={handleDragOver}
-                  >
-                    {getIssuesByStatus(column).map(issue => (
-                      <div
-                        key={issue.id}
-                        draggable
-                        onDragStart={(e) => handleDragStart(e, issue)}
-                        className={`p-3 mb-3 bg-white rounded-lg border cursor-move ${getStatusColor(issue.status)}`}
-                      >
-                        <div className="flex items-start justify-between mb-2">
-                          <span className="text-sm font-medium text-gray-900">{issue.key}</span>
-                          <div className="flex items-center space-x-1">
-                            <span className={`w-2 h-2 rounded-full ${getPriorityColor(issue.priority)}`}></span>
-                            <span className="text-lg">{getTypeIcon(issue.type)}</span>
-                          </div>
+          {/* Breakdowns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Status Breakdown */}
+            <div className="bg-white shadow rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Status Breakdown</h3>
+              <div className="space-y-2">
+                {Object.entries(statistics.statusBreakdown)
+                  .sort(([, a], [, b]) => b - a)
+                  .map(([status, count]) => (
+                    <div key={status} className="flex items-center justify-between">
+                      <span className="text-sm text-gray-600">{status}</span>
+                      <div className="flex items-center gap-2">
+                        <div className="w-32 bg-gray-200 rounded-full h-2">
+                          <div
+                            className="bg-primary-600 h-2 rounded-full"
+                            style={{
+                              width: `${(count / statistics.totalTickets) * 100}%`,
+                            }}
+                          />
                         </div>
-                        <p className="text-sm text-gray-700 mb-2">{issue.summary}</p>
-                        <div className="flex items-center justify-between text-xs text-gray-500">
-                          <span>{issue.assignee}</span>
-                          <span>{issue.storyPoints} SP</span>
+                        <span className="text-sm font-medium text-gray-900 w-8 text-right">{count}</span>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            {/* Priority Breakdown */}
+            <div className="bg-white shadow rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Priority Breakdown</h3>
+              <div className="space-y-2">
+                {Object.entries(statistics.priorityBreakdown)
+                  .sort(([, a], [, b]) => b - a)
+                  .map(([priority, count]) => (
+                    <div key={priority} className="flex items-center justify-between">
+                      <span className="text-sm text-gray-600">{priority}</span>
+                      <div className="flex items-center gap-2">
+                        <div className="w-32 bg-gray-200 rounded-full h-2">
+                          <div
+                            className="bg-yellow-500 h-2 rounded-full"
+                            style={{
+                              width: `${(count / statistics.totalTickets) * 100}%`,
+                            }}
+                          />
+                        </div>
+                        <span className="text-sm font-medium text-gray-900 w-8 text-right">{count}</span>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            {/* Assignee Breakdown */}
+            <div className="bg-white shadow rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Assignee Breakdown</h3>
+              <div className="space-y-2 max-h-64 overflow-y-auto">
+                {Object.entries(statistics.assigneeBreakdown)
+                  .sort(([, a], [, b]) => b - a)
+                  .map(([assignee, count]) => (
+                    <div key={assignee} className="flex items-center justify-between">
+                      <span className="text-sm text-gray-600">{assignee}</span>
+                      <div className="flex items-center gap-2">
+                        <div className="w-32 bg-gray-200 rounded-full h-2">
+                          <div
+                            className="bg-green-500 h-2 rounded-full"
+                            style={{
+                              width: `${(count / statistics.totalTickets) * 100}%`,
+                            }}
+                          />
+                        </div>
+                        <span className="text-sm font-medium text-gray-900 w-8 text-right">{count}</span>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            {/* Team Breakdown */}
+            <div className="bg-white shadow rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Team Breakdown</h3>
+              <div className="space-y-2 max-h-64 overflow-y-auto">
+                {Object.entries(statistics.teamBreakdown)
+                  .sort(([, a], [, b]) => b - a)
+                  .map(([team, count]) => (
+                    <div key={team} className="flex items-center justify-between">
+                      <span className="text-sm text-gray-600">{team}</span>
+                      <div className="flex items-center gap-2">
+                        <div className="w-32 bg-gray-200 rounded-full h-2">
+                          <div
+                            className="bg-purple-500 h-2 rounded-full"
+                            style={{
+                              width: `${(count / statistics.totalTickets) * 100}%`,
+                            }}
+                          />
+                        </div>
+                        <span className="text-sm font-medium text-gray-900 w-8 text-right">{count}</span>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            {/* Resolution Breakdown (for bugs) */}
+            {Object.keys(statistics.resolutionBreakdown).length > 0 && (
+              <div className="bg-white shadow rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Resolution Breakdown (Bugs)</h3>
+                <div className="space-y-2">
+                  {Object.entries(statistics.resolutionBreakdown)
+                    .sort(([, a], [, b]) => b - a)
+                    .map(([resolution, count]) => (
+                      <div key={resolution} className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">{resolution}</span>
+                        <div className="flex items-center gap-2">
+                          <div className="w-32 bg-gray-200 rounded-full h-2">
+                            <div
+                              className="bg-red-500 h-2 rounded-full"
+                              style={{
+                                width: `${(count / statistics.typeBreakdown.bugs) * 100}%`,
+                              }}
+                            />
+                          </div>
+                          <span className="text-sm font-medium text-gray-900 w-8 text-right">{count}</span>
                         </div>
                       </div>
                     ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Tickets List */}
+          <div className="bg-white shadow rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Tickets in Sprint</h3>
+            <div className="space-y-4">
+              {/* Stories */}
+              {statistics.tickets.stories.length > 0 && (
+                <div>
+                  <h4 className="text-md font-medium text-blue-600 mb-2">
+                    Stories ({statistics.tickets.stories.length})
+                  </h4>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Issue Key</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Summary</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Assignee</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Story Points</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Priority</th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white divide-y divide-gray-200">
+                        {statistics.tickets.stories.map((story) => (
+                          <tr key={story.issueKey} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                              {story.issueKey}
+                            </td>
+                            <td className="px-4 py-3 text-sm text-gray-500 max-w-md truncate" title={story.summary}>
+                              {story.summary}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap">
+                              <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                {story.status}
+                              </span>
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                              {story.assignee || '-'}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                              {story.storyPoints || '-'}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                              {story.priority || '-'}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
-              ))}
+              )}
+
+              {/* Subtasks */}
+              {statistics.tickets.subtasks.length > 0 && (
+                <div>
+                  <h4 className="text-md font-medium text-green-600 mb-2">
+                    Subtasks ({statistics.tickets.subtasks.length})
+                  </h4>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Issue Key</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Summary</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Assignee</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Story Points</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Priority</th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white divide-y divide-gray-200">
+                        {statistics.tickets.subtasks.map((subtask) => (
+                          <tr key={subtask.issueKey} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                              {subtask.issueKey}
+                            </td>
+                            <td className="px-4 py-3 text-sm text-gray-500 max-w-md truncate" title={subtask.summary}>
+                              {subtask.summary}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap">
+                              <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                {subtask.status}
+                              </span>
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                              {subtask.assignee || '-'}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                              {subtask.storyPoints || '-'}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                              {subtask.priority || '-'}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {/* Bugs */}
+              {statistics.tickets.bugs.length > 0 && (
+                <div>
+                  <h4 className="text-md font-medium text-red-600 mb-2">
+                    Bugs ({statistics.tickets.bugs.length})
+                  </h4>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Issue Key</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Summary</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Assignee</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Story Points</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Priority</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Resolution</th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white divide-y divide-gray-200">
+                        {statistics.tickets.bugs.map((bug) => (
+                          <tr key={bug.issueKey} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                              {bug.issueKey}
+                            </td>
+                            <td className="px-4 py-3 text-sm text-gray-500 max-w-md truncate" title={bug.summary}>
+                              {bug.summary}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap">
+                              <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                {bug.status}
+                              </span>
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                              {bug.assignee || '-'}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                              {bug.storyPoints || '-'}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                              {bug.priority || '-'}
+                            </td>
+                            <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                              {bug.resolution || '-'}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-        </>
+        </div>
       )}
 
-      {/* Create Sprint Modal */}
-      {showCreateSprint && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-            <div className="mt-3">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Create New Sprint</h3>
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Sprint Name</label>
-                  <input
-                    type="text"
-                    className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2"
-                    placeholder="Sprint 1"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Goal</label>
-                  <textarea
-                    className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2"
-                    rows={3}
-                    placeholder="What do you want to accomplish in this sprint?"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Start Date</label>
-                    <input
-                      type="date"
-                      className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">End Date</label>
-                    <input
-                      type="date"
-                      className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2"
-                    />
-                  </div>
-                </div>
-                <div className="flex justify-end space-x-3 pt-4">
-                  <button
-                    type="button"
-                    onClick={() => setShowCreateSprint(false)}
-                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-                  >
-                    Create Sprint
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
+      {/* Loading State */}
+      {selectedSprint && isLoadingStats && (
+        <div className="bg-white shadow rounded-lg p-8 text-center text-gray-500">
+          Loading statistics...
+        </div>
+      )}
+
+      {/* No Sprint Selected */}
+      {!selectedSprint && (
+        <div className="bg-white shadow rounded-lg p-8 text-center text-gray-500">
+          Please select a sprint to view statistics
         </div>
       )}
     </div>
@@ -399,3 +463,4 @@ const Sprints: React.FC = () => {
 };
 
 export default Sprints;
+

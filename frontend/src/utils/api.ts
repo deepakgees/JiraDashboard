@@ -102,6 +102,25 @@ export const importApi = {
   updateConfig: (data: any) => apiClient.put<ImportConfig>('/api/import/configs', data),
   deleteConfig: (id: string) => apiClient.delete(`/api/import/configs/${id}`),
   testConnection: (data: any) => apiClient.post<ConnectionTestResponse>('/api/import/test-connection', data),
+  importCsv: async (file: File, teamName: string, projectKey: string, dataType: 'epic' | 'issue'): Promise<ApiResponse<any>> => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('teamName', teamName);
+    formData.append('projectKey', projectKey);
+    formData.append('dataType', dataType);
+
+    const url = `${API_BASE_URL}/api/import/csv`;
+    const response = await fetch(url, {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+  },
 };
 
 export const configApi = {

@@ -1,0 +1,1497 @@
+Summary,Issue key,Issue id,Issue Type,Status,Project key,Project name,Project type,Project lead,Project lead id,Project description,Project url,Priority,Resolution,Assignee,Assignee Id,Reporter,Reporter Id,Creator,Creator Id,Created,Updated,Last Viewed,Resolved,Components,Due date,Votes,Labels,Description,Environment,Watchers,Watchers Id,Original estimate,Remaining Estimate,Time Spent,Work Ratio,Σ Original Estimate,Σ Remaining Estimate,Σ Time Spent,Security Level,Inward issue link (Cloners),Inward issue link (Cloners),Outward issue link (Cloners),Attachment,Attachment,Custom field (Actual end),Custom field (Actual start),Custom field (Affected artifacts),Custom field (Affected hardware),Custom field (Affected services),Custom field (Approvals),Custom field (BAdI-Interface changed),Custom field (Binding period),Custom field (Category),Custom field (Change reason),Custom field (Change risk),Custom field (Change type),Custom field (Checklist Completed),Custom field (Checklist Progress),Custom field (Checklist Progress %),Custom field (Checklist Text),Custom field (Checklist Text (view-only)),Custom field (Clarification (external)),Custom field (Clarification (internal)),Custom field (Classification (Issue)),Custom field (Classification (Ticket)),Custom field (Committment),Custom field (Complexity),Custom field (Contact),Custom field (Contact (Customer)),Custom field (Customer),Custom field (Customer (information)),Custom field (Data Dictionary changed),Custom field (Date (Approval Production Env)),Custom field (Date (Approval Staging Env)),Custom field (Date (Approval Test Env)),Custom field (Date (Approval done)),Custom field (Date (Concept done)),Custom field (Date (Delivery) - DUPLICATE),Custom field (Date (Development done)),Custom field (Date (Go Live)),Custom field (Date (Test done)),Custom field (Deadline (approval)),Custom field (Deadline (internal)),Custom field (Deadline (questions)),Custom field (Decision),Custom field (Decision maker),Custom field (Development),Custom field (Duration (expected)),Custom field (Effort),Custom field (Effort (person days)),Custom field (Effort (person hours)),Custom field (Epic Color),Custom field (Epic Name),Custom field (Epic Status),Custom field (Estimate (person days)),Custom field (Estimate (person hours)),Custom field (Estimate (t-shirt sizes)),Custom field (Estimation (assumption)),Custom field (External ID),Custom field (External attachment),Custom field (External link),Custom field (Focus Areas),Custom field (Goals),Custom field (HP-QC Creator),Custom field (HP-QC Driver),Custom field (HP-QC ID),Custom field (HP-QC Processor),Custom field (Implementation plan),Custom field (Imported Issue),Custom field (Incident ID),Custom field (Incident active),Custom field (Issue color),Custom field (Issue origin),Custom field (Last assignee),Custom field (Last automatic update),Custom field (Locked forms),Custom field (Major incident),Custom field (Manual completed),Custom field (Open forms),Custom field (PSP element),Custom field (Planned end),Custom field (Planned start),Custom field (Priority (customer)),Custom field (Product owner),Custom field (Project overview key),Custom field (Project overview status),Custom field (Rank),Custom field (Relevant for manual),Custom field (Reported version),Custom field (Repository (Revision)),Custom field (Request Origin),Custom field (Request Type),Custom field (Request language),Custom field (Request number),Custom field (Request participants),Custom field (Requester),Custom field (Resolved by),Custom field (Resolved by)Id,Custom field (Responders),Custom field (Rough estimation),Custom field (SAP IC Accessibility),Custom field (SAP IC Business Configuration),Custom field (SAP IC Functional Correctness),Custom field (SAP IC Globalization),Custom field (SAP IC Integration),Custom field (SAP IC Licensing),Custom field (SAP IC Operations & Support),Custom field (SAP IC Performance),Custom field (SAP IC Security),Custom field (SAP IC Software Lifecycle),Custom field (SAP IC UX Consistency),Custom field (SAP IC User Assistance),Custom field (SAP Notes),Custom field (SLA Start date),Custom field (SLA Target date),Satisfaction rating,Custom field (Satisfaction date),Custom field (Sentiment),Custom field (Serviceklasse (migrated)),Custom field (Solution approach),Custom field (Solution proposal),Custom field (Solution quality),Sprint,Sprint,Sprint,Sprint,Sprint,Custom field (Start date),Custom field (Story Points),Custom field (Story Points (magic estimation)),Custom field (Story Points (original estimation)),Custom field (Story Points (remaining estimation)),Custom field (Story Points (rough estimation)),Custom field (Story point estimate),Custom field (Subject),Custom field (Submitted forms),Custom field (Supporter),Custom field (System),Custom field (System (customer)),Custom field (System name),Custom field (Target end),Custom field (Target start),Custom field (Team),Custom field (Team (Development)),Custom field (Test automation required),Custom field (Test cases),Custom field (Test plan),Custom field (Time to first response),Custom field (Time to resolution),Custom field (Total forms),Custom field (Transfer order),Custom field (Vulnerability),Custom field (Work category),Custom field ([CHART] Date of First Response),Custom field ([CHART] Time in Status),Comment,Comment,Comment,Comment,Comment,Comment,Comment,Comment,Comment,Comment,Comment,Comment,Parent,Parent key,Parent summary,Status Category,Status Category Changed
+OData CBC Service for Treaty Group - Search - Identifier and Type-Ahead (F&E),SAPRIMGMT-71118,354931,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,12/Dec/25 3:37 PM,24/Dec/25 11:47 AM,24/Dec/25 11:47 AM,,CORE,,0,PO_NK,"*As a* developer of OData treaty group CBC services,
+
+*I would like* to display understandable identifiers for the respective fields in the damage search or link F4 help
+
+*So that* users of the BTP interface can work with understandable terms (refer to attached sheet - [CBC for F&E.xlsx|https://msggroup.sharepoint.com/:x:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/F%26E%20Analysis/CBC%20for%20F%26E.xlsx?d=w516e8bc310a44af186dba66d0747860c&csf=1&web=1&e=gaiJaz] )
+
+*Note:* One service needs to be created for one field.
+
+*Scope*:
+
+The aim of this story is to provide a Web API OData V4 service that returns the fixed values, including a brief description of the group category, status, reason for change.
+
+This service is supposed to return all fields except for the change/create data.
+
+In order to be able to call up the ODATA service, a user must have the execution authorizations for the ODATA service and also the SAP authorizations for reading Customizing data.
+
++Scope+
+
+* A CBC service is available that outputs the customizing information from various fields mentioned in the sheet.
+* The CBC service provides the corresponding texts of the customizing information.
+* Unit tests need to be created",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@90515b4,,,,,,,Not Completed,Checklist: 0/3,0.0,"# Default checklist
+* [open] There is a read-only Web API OData V4 service that returns all treaty group - F&E Fields (as per attached excel sheet) customizing data, including all texts. Any existing fields for change/create data are not to be considered.
+* [open] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [open] Unit tests need to be created","​# Default checklist
+​* [open] There is a read-only Web API OData V4 service that returns all treaty group - F&E Fields (as per attached excel sheet) customizing data, including all texts. Any existing fields for change/create data are not to be considered.
+​* [open] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [open] Unit tests need to be created",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0eud2:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332859,SAPRIMGMT-68920,"CORE - OData Services for Treaty Group - Forecast and Estimation, Development Pattern",To Do,12/Dec/25 3:37 PM
+Downporting CBC changes to W87 landscape,SAPRIMGMT-70683,349040,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Nov/25 11:50 AM,17/Dec/25 12:43 PM,17/Dec/25 12:48 PM,17/Dec/25 12:43 PM,CORE,,0,,Downporting CBC changes to W87 landscape,,,,,,,,115200,0,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@6a5d7d94,,,,,,,All Completed,Checklist: 1/1,100.0,"# Default checklist
+* [done] All CBC services for accounting need to be downported from RD9 to W87","​# Default checklist
+​* [done] All CBC services for accounting need to be downported from RD9 to W87",,,Internal Tools,,no,,,,MR,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0eac0:,,,,,,,,,,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q4 Sprint 3,,,,,,3.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-12-17 06:35:30.646,1_*:*_1_*:*_6504_*|*_3_*:*_1_*:*_616438726_*|*_4_*:*_1_*:*_0_*|*_5_*:*_1_*:*_204946_*|*_6_*:*_1_*:*_1035089145_*|*_10004_*:*_1_*:*_336354021,05/Dec/25 12:34 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;Satisfied with actions taken on this user story,17/Dec/25 12:05 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;Reopening to change classification and also to add fixVersion,17/Dec/25 12:43 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;Reverting previous change of wrong classification,,,,,,,,,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,17/Dec/25 12:43 PM
+Exploration of SAP IC Standard,SAPRIMGMT-70300,344114,Story,Resolved,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Akash Shankar,712020:57bf3a73-3012-42a1-a509-f61f74712fb7,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,04/Nov/25 1:27 PM,30/Dec/25 11:13 AM,05/Jan/26 11:29 AM,30/Dec/25 11:08 AM,CORE,31/Dec/25 12:00 AM,0,PO_NK,"This user story has been created to explore SAP product standard for OData services. There are 12 standard which we can find in the sheet provided in the link below. Please go through each of them and determine which one is applicable and which is not applicable (need a reason when it is not applicable). 
+
+[SAP RM - Product Standard Requirements.xlsx|https://msggroup.sharepoint.com/:x:/r/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9F421DF9-6457-42FA-BD7E-94238BC74531%7D&file=SAP%20RM%20-%20Product%20Standard%20Requirements.xlsx&action=default&mobileredirect=true] (same sheet under web lick below in the user story level)
+
+In case of queries, contact the owners listed here : [Roles and Responsibilities|https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Roles-and-Responsibilities.aspx#product-standard-owners-and-co-owners] 
+
+
+
+*Scope*
+
+* Training must be conducted for all team members explaining them about each of the standards
+* Identify tools which can be used to certify compliance to certain standards",,,,,,,,345600,0,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@7b6e8e25,,,,,,,All Completed,Checklist: 3/3,100.0,"# Default checklist
+* [done] Please mention your findings under each sub task created for product standard.
+* [done]? Consider all product standards are applicable and clarify why, what are the checks we need to look at.
+* [done] Findings should be based on the type of development i.e. CBC services, CRUD functionalities","​# Default checklist
+​* [done] Please mention your findings under each sub task created for product standard.
+​* [done]? Consider all product standards are applicable and clarify why, what are the checks we need to look at.
+​* [done] Findings should be based on the type of development i.e. CBC services, CRUD functionalities",,,Analysis,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0dta0:,,,,,,,,,,Balamurugan Natrayan,712020:18187fe5-0ec8-4f23-9ef1-54b6e07dd101,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q4 Sprint 3,TechMonks 2026Q1 Sprint 1,,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-12-16 12:54:50.13,1_*:*_1_*:*_1914212432_*|*_3_*:*_2_*:*_2327398175_*|*_4_*:*_1_*:*_11337_*|*_5_*:*_1_*:*_0_*|*_6_*:*_1_*:*_588374247_*|*_10004_*:*_1_*:*_42027,"16/Dec/25 6:24 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;16-Dec-25
+
+* Akash, Aman, Keerthana only need to present their finding
+* This story needs 3 more SP in next sprint",23/Dec/25 3:38 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;SAP IC Standard exploration has been done team.,,,,,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,Done,30/Dec/25 11:08 AM
+Redesign Odata service for Treaty Group of type Account Group - Create,SAPRIMGMT-70261,343875,Story,In Progress,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Thirukkumaran Mariappan,712020:a125c622-db62-42db-bd2f-17f38b199b34,Deepak Goenka,712020:a48d6697-10f0-4ab8-b3c8-0b305235071d,Deepak Goenka,712020:a48d6697-10f0-4ab8-b3c8-0b305235071d,03/Nov/25 3:09 PM,05/Jan/26 12:42 PM,17/Dec/25 11:40 AM,,CORE,31/Dec/25 12:00 AM,0,PO_NK,"*As a* developer, 
+
+*I would like* to create Treaty Group of type Account Group
+
+*So that* I can bundle treaties to do load balancing for their accountants and assign treaty groups to accountants for accounting responsibilities.
+
+
+
+*Notes*:
+
+* Do we need to create treaty group only of type account group or others as well
+** As part of this user story, scope is limited to only account group type of treaty groups (other categories are forecast and estimate, development etc). 
+** As per PM, customer only wants it for account group
+* Follow the proper breakup of user stories to subtasks, rather than doing every activity as part of main user story
+** e.g. IF you are writing test, create one subtask
+** IF you are creating new GTNC, create new subtask
+** If you are changing any existing code, create new subtask
+** If you are changing existing tests, create new subtask
+** If you are following sap standars, create new subtask
+** etc",,,,,,,,374400,230400,,,,,SAPRIMGMT-67843,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@3d25e12,,,,,,,Not Completed,Checklist: 0/3,0.0,"# Default checklist
+* [open] When OData service is invoked with a valid treaty group information (refer to the list in attached excel) then it should be able to create a treaty group and return a treaty group number along with the passed information.
+* [open] If we would like to create treaty group with invalid value, it should return with an error.
+* [open] Unit tests should be created for the OData services","​# Default checklist
+​* [open] When OData service is invoked with a valid treaty group information (refer to the list in attached excel) then it should be able to create a treaty group and return a treaty group number along with the passed information.
+​* [open] If we would like to create treaty group with invalid value, it should return with an error.
+​* [open] Unit tests should be created for the OData services",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0dsc0:,,,,,,,,,,Akash Shankar,712020:57bf3a73-3012-42a1-a509-f61f74712fb7,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q4 Sprint 2,TechMonks 2025Q4 Sprint 3,TechMonks 2026Q1 Sprint 1,,,,20.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,"16/Dec/25 6:22 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;*16-Dec-25*
+
+* Implementation of the story is complete
+* Unit test is progressing and Thiru needs help of Dileep to complete this
+* Thiru needs a KT on Lookup Test tool, STE, Zephyr
+* Thiru needs an example of automated integration test  (Deepak, Anand)
+* IC standards subtask is complex and needs more time
+* If Robert gets an update from SAP about error messages then it might impact our implementation
+* Thiru feels that this story still requires 8 SP",,,,,,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,In Progress,03/Nov/25 3:10 PM
+OData service for Treaty Group of type Development Pattern - Delete,SAPRIMGMT-69085,334001,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 6:32 PM,24/Sep/25 6:32 PM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to delete Treaty Group of type Development Pattern
+
+*So that* I can remove account group no longer needed or created in error.
+
+ 
+
+*Acceptance Criteria:*
+
+Notes for treaty group deletion:
+
+* If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+* When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+* Treaty group marked for deletion should not be returned as a part of search result.
+* If the treaty assigned to the group is deleted, it should be deleted on database level also. Similar for group period as well.
+* If we would like to delete treaty group with invalid value, it should return with an error.
+* unit tests must be created",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@174b93c0,,,,,,,,,0.0,,,,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqvg:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332892,SAPRIMGMT-68926,CORE - OData Services for Treaty Group - Other group without any flag,To Do,24/Sep/25 6:32 PM
+OData service for Treaty Group of type Development Pattern - Search,SAPRIMGMT-69084,333999,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 6:31 PM,24/Sep/25 6:31 PM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to search Treaty Groups of type Development Pattern
+
+*So that* I can fetch bundled treaties and their details using OData services.
+
+ 
+
+*Acceptance Criteria*
+
+* When OData service is invoked with a valid treaty group number, company code, treaty number, group category, etc. (refer to the list in attached excel) then it should return all details of the treaty group
+* If we would like to search treaty group with invalid value, it should return with an error.
+* unit tests must be created",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@4d650bf0,,,,,,,,,0.0,,,,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqv8:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332892,SAPRIMGMT-68926,CORE - OData Services for Treaty Group - Other group without any flag,To Do,24/Sep/25 6:31 PM
+OData service for Treaty Group of type Development Pattern - Read,SAPRIMGMT-69083,333997,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 6:30 PM,24/Sep/25 6:30 PM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to read Treaty Groups of type Development Pattern
+
+*So that* I can fetch bundled treaties and their details using OData services
+
+ 
+
+*Acceptance Criteria*
+
+* When OData service is invoked with a valid treaty group number, company code, treaty number, group category, etc. (refer to the list in attached excel) then it should return all details of the treaty group
+* If we would like to read treaty group with invalid value, it should return with an error.
+* unit tests must be created",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@6fb8f81c,,,,,,,,,0.0,,,,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqv0:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332892,SAPRIMGMT-68926,CORE - OData Services for Treaty Group - Other group without any flag,To Do,24/Sep/25 6:30 PM
+OData service for Treaty Group of type Development Pattern - Update,SAPRIMGMT-69082,333994,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 6:28 PM,24/Sep/25 6:28 PM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to update Treaty Group of type Development Pattern
+
+*So that* I can amend any details if needed.
+
+ *Acceptance Criteria:*
+
+* When OData service is invoked with a valid treaty group number with changed information then we should be able to update the treaty group and return the treaty group with the changed information.
+* User should be able to add new group period
+* User should be able to add new treaty to existing group period
+* If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.
+* unit tests must also be written for the services",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@2d3931fa,,,,,,,,,0.0,,,,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cquk:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332892,SAPRIMGMT-68926,CORE - OData Services for Treaty Group - Other group without any flag,To Do,24/Sep/25 6:28 PM
+OData service for Treaty Group of type Development Pattern - Create,SAPRIMGMT-69081,333987,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 6:24 PM,24/Sep/25 6:24 PM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to create Treaty Group of type Development Pattern
+
+*So that* I can bundle treaties for consistent modeling across multiple treaties with similar characteristics purpose. It can be used to create forecasts and estimations for treaties, for example for premium development or late losses.
+
+*Acceptance Criteria*
+
+* When OData service is invoked with a valid treaty group information then it should be able to create a treaty group and return a treaty group number along with the passed information.
+* If we would like to create treaty group with invalid value, it should return with an error.
+* Unit tests should be created for the OData services",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@37b4b08a,,,,,,,,,0.0,,,,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqto:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332892,SAPRIMGMT-68926,CORE - OData Services for Treaty Group - Other group without any flag,To Do,24/Sep/25 6:24 PM
+OData service for Treaty Group of type Print Group - Delete,SAPRIMGMT-69078,333973,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 6:07 PM,17/Dec/25 12:29 PM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to delete Treaty Group of type Print Group
+
+*So that* I can remove account group no longer needed or created in error.
+
++*Scope:*+
+
+Notes for treaty group deletion:
+
+* If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+* When group period is active, it should not allow deletion of treaties assigned in that period. It can be done at “In Progress” status.
+* When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+* If we have any assignments like periods, and the treaties assigned in that period and if we are deleting the group header directly, we should not delete the assignments from the database, and the soft delete should happen for the Group Header.
+* If the treaty assigned to the group is deleted, it should be deleted on database level also. Similar for group period as well.
+* Unit tests must be created.
+
+*Validations to be considered as Part of the implementation*
+
+PFA: [Print_Group_Delete_Analysis.docx|https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/Print%20Group%20Analysis/Print_Group_Delete_Analysis.docx?d=wd7875083067e41b3af0bb5092d1bef3a&csf=1&web=1&e=XByvNy]
+
+* History tables to be considered: 
+/MSG/RGRP			/MSG/RH_GRP 			-- Period
+/MSG/RGRPZU_BEST	/MSG/RH_GRPZBEST		-- Treaty Assignment
+/MSG/RGRP_HD		/MSG/RH_GRP_HD			-- Group Header",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@31153f45,,,,,,,,,0.0,,,,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqrw:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332884,SAPRIMGMT-68923,CORE - OData Services for Treaty Group - Print Group,To Do,24/Sep/25 6:07 PM
+OData service for Treaty Group of type Print Group - Update,SAPRIMGMT-69077,333967,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 6:05 PM,17/Dec/25 12:27 PM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to update Treaty Group of type Print Group
+
+*So that* I can amend any details if needed.
+
+ +*Scope*++:+
+
+* Should be able to update the fields whichever marked as ‘Yes’ in the excel sheet - [+Treaty_Group_Fields.xlsx+|https://msggroup.sharepoint.com/:x:/r/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9E713AFF-B711-47EF-AF93-A94694A2581F%7D&file=Treaty_Group_Fields.xlsx&action=default&mobileredirect=true] for all the Levels (Group Assignments, Group Periods, Group Header and Forecast & Estimation).
+* User should be able to add new group period.
+* User should be able to add new treaty assignments to existing group periods.
+* Assignment records are only added when the Group Periods tab Status is ""InProgress""; they are not added if the Status is ""Active"".
+* If you enter duplicate data such as treaty number and section in the assignment tab, show the error message: “*Data record already exists in database table Group Assignment*.”
+* If the same treaty number is assigned to a different group, the system must display the following error message:
+* If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.
+* We can assign the treaties assigned to a Treaty group which is marked as deletion to another treaty groups.
+* unit tests must also be written for the services
+
+*Validations to be considered as part of the implementation*
+
+PFA: [Print_Group_Update_Analysis.docx|https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/Print%20Group%20Analysis/Print_Group_Update_Analysis.docx?d=weed020b7185143f881561edddaf6d439&csf=1&web=1&e=Wf7qrQ]
+
+* History tables to be considered: 
+/MSG/RGRP			/MSG/RH_GRP 			-- Period
+/MSG/RGRPZU_BEST	/MSG/RH_GRPZBEST		-- Treaty Assignment
+/MSG/RGRP_HD		/MSG/RH_GRP_HD			-- Group Header",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@37298fab,,,,,,,,,0.0,,,,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqr8:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332884,SAPRIMGMT-68923,CORE - OData Services for Treaty Group - Print Group,To Do,24/Sep/25 6:05 PM
+OData service for Treaty Group of type Print Group - Create,SAPRIMGMT-69076,333963,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 6:04 PM,17/Dec/25 12:25 PM,23/Dec/25 12:16 PM,,CORE,,0,,"*As a* developer,
+
+*I would like* to create Treaty Group of type Print Group
+
+*So that* I can bundle treaties for the billing item where print can be started. Only invoices for contracts of this Print Group will be printed.
+
+*Scope:*
+
+* Create group number (internal and external) which should fetch company code, description, group category, i.e. Print Group.
+* Create group header where treaty and its corresponding validation check can be added.
+* Create group periods: group start date, group end date, status, checks, i.e. posting allowed, canceled, reason for change
+* For the group assignment, there are two required fields: the treaty number and the section number.
+* All sections of a single treaty number must be assigned to the same print group number.
+* Create Print Group header with all features (refer to excel)
+* Authorization check for Print Group needs to be added - The MR project colleagues need a list of checks that are executed in the service in order to be able to integrate such checks in the UI.
+* Only treaty group will be created
+* History will be created
+* When OData service is invoked with a valid treaty group information then it should be able to create a treaty group with Print Group and return a treaty group number along with the passed information.
+* If we would like to create treaty group with invalid value, it should return with an error.
+* Unit tests should be created for the OData services
+
+Link for the Validations of Create Scenario: 
+[Print_Group_Create_Analysis.docx|https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/Print%20Group%20Analysis/Print_Group_Create_Analysis.docx?d=w42fa313a2f074feeb5e0e3e9d143c2a9&csf=1&web=1&e=Ckd4jI]
+
+* History tables to be considered: 
+
+     /MSG/RGRP_HD		/MSG/RH_GRP_HD			-- Group Header
+     /MSG/RGRP			/MSG/RH_GRP 			-- Period
+    /MSG/RGRPZU_BEST	/MSG/RH_GRPZBEST		-- Treaty Assignment",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@292cb4e7,,,,,,,,,0.0,,,,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqqs:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332884,SAPRIMGMT-68923,CORE - OData Services for Treaty Group - Print Group,To Do,24/Sep/25 6:04 PM
+OData service for Treaty Group of type Print Group - Search,SAPRIMGMT-69074,333959,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 5:58 PM,16/Dec/25 8:24 AM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to search Treaty Groups of type “Print Group”
+
+*So that* I can fetch bundled treaties and their details using OData services.
+
+ +*Scope:*+
+
+* When OData service is invoked with a valid treaty group number, company code, treaty number, group category, etc. (refer to the list in attached excel) then it should return all details of the treaty group.
+* Treaty group marked for deletion should not be returned as a part of search result.
+* If we would like to search treaty group with invalid value, it should return with an error.
+* unit tests must be created",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@2b2236c,,,,,,,,,0.0,,,,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqqc:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332884,SAPRIMGMT-68923,CORE - OData Services for Treaty Group - Print Group,To Do,24/Sep/25 5:58 PM
+OData service for Treaty Group of type Print Group - Read,SAPRIMGMT-69073,333954,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 5:52 PM,16/Dec/25 8:23 AM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to read Treaty Groups of type “Print Group”
+
+*So that* I can fetch bundled treaties and their details using OData services
+
++*Scope:*+
+
+* When OData service is invoked with a valid treaty group number, company code, treaty number, group category, etc. then it should return all details of the treaty group
+* If we would like to read treaty group with invalid value, it should return with an error.
+* unit tests must be created
+* Security test classes must be created
+
++*Notes:*+
+
+* If a basic view already exists, it should be reused. Otherwise, a new basic view can be created. 
+* Check for existing global fields before creating new ones. If the required field is not available globally, create a new global field (GTNC).",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@4d684158,,,,,,,,,0.0,,,,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqpo:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332884,SAPRIMGMT-68923,CORE - OData Services for Treaty Group - Print Group,To Do,24/Sep/25 5:52 PM
+"OData service for Treaty Group of type F&E, DP - Delete",SAPRIMGMT-69072,333951,Story,Open,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 5:41 PM,10/Dec/25 4:56 PM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to delete Treaty Group of type Forecast and Estimation
+
+*So that* I can remove account group no longer needed or created in error.
+
++*Scope:*+
+
+Notes for treaty group deletion:
+
+* If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+* When group period is active, it should not allow deletion of treaties assigned in that period. It can be done at “In Progress” status.
+* When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+* If we have any assignments like periods, and the treaties assigned in that period and if we are deleting the group header directly, we should not delete the assignments from the database, and the soft delete should happen for the Group Header.
+* If the treaty assigned to the group is deleted, it should be deleted on database level also. Similar for group period as well. 
+* In F&E Tab, we can delete the entries directly and it should be removed from the database.
+* Unit tests must be created.
+
+*Validations to be considered as Part of the implementation*
+
+PFA: [F&E Delete Scenario Analysis.txt|https://msggroup.sharepoint.com/:t:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/F%26E%20Delete%20Scenario%20Analysis.txt?csf=1&web=1&e=LfQFYa]",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@725d18c,,,,,,,Not Completed,Checklist: 0/7,0.0,"# Default checklist
+* [open] OData service functionality is available to change treaty group or set them deleted.
+* [open] OData service functionality is available to delete subordinated entities of a treaty group.
+* [open] If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+* [open] When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+* [open] Treaty group marked for deletion should not be returned as a part of search result.
+* [open] If we delete the whole treaty group, all dependent entries should exist on DB, and the header should be marked for deletion. If we delete lower-level entities such as period, treaty assignment; the corresponding all dependent objects should be removed from DB.
+* [open] If we delete lower-level entities such as period, treaty assignment; the corresponding all dependent objects should be removed from DB.","​# Default checklist
+​* [open] OData service functionality is available to change treaty group or set them deleted.
+​* [open] OData service functionality is available to delete subordinated entities of a treaty group.
+​* [open] If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+​* [open] When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+​* [open] Treaty group marked for deletion should not be returned as a part of search result.
+​* [open] If we delete the whole treaty group, all dependent entries should exist on DB, and the header should be marked for deletion. If we delete lower-level entities such as period, treaty assignment; the corresponding all dependent objects should be removed from DB.
+​* [open] If we delete lower-level entities such as period, treaty assignment; the corresponding all dependent objects should be removed from DB.",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqp8:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,20.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332859,SAPRIMGMT-68920,"CORE - OData Services for Treaty Group - Forecast and Estimation, Development Pattern",To Do,24/Sep/25 5:41 PM
+"OData service for Treaty Group of type F&E, DP - Search",SAPRIMGMT-69071,333949,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 5:38 PM,12/Dec/25 3:53 PM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to search Treaty Groups of type “Forecast and Estimation”
+
+*So that* I can fetch bundled treaties and their details using OData services.
+
++*Scope:*+
+
+* When OData service is invoked with a valid treaty group number, company code, treaty number, group category, etc. (refer to the list in attached excel) then it should return all details of the treaty group.
+* Treaty group marked for deletion should not be returned as a part of search result.
+* If we would like to search treaty group with invalid value, it should return with an error.
+* unit tests must be created",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@64d629,,,,,,,Not Completed,Checklist: 0/6,0.0,"# Default checklist
+* [open] An OData service functionality is available to search for treaty group with defined criteria.
+* [open] Search criteria can be used on their own or in combination without knowing dependencies.
+* [open] A search can be executed without any given search criteria in order to receive all treaty group.
+* [open] External references can be used for the search even when they are incompletely given. E.g. Ext-Reference ID is filled and Party is empty
+* [open] The search does not find any treaty group that are marked as deleted.
+* [open] If we would like to search treaty group with invalid value, it should return with an error.","​# Default checklist
+​* [open] An OData service functionality is available to search for treaty group with defined criteria.
+​* [open] Search criteria can be used on their own or in combination without knowing dependencies.
+​* [open] A search can be executed without any given search criteria in order to receive all treaty group.
+​* [open] External references can be used for the search even when they are incompletely given. E.g. Ext-Reference ID is filled and Party is empty
+​* [open] The search does not find any treaty group that are marked as deleted.
+​* [open] If we would like to search treaty group with invalid value, it should return with an error.",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqp0:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332859,SAPRIMGMT-68920,"CORE - OData Services for Treaty Group - Forecast and Estimation, Development Pattern",To Do,24/Sep/25 5:38 PM
+"OData service for Treaty Group of type F&E, DP - Read",SAPRIMGMT-69070,333946,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 5:36 PM,22/Dec/25 2:35 PM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to read Treaty Groups of type “Forecast and Estimation”
+
+*So that* I can fetch bundled treaties and their details using OData services
+
++*Scope:*+
+
+* When OData service is invoked with a valid treaty group number, company code, treaty number, group category, etc. then it should return all details of the treaty group
+* If we would like to read treaty group with invalid value, it should return with an error.
+* unit tests must be created
+* Security test classes must be created ",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@695ad17,,,,,,,Not Completed,Checklist: 0/2,0.0,"# Default checklist
+* [open] OData service functionality is available to read existing treaty group including all subordinated entities.
+* [open] Error should be displayed if we are trying to read invalid treaty group","​# Default checklist
+​* [open] OData service functionality is available to read existing treaty group including all subordinated entities.
+​* [open] Error should be displayed if we are trying to read invalid treaty group",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqok:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332859,SAPRIMGMT-68920,"CORE - OData Services for Treaty Group - Forecast and Estimation, Development Pattern",To Do,24/Sep/25 5:36 PM
+"OData service for Treaty Group of type F&E, DP - Update",SAPRIMGMT-69069,333942,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 5:33 PM,23/Dec/25 2:36 PM,16/Dec/25 10:44 AM,,CORE,,0,,"*As a* developer,
+
+*I would like* to update Treaty Group of type Forecast and Estimation
+
+*So that* I can amend any details if needed.
+
++*Scope*++:+
+
+* Should be able to update the fields whichever marked as ‘Yes’ in the excel sheet - [Treaty_Group_Fields.xlsx|https://msggroup.sharepoint.com/:x:/r/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9E713AFF-B711-47EF-AF93-A94694A2581F%7D&file=Treaty_Group_Fields.xlsx&action=default&mobileredirect=true] for all the Levels (Group Assignments, Group Periods, Group Header and Forecast & Estimation).  
+* User should be able to add new group period.
+* User should be able to add new treaty assignments to existing group periods.
+* If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.
+* We can assign the treaties assigned to a Treaty group which is marked as deletion to another treaty groups.
+* unit tests must also be written for the services
+
+*Validations to be considered as part of the implementation*
+
+PFA: [F&E Update Scenario Analysis.txt|https://msggroup.sharepoint.com/:t:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/F%26E%20Analysis/F%26E%20Update%20Scenario%20Analysis.txt?csf=1&web=1&e=K6EI8b]",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@5768823a,,,,,,,Not Completed,Checklist: 0/5,0.0,"# Default checklist
+* [open] OData service functionality is available to change treaty group and its corresponding Childs
+* [open] OData service functionality is available to change subordinated entities of a treaty group.
+* [open] User should be able to add new group period
+* [open] User should be able to add new treaty to existing group period
+* [open] If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.","​# Default checklist
+​* [open] OData service functionality is available to change treaty group and its corresponding Childs
+​* [open] OData service functionality is available to change subordinated entities of a treaty group.
+​* [open] User should be able to add new group period
+​* [open] User should be able to add new treaty to existing group period
+​* [open] If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqo4:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332859,SAPRIMGMT-68920,"CORE - OData Services for Treaty Group - Forecast and Estimation, Development Pattern",To Do,24/Sep/25 5:33 PM
+"OData service for Treaty Group of type F&E, DP - Create",SAPRIMGMT-69068,333937,Story,Open,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,24/Sep/25 5:16 PM,12/Dec/25 3:43 PM,,,CORE,,0,PO_NK,"h2. Description
+
+*As a* developer,
+
+*I would like* to create Treaty Group of type Forecast and Estimation
+
+*So that* I can bundle treaties to do prognosis of future premiums, claims, and expenses.
+
++*Scope*++:+
+
+* Create group number (internal and external) which should fetch company code, description, group category, i.e. Forecast and Estimation
+* Create group header where treaty and its corresponding validation check can be added
+* Create group period header: group start date, group end date, status, checks, i.e. posting allowed, canceled, reason for change
+* Create Forecast and Estimation header with all features (refer to excel)
+* Authorization check for F&E needs to be added - The MR project colleagues need a list of checks that are executed in the service in order to be able to integrate such checks in the UI.
+* Only treaty group will be created
+* History will be created
+* When OData service is invoked with a valid treaty group information then it should be able to create a treaty group with F&E and return a treaty group number along with the passed information.
+* If we would like to create treaty group with invalid value, it should return with an error.
+* Unit tests should be created for the OData services
+
+Link for the Validations of Create Scenario: 
+[F&E Create Scenario Analysis.txt|https://msggroup.sharepoint.com/:t:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/F%26E%20Create%20Scenario%20Analysis.txt?csf=1&web=1&e=owUlsQ]",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@31dcf4b2,,,,,,,Not Completed,Checklist: 0/3,0.0,"# Acceptance Criteria
+* [open] OData service functionality is available to create new treaty group (all basic data).
+* [open] OData service functionality is available to create subordinated entities of a treaty group.
+* [open] If we would like to create treaty group with invalid value, it should return with an error.","​# Acceptance Criteria
+​* [open] OData service functionality is available to create new treaty group (all basic data).
+​* [open] OData service functionality is available to create subordinated entities of a treaty group.
+​* [open] If we would like to create treaty group with invalid value, it should return with an error.",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cqn8:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,20.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332859,SAPRIMGMT-68920,"CORE - OData Services for Treaty Group - Forecast and Estimation, Development Pattern",To Do,24/Sep/25 5:16 PM
+Implementation of handling history table of Treaty Group for CRUD activities,SAPRIMGMT-69020,333612,Story,In Progress,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Thirukkumaran Mariappan,712020:a125c622-db62-42db-bd2f-17f38b199b34,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,23/Sep/25 12:47 PM,17/Dec/25 11:42 AM,31/Dec/25 2:57 PM,,CORE,05/Jan/26 12:00 AM,0,,"*As a* developer,
+
+*I want to* implement handling History Table of Treaty Group for CRUD operation.
+
+*So that* I am able to see and analyze the versioning of the Treaty Group of type Account Group.
+
+*Scope:*
+
+* When we perform Create, Update, Delete, we should be able to see the version of changes in their corresponding history table.",,,,,,,,374400,230400,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@23ee8c47,,,,,,,Not Completed,Checklist: 3/5,60.0,"# Default checklist
+* [done] When we perform Create, Update, Delete, we should be able to see the version of changes in their corresponding history table.
+* [open] The history of the treaty group header data is generated and stored when the treaty group is created.
+* [done] The history is only generated if the creation of the treaty group is successful.
+* [done] The history is only generated if the system is configured to create histories for treaty group.
+* [open] Unit tests need to be created","​# Default checklist
+​* [done] When we perform Create, Update, Delete, we should be able to see the version of changes in their corresponding history table.
+​* [open] The history of the treaty group header data is generated and stored when the treaty group is created.
+​* [done] The history is only generated if the creation of the treaty group is successful.
+​* [done] The history is only generated if the system is configured to create histories for treaty group.
+​* [open] Unit tests need to be created",,,Internal Tools,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0cpgc:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q4 Sprint 1,TechMonks 2025Q4 Sprint 2,TechMonks 2025Q4 Sprint 3,TechMonks 2026Q1 Sprint 1,,,20.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-12-16 12:52:23.454,,"16/Dec/25 6:22 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;*16-Dec-25*
+
+* Implementation of the story is complete
+* Unit test is progressing and Thiru needs help of Dileep to complete this
+* Thiru needs a KT on Lookup Test tool, STE, Zephyr
+* Thiru needs an example of automated integration test  (Deepak, Anand)
+* IC standards subtask is complex and needs more time
+* If Robert gets an update from SAP about error messages then it might impact our implementation
+* Thiru feels that this story still requires 8 SP",,,,,,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,In Progress,25/Sep/25 10:33 AM
+Analysis - Data modelling and architecture,SAPRIMGMT-68928,332895,Story,Open,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,17/Sep/25 4:53 PM,16/Dec/25 6:54 PM,,,CORE,,0,,"*As a* developer, of web services in the Treaty Group environment,
+
+*I want to* understand technical requirement of this epic
+
+*So that* I can break into smaller user stories that can be delivered to the customer.
+
+*Action:* 
+
+* To download and update the table for “Treaty Group” of type “Development Pattern” related CBC wherein we can have all the fields.
+* Needed CBC or other services for value helps and descriptions
+** New CBC Services or other needed services
+** Add views as expose to treaty group service
+* All checks related to the Development Pattern group type must be implemented, for that the additional table including all checks need to be supported.
+* Data modelling of the OData service
+* Analyze versioning functionalities: Identify approach to handle history table as part of CRUD operations
+* List of authorization checks (fields) for various OData services should be identified for CRUD operations",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@6621a7d3,,,,,,,,,0.0,,,,,Analysis,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0cqmg:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,332892,SAPRIMGMT-68926,CORE - OData Services for Treaty Group - Other group without any flag,To Do,17/Sep/25 4:53 PM
+Analysis - Data modelling and architecture,SAPRIMGMT-68925,332887,Story,In Progress,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Dileep Kumar Bandi,712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,17/Sep/25 4:40 PM,17/Dec/25 11:42 AM,31/Dec/25 2:52 PM,,CORE,31/Dec/25 12:00 AM,0,,"*As a* developer, of web services in the Treaty Group environment,
+
+*I want to* understand technical requirement of this epic
+
+*So that* I can break into smaller user stories that can be delivered to the customer.
+
+*Scope:* 
+
+* To download and update the table for “Treaty Group” of type “Print Group” related CBC wherein we can have all the fields.
+* Needed CBC or other services for value helps and descriptions
+** New CBC Services or other needed services
+** Add views as expose to treaty group service
+* All field validations related to the Print group type must be documented
+* Data modelling of the OData service must be documented
+* Analyze versioning functionalities: Identify approach to handle history table as part of CRUD operations
+* List of authorization checks (fields) for various OData services should be identified for CRUD operations
+
+*Findings of Analysis:*
+
+* Create Scenario: [Print_Group_Create_Analysis.docx|https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/Print_Group_Create_Analysis.docx?d=w42fa313a2f074feeb5e0e3e9d143c2a9&csf=1&web=1&e=RHRnrt]
+* Delete Scenario: [Print_Group_Delete_Analysis.docx|https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/Print_Group_Delete_Analysis.docx?d=wd7875083067e41b3af0bb5092d1bef3a&csf=1&web=1&e=pzJKEj]
+* Update Scenario: [Print_Group_Update_Analysis.docx|https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/Print_Group_Update_Analysis.docx?d=weed020b7185143f881561edddaf6d439&csf=1&web=1&e=C0JOMX]
+* History tables to be considered: 
+/MSG/RGRP			/MSG/RH_GRP 			-- Period
+/MSG/RGRPZU_BEST	/MSG/RH_GRPZBEST		-- Treaty Assignment
+/MSG/RGRP_HD		/MSG/RH_GRP_HD			-- Group Header
+* Read Scenario - Bring up the data present in the database
+* Search Scenario - Refer to the attached excel",,,,,,,,144000,57600,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@42588c40,,,,,,,Not Completed,Checklist: 0/6,0.0,"# Default checklist
+* [Open] The questions regarding the technical implementation have been clarified and the architecture has been defined.
+* [Open] Framework conditions and technical implications are coordinated between product management, team (Dev+PO) and architecture managers.
+* [Open] The modeling/sectioning of the services has been completed.
+* [Open] The interface for Print Group's CRUD functionalities has been modeled.
+* [Open] Result of analysis must be documented
+* [open] Epic must be broken into users stories and these stories must be refined and estimated by the team","​# Default checklist
+​* [Open] The questions regarding the technical implementation have been clarified and the architecture has been defined.
+​* [Open] Framework conditions and technical implications are coordinated between product management, team (Dev+PO) and architecture managers.
+​* [Open] The modeling/sectioning of the services has been completed.
+​* [Open] The interface for Print Group's CRUD functionalities has been modeled.
+​* [Open] Result of analysis must be documented
+​* [open] Epic must be broken into users stories and these stories must be refined and estimated by the team",,,Analysis,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0cpge:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q4 Sprint 2,TechMonks 2025Q4 Sprint 3,TechMonks 2026Q1 Sprint 1,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-11-07 06:41:59.044,,"07/Nov/25 12:11 PM;712020:57bf3a73-3012-42a1-a509-f61f74712fb7;Analysis is on hold due to other Priority topic (CBC Services)
+
+CC: [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] ","16/Dec/25 6:31 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;*16-Dec-25*
+
+* Analysis by Dileep is done but story refinement and estimation by team is pending
+* Dileep feels that this story still needs 5 SP in next sprint and in this time he can clarify and also adjust any new user stories that might be required based on team members queries",,,,,,,,,,,332884,SAPRIMGMT-68923,CORE - OData Services for Treaty Group - Print Group,In Progress,04/Nov/25 11:13 AM
+Analysis - Data modelling and architecture,SAPRIMGMT-68922,332873,Story,In Progress,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Siva Sankar Jinugu,712020:81bcabd1-5449-4de7-87e4-9705b255927d,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,17/Sep/25 4:24 PM,18/Dec/25 5:34 PM,05/Jan/26 11:45 AM,,CORE,31/Dec/25 12:00 AM,0,,"*As a* developer, of web services in the Treaty Group environment,
+
+*I want to* understand technical requirement of this epic
+
+*So that* I can break into smaller user stories that can be delivered to the customer.
+
+*Scope:* 
+
+* To download and update the table for “Treaty Group” of type “F&E, and DP” related CBC wherein we can have all the fields.
+* Needed CBC or other services for value helps and descriptions
+** New CBC Services or other needed services
+** Add views as expose to treaty group service
+* All field validations related to the F&E, DP group type must be documented
+* Data modelling of the OData service must be documented
+* Analyze versioning functionalities: Identify approach to handle history table as part of CRUD operations
+* List of authorization checks (fields) for various OData services should be identified for CRUD operations
+
+*Findings of Analysis:*
+
+* Create Scenario: [F&E Create Scenario Analysis.txt|https://msggroup.sharepoint.com/:t:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/F%26E%20Analysis/F%26E%20Create%20Scenario%20Analysis.txt?csf=1&web=1&e=zCZhLy]
+* Delete Scenario: [F&E Delete Scenario Analysis.txt|https://msggroup.sharepoint.com/:t:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/F%26E%20Analysis/F%26E%20Delete%20Scenario%20Analysis.txt?csf=1&web=1&e=xbSwvc]
+* Update Scenario: [F&E Update Scenario Analysis.txt|https://msggroup.sharepoint.com/:t:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/F%26E%20Analysis/F%26E%20Update%20Scenario%20Analysis.txt?csf=1&web=1&e=zhwSL0]
+* History tables to be considered: 
+/MSG/RGRP			/MSG/RH_GRP 			-- Period
+/MSG/RGRPEARCUR	/MSG/RH_GRPEARCU		-- Forecast & Estimation
+/MSG/RGRPZU_BEST	/MSG/RH_GRPZBEST		-- Treaty Assignment
+/MSG/RGRP_HD		/MSG/RH_GRP_HD			-- Group Header
+* Read Scenario - Bring up the data present in the database
+* Search Scenario - Refer to the attached excel",,,,,,,,230400,28800,,,,,,09/Dec/25 8:14 PM;4adee847-3850-4a08-b68b-f0adbd95a5b7;image-20251209-144226.png;https://msggroup.atlassian.net/rest/api/3/attachment/content/164765,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@10144c29,,,,,,,All Completed,Checklist: 5/6,83.0,"# Default checklist
+* [done] Result of analysis must be documented
+* [done] The questions regarding the technical implementation have been clarified and the architecture has been defined.
+* [done] Framework conditions and technical implications are coordinated between product management, team (Dev+PO) and architecture managers.
+* [done] The modeling/sectioning of the services has been completed.
+* [done] The interface for F&E's CRUD functionalities have been modeled.
+* [done] Epic must be broken into user stories and these stories must be refined and estimated by the team
+# Checklist #2","​# Default checklist
+​* [done] Result of analysis must be documented
+​* [done] The questions regarding the technical implementation have been clarified and the architecture has been defined.
+​* [done] Framework conditions and technical implications are coordinated between product management, team (Dev+PO) and architecture managers.
+​* [done] The modeling/sectioning of the services has been completed.
+​* [done] The interface for F&E's CRUD functionalities have been modeled.
+​* [done] Epic must be broken into user stories and these stories must be refined and estimated by the team
+
+​# Checklist #2",,,Analysis,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0cpgg:,,,,,,,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q4 Sprint 2,TechMonks 2025Q4 Sprint 3,TechMonks 2026Q1 Sprint 1,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-11-07 05:06:50.87,,"07/Nov/25 10:36 AM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Analysis is on hold due to other Prio topic (CBC Services)
+
+CC: [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] ",03/Dec/25 11:23 AM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Analysis is in progress,"09/Dec/25 6:34 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Hi [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] ,
+I can see a feature of ‘Load Template’ in UI where can load some template values into the Forecast & Estimation tab.
+Do we need to consider that feature as part of this API development.
+If yes, how we want this feature to be developed.? ","09/Dec/25 8:14 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] as discussed we can skip this for now. If later it is required, we can achieve this by implementing the same via CBC services.
+
+!image-20251209-144226.png|width=1120,height=534,alt=""image-20251209-144226.png""!
+
+[~accountid:712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584] ","12/Dec/25 10:15 AM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Hi [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] ,
+Analysis has been completed,
+Can you please review once and confirm the checklist",12/Dec/25 10:33 AM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] checklist has been completed. Please close the user story. ,"16/Dec/25 6:35 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;*16-Dec-25*
+
+* Analysis is done by Siva and user stories have been created
+* Pending tasks is to refine and estimate the user stories by the team
+* Some change is required in CBC user story based on inputs from team members
+* Some clarifications from PO, PM might be needed in this ticket
+* Siva still needs 3 SP for this",18/Dec/25 9:45 AM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Brought the User Story from ‘Resolved’ to ‘In Progress’ to get some analysis to be done in ‘CBC services for F&E’ and Global field names for the requirement.,,,,,332859,SAPRIMGMT-68920,"CORE - OData Services for Treaty Group - Forecast and Estimation, Development Pattern",In Progress,18/Dec/25 9:33 AM
+OData CBC services modification - Part 3,SAPRIMGMT-68655,295698,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,08/Sep/25 12:50 PM,01/Dec/25 5:29 PM,,01/Dec/25 5:29 PM,CORE,,0,,"Re-working on the user story based on the feedback:
+
+* We need to change the naming convention of the CDS views
+* Include annotations (performance related)
+* Modifying the test class
+* Language dependent short text is needed
+* All fields part of configuration (maintenance view) should be exposed
+
+Please refer to the document saved under below link
+
+[https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/67565%20CORE%20-%20OData%20services%20for%20accounting/Ariadne%27s%20Code%20review%20statement.docx?d=w72cbe15f85e54b59b648ad61954ffdcf&csf=1&web=1&e=TmiPdH|https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/67565%20CORE%20-%20OData%20services%20for%20accounting/Ariadne%27s%20Code%20review%20statement.docx?d=w72cbe15f85e54b59b648ad61954ffdcf&csf=1&web=1&e=TmiPdH|smart-link]
+
+Please note aforementioned changes are required on below CBC Services:
+
+* Actual/Estimate Indicator
+* Entry Code
+* Payment Partner - This is a business object, as per PP this will be taken care later.
+* Line of Business (LoB)
+* Extension for Postings
+* Unique Accounting Unit Number
+
+
+[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] 
+I have provided the URL for all the user stories below. Kindly note it and proceed for testing.
+
+*Actual/Estimate Indicator*
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_estimateind_rd_o4/srvd_a2x/msg/cbc_estimateind_read/0001/?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_estimateind_rd_o4/srvd_a2x/msg/cbc_estimateind_read/0001/?sap-client=700]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_estimateind_rd_o4/srvd_a2x/msg/cbc_estimateind_read/0001/ActualEstimateIndicator|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_estimateind_rd_o4/srvd_a2x/msg/cbc_estimateind_read/0001/ActualEstimateIndicator]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_estimateind_rd_o4/srvd_a2x/msg/cbc_estimateind_read/0001/ActualEstimateIndicatorText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_estimateind_rd_o4/srvd_a2x/msg/cbc_estimateind_read/0001/ActualEstimateIndicatorText]
+
+Parent child Entity
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_estimateind_rd_o4/srvd_a2x/msg/cbc_estimateind_read/0001/ActualEstimateIndicator?$expand=_ResolveEstimate()|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_estimateind_rd_o4/srvd_a2x/msg/cbc_estimateind_read/0001/ActualEstimateIndicator?$expand=_ResolveEstimate()]
+
+*Extension of Postings*
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_postingext_rd_o4/srvd_a2x/msg/cbc_postingextension_read/0001/ExtensionForPostings|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_postingext_rd_o4/srvd_a2x/msg/cbc_postingextension_read/0001/ExtensionForPostings]
+
+*Accounting Units  or ( Unique Accounting Unit Number)*
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgunit_rd_o4/srvd_a2x/msg/cbc_accountingunit_read/0001/?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgunit_rd_o4/srvd_a2x/msg/cbc_accountingunit_read/0001/?sap-client=700]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgunit_rd_o4/srvd_a2x/msg/cbc_accountingunit_read/0001/AccountingUnits|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgunit_rd_o4/srvd_a2x/msg/cbc_accountingunit_read/0001/AccountingUnits]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgunit_rd_o4/srvd_a2x/msg/cbc_accountingunit_read/0001/AccountingUnitsText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgunit_rd_o4/srvd_a2x/msg/cbc_accountingunit_read/0001/AccountingUnitsText]
+
+*Entry Code*
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_entrycode_rd_o4/srvd_a2x/msg/cbc_entrycode_read/0001/?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_entrycode_rd_o4/srvd_a2x/msg/cbc_entrycode_read/0001/?sap-client=700]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_entrycode_rd_o4/srvd_a2x/msg/cbc_entrycode_read/0001/EntryCode|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_entrycode_rd_o4/srvd_a2x/msg/cbc_entrycode_read/0001/EntryCode]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_entrycode_rd_o4/srvd_a2x/msg/cbc_entrycode_read/0001/EntryCodeText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_entrycode_rd_o4/srvd_a2x/msg/cbc_entrycode_read/0001/EntryCodeText]
+
+*Line of Business (LoB)*
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_lineofbus_rd_o4/srvd_a2x/msg/cbc_lineofbusiness_read/0001/?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_lineofbus_rd_o4/srvd_a2x/msg/cbc_lineofbusiness_read/0001/?sap-client=700]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_lineofbus_rd_o4/srvd_a2x/msg/cbc_lineofbusiness_read/0001/LineOfBusiness|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_lineofbus_rd_o4/srvd_a2x/msg/cbc_lineofbusiness_read/0001/LineOfBusiness]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_lineofbus_rd_o4/srvd_a2x/msg/cbc_lineofbusiness_read/0001/LineOfBusinessText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_lineofbus_rd_o4/srvd_a2x/msg/cbc_lineofbusiness_read/0001/LineOfBusinessText]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_lineofbus_rd_o4/srvd_a2x/msg/cbc_lineofbusiness_read/0001/ValueTypeText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_lineofbus_rd_o4/srvd_a2x/msg/cbc_lineofbusiness_read/0001/ValueTypeText]
+
+Regards
+Balamurugan Natrayan",,,,,,,,288000,0,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@42d82b03,,,,,,,All Completed,Checklist: 4/4,100.0,"# Default checklist
+* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+* [done] Unit tests need to be created","​# Default checklist
+​* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+​* [done] Unit tests need to be created",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwo:g,,,,,,,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q4 Sprint 1,,,,,,5.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-09-29 11:29:10.548,1_*:*_4_*:*_77238424_*|*_3_*:*_6_*:*_3148245499_*|*_4_*:*_2_*:*_106005873_*|*_5_*:*_2_*:*_83324258_*|*_6_*:*_2_*:*_2478701165_*|*_10004_*:*_1_*:*_1380790389,"29/Sep/25 4:59 PM;712020:57bf3a73-3012-42a1-a509-f61f74712fb7;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]  These are the ready OData Service URL for the Actual/estimate Indicator.
+
+[+https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_actstind_read_o4/srvd_a2x/sap/ztest_cbc_actestind_read/0001/+|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_actstind_read_o4/srvd_a2x/sap/ztest_cbc_actestind_read/0001/ActualOrEstimatedIndicator]
+
+Please Verify and Update.","16/Oct/25 10:18 AM;712020:18187fe5-0ec8-4f23-9ef1-54b6e07dd101;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] 
+
+As informed, i have created the subtask for Entry code Rework.
+Kindly follow up.","29/Oct/25 6:08 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;OData CBC validation done for Actual/Estimate Indicator, Entry Code, Line of Business (LoB), Extension for Postings, Unique Accounting Unit Number",20/Nov/25 7:36 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;All test cases have been run and approved,,,,,,,,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,01/Dec/25 5:29 PM
+OData CBC services modification - Part 2,SAPRIMGMT-68654,295697,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,08/Sep/25 12:49 PM,24/Nov/25 5:26 PM,,24/Nov/25 5:26 PM,CORE,,0,,"Re-working on the user story based on the feedback:
+
+* We need to change the naming convention of the CDS views
+* Include annotations (performance related)
+* Modifying the test class
+* Language dependent short text is needed
+* All fields part of configuration (maintenance view) should be exposed
+
+Please refer to the document saved under below link
+
+[https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/67565%20CORE%20-%20OData%20services%20for%20accounting/Ariadne%27s%20Code%20review%20statement.docx?d=w72cbe15f85e54b59b648ad61954ffdcf&csf=1&web=1&e=TmiPdH|https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/67565%20CORE%20-%20OData%20services%20for%20accounting/Ariadne%27s%20Code%20review%20statement.docx?d=w72cbe15f85e54b59b648ad61954ffdcf&csf=1&web=1&e=TmiPdH|smart-link]
+
+Please note aforementioned changes are required on below CBC Services:
+
+* Account Status - [vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_accountsts_rd_o4/srvd_a2x/msg/cbc_accountstatus_read/0001/AccountStatus?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_accountsts_rd_o4/srvd_a2x/msg/cbc_accountstatus_read/0001/AccountStatus?sap-client=700]  [vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_accountsts_rd_o4/srvd_a2x/msg/cbc_accountstatus_read/0001/AccountStatusText?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_accountsts_rd_o4/srvd_a2x/msg/cbc_accountstatus_read/0001/AccountStatusText?sap-client=700]
+* Business Type No. - [vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_businesstyp_rd_o4/srvd_a2x/msg/cbc_businesstype_read/0001/BusinessType?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_businesstyp_rd_o4/srvd_a2x/msg/cbc_businesstype_read/0001/BusinessType?sap-client=700] [vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_businesstyp_rd_o4/srvd_a2x/msg/cbc_businesstype_read/0001/BusinessTypeText?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_businesstyp_rd_o4/srvd_a2x/msg/cbc_businesstype_read/0001/BusinessTypeText?sap-client=700]
+* Module That Created the Account - 23 Oct 2025: PP advised, since the values in that table are not all related to accounts and we currently are not sure if a value from this table is required in an Odata service as an input or output, we decided to not create a CBC service for this in the msg namespace and wait till we know what information we would need for an Odata service from this table and then build a service once we know.
+* Accounting Function - [vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgfunc_rd_o4/srvd_a2x/msg/cbc_accountingfunc_read/0001/AccountingFunction?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgfunc_rd_o4/srvd_a2x/msg/cbc_accountingfunc_read/0001/AccountingFunction?sap-client=700] [vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgfunc_rd_o4/srvd_a2x/msg/cbc_accountingfunc_read/0001/AccountingFunctionFieldName?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgfunc_rd_o4/srvd_a2x/msg/cbc_accountingfunc_read/0001/AccountingFunctionFieldName?sap-client=700] [vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgfunc_rd_o4/srvd_a2x/msg/cbc_accountingfunc_read/0001/AccountingFunctionText?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_acctgfunc_rd_o4/srvd_a2x/msg/cbc_accountingfunc_read/0001/AccountingFunctionText?sap-client=700]
+* Account Group Number - [vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_accountgrp_rd_o4/srvd_a2x/msg/cbc_accountgroup_read/0001/AccountGroup?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_accountgrp_rd_o4/srvd_a2x/msg/cbc_accountgroup_read/0001/AccountGroup?sap-client=700] [vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_accountgrp_rd_o4/srvd_a2x/msg/cbc_accountgroup_read/0001/AccountGroupText?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/msg/api_cbc_accountgrp_rd_o4/srvd_a2x/msg/cbc_accountgroup_read/0001/AccountGroupText?sap-client=700]",,,,,,,,288000,0,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@51e2cb10,,,,,,,All Completed,Checklist: 4/4,100.0,"# Default checklist
+* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+* [done] Unit tests need to be created","​# Default checklist
+​* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+​* [done] Unit tests need to be created",,,Internal Tools,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwo:f,,,,,,,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q4 Sprint 1,,,,,,5.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,1_*:*_1_*:*_60194_*|*_3_*:*_3_*:*_1923646369_*|*_4_*:*_3_*:*_149428_*|*_5_*:*_3_*:*_86779885_*|*_6_*:*_3_*:*_2160019764_*|*_10004_*:*_1_*:*_2498757758,"29/Oct/25 5:37 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;OData CBC validation done for Account Status, Business Type No, Accounting Function, Account Group Number",,,,,,,,,,,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,24/Nov/25 5:26 PM
+OData CBC services modification - Part 1,SAPRIMGMT-68653,295696,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,08/Sep/25 12:45 PM,24/Nov/25 5:25 PM,,24/Nov/25 5:25 PM,CORE,,0,,"Re-working on the user story based on the feedback:
+
+* We need to change the naming convention of the CDS views
+* Include annotations (performance related)
+* Modifying the test class
+* Language dependent short text is needed
+* All fields part of configuration (maintenance view) should be exposed
+
+Please refer to the document saved under below link
+
+[https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/67565%20CORE%20-%20OData%20services%20for%20accounting/Ariadne%27s%20Code%20review%20statement.docx?d=w72cbe15f85e54b59b648ad61954ffdcf&csf=1&web=1&e=TmiPdH|https://msggroup.sharepoint.com/:w:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/67565%20CORE%20-%20OData%20services%20for%20accounting/Ariadne%27s%20Code%20review%20statement.docx?d=w72cbe15f85e54b59b648ad61954ffdcf&csf=1&web=1&e=TmiPdH|smart-link]
+
+Please note aforementioned changes are required on below CBC Services:
+
+* Origin Indicator for an Account/Payment -
+{{/sap/opu/odata4/msg/api_cbc_acctorigin_rd_o4/srvd_a2x/msg/cbc_accountorigin_read/0001/}}",,,,,,,,86400,0,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@72718459,,,,,,,All Completed,Checklist: 4/4,100.0,"# Default checklist
+* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+* [done] Unit tests need to be created","​# Default checklist
+​* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+​* [done] Unit tests need to be created",,,Internal Tools,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwo:d,,,,,,,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q4 Sprint 1,,,,,,2.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-09-29 10:04:28.319,1_*:*_3_*:*_35493_*|*_3_*:*_7_*:*_854296951_*|*_4_*:*_4_*:*_174541_*|*_5_*:*_5_*:*_2193107476_*|*_6_*:*_4_*:*_2160403853_*|*_10004_*:*_1_*:*_1461524970,"29/Sep/25 3:34 PM;712020:1eae2558-d395-4095-96a0-16912a223ce0;Hii [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]  Here is the OData Services for Origin Indicator for an Account/Payment
+
+[vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_rtaorign_read_o4/srvd/sap/ztest_cbc_rtaorign_read/0001/ROrign|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_rtaorign_read_o4/srvd/sap/ztest_cbc_rtaorign_read/0001/ROrign]
+
+[vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_rtaorign_read_o4/srvd/sap/ztest_cbc_rtaorign_read/0001/ROrignText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_rtaorign_read_o4/srvd/sap/ztest_cbc_rtaorign_read/0001/ROrignText]
+
+","10/Oct/25 4:38 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:1eae2558-d395-4095-96a0-16912a223ce0] Validated.
+
+[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d]  Re-assigning for further reworking, i.e. naming convention as per GTNC field name. Once done we have to transport it to MSG name space.","14/Oct/25 11:49 AM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Hi [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5], 
+I have completed the changes as per the GTNC names.
+Here is the URI for validation.
+{{/sap/opu/odata4/sap/ztest_api_cbc_rtaorign_read_o4/srvd_a2x/sap/ztest_cbc_rtaorign_read/0001/}}
+
+Can you please check and confirm ",29/Oct/25 6:07 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;OData CBC validation done for Origin Indicator for an Account/Payment,,,,,,,,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,24/Nov/25 5:25 PM
+"OData CBC service for Extension for Postings, Unique Accounting Unit Number, Number of Local Accounting Unit Within a Treaty (Unique)",SAPRIMGMT-68292,292386,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,15/Aug/25 1:12 AM,24/Nov/25 5:23 PM,,24/Nov/25 5:23 PM,CORE,,0,,"*As a* developer,
+
+*I would like* to create a web API OData V4 service
+
+*So that* I can read “Extension for Postings, Unique Accounting Unit Number, Number of Local Accounting Unit Within a Treaty (Unique)”.
+
+*Scope*:
+
+This service is supposed to return all fields except for the change/create data.
+
+In order to be able to call up the ODATA service, a user must have the execution authorizations for the ODATA service and also the SAP authorizations for reading Customizing data.
+
++Acceptance Criteria+
+
+* On invocation of the created OData Services, I should receive the following different Extension for Postings, Unique Accounting Unit Number, Number of Local Accounting Unit Within a Treaty (Unique).
+
+*17 September 2025:* PP suggested for now to do nothing ""Number of Local Accounting Unit Within a Treaty (Unique)"". As he mentioned it is not really often used by clients and therefore he would wait until there is really a client who needs this service"". (Please refer to sub task 68807)",,,,,,,,115200,0,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@293749cd,,,,,,,All Completed,Checklist: 4/4,100.0,"# Default checklist
+* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+* [done] Unit tests need to be created","​# Default checklist
+​* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+​* [done] Unit tests need to be created",,,Internal Tools,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwj:,,,,,,,,,,Balamurugan Natrayan,712020:18187fe5-0ec8-4f23-9ef1-54b6e07dd101,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 1,TechMonks 2025Q3 Sprint 2,,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-09-23 06:39:30.448,1_*:*_1_*:*_1814520259_*|*_3_*:*_1_*:*_1208377076_*|*_4_*:*_4_*:*_159718_*|*_5_*:*_1_*:*_18420288_*|*_6_*:*_4_*:*_5358579749_*|*_10004_*:*_1_*:*_384586212,"23/Sep/25 12:09 PM;712020:18187fe5-0ec8-4f23-9ef1-54b6e07dd101;This OData Services Completed. i have given the URLs below. we can list out the List of fields.
+
+Extension of Posting
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_extposting_read_o4/srvd_a2x/sap/ztest_cbc_extposting_read/0001/ExtOfPosting|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_extposting_read_o4/srvd_a2x/sap/ztest_cbc_extposting_read/0001/ExtOfPosting]
+
+*FieldList*
+ReinsurAcctgUnit
+
+Unique Accounting unit number
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_uniqaccunit_read_o4/srvd_a2x/sap/ztest_cbc_uniqaccunit_read/0001/UniqAccUnit|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_uniqaccunit_read_o4/srvd_a2x/sap/ztest_cbc_uniqaccunit_read/0001/UniqAccUnit]
+
+*FieldList*
+ReinsurAcctgUnit
+
+Number of accounting Units
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_numaccunits_read_o4/srvd_a2x/sap/ztest_cbc_numaccunits_read/0001/NumOfLocalAccUnits|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_numaccunits_read_o4/srvd_a2x/sap/ztest_cbc_numaccunits_read/0001/NumOfLocalAccUnits]
+
+*Field List*
+RTATreatyInternalID
+RMLifePnLLocalAcctgUnit
+ReinsurGlobalAcctgUnit
+ReinsurLoclAcctgUnitName
+","23/Sep/25 1:52 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:18187fe5-0ec8-4f23-9ef1-54b6e07dd101] “Validated Extension for Posting” and “Unique Accounting unit number”, looks good.
+
+Also validated “Number of Local Accounting Unit” which looks fine. However, as discussed earlier with PP we are not transporting this one as of now.",,,,,,,,,,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,24/Nov/25 5:23 PM
+"OData CBC service for Entry Code, Payment Partner, Line of Business (LoB)",SAPRIMGMT-68291,292384,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,15/Aug/25 1:10 AM,24/Nov/25 5:22 PM,,24/Nov/25 5:22 PM,CORE,,0,,"*As a* developer,
+
+*I would like* to create a web API OData V4 service
+
+*So that* I can read the “Entry Code, Payment Partner, Line of Business”.
+
+*Scope*:
+
+This service is supposed to return all fields except for the change/create data.
+
+In order to be able to call up the ODATA service, a user must have the execution authorizations for the ODATA service and also the SAP authorizations for reading Customizing data.
+
++Acceptance Criteria+
+
+* On invocation of the created OData Services, I should receive the following different “Entry Code, Payment Partner, Line of Business”.",,,,,,,,,,,,,,,25/Aug/25 2:32 PM;0b1cad21-d31c-4b4e-a985-1aa33ce234b1;image-20250825-085500.png;https://msggroup.atlassian.net/rest/api/3/attachment/content/155945,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@3f9be437,,,,,,,All Completed,Checklist: 4/4,100.0,"# Default checklist
+* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+* [done] Unit tests need to be created","​# Default checklist
+​* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+​* [done] Unit tests need to be created",,,Internal Tools,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwi:,,,,,,,,,,Akash Shankar,712020:57bf3a73-3012-42a1-a509-f61f74712fb7,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 1,,,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-08-25 09:02:29.385,1_*:*_1_*:*_84720503_*|*_3_*:*_1_*:*_1120378362_*|*_4_*:*_3_*:*_84454_*|*_5_*:*_1_*:*_5861783_*|*_6_*:*_3_*:*_7188968073_*|*_10004_*:*_1_*:*_384698156,"25/Aug/25 2:32 PM;712020:57bf3a73-3012-42a1-a509-f61f74712fb7;Hi [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]  , we are currently blocked on whether to return only bare
+
+minimum fields for all 3 OData service or all the fields (Entry code, Payment partner and LOB). 
+
+for example, for the Entry Code OData service 
+
+we have 52 fields. so do we need to expose all 52 fields or just bare minimum.
+
+
+!image-20250825-085500.png|width=1274,height=533,alt=""image-20250825-085500.png""!
+
+
+
+right now, for Entry Code we have exposed only 3 fields.
+
+Entry Code 
+
+Entry Code Name 
+
+Language
+
+right now, for Line of Business we have exposed only 3 fields.
+
+LOB code 
+
+LOB short Name
+LOB long Name.
+
+
+
+right now, for Payment we have exposed only 2 fields.
+PARTNER 
+
+NAME_ORG1
+
+
+
+CC : [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] ","25/Aug/25 3:02 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:57bf3a73-3012-42a1-a509-f61f74712fb7] please expose bare minimum mentioned below:
+
+* Entry Code, Entry Code Name, Language
+* LOB code, LOB short Name, LOB long Name
+* PARTNER, NAME_ORG1","26/Aug/25 5:11 PM;712020:57bf3a73-3012-42a1-a509-f61f74712fb7;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] These are the ready OData Service URL for the Entry Code.
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_entrycde_read_o4/srvd/sap/ztest_cbc_entry_code_read/0001/EntryCode|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_entrycde_read_o4/srvd/sap/ztest_cbc_entry_code_read/0001/EntryCode]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_entrycde_read_o4/srvd/sap/ztest_cbc_entry_code_read/0001/EntryCodeText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_entrycde_read_o4/srvd/sap/ztest_cbc_entry_code_read/0001/EntryCodeText]
+
+
+These are the ready OData Service URL for the Line of Business.
+
+
+[{color:#ffffff}https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_lob_read_o4/srvd_a2x/sap/ztest_cbc_lob/0001/LineofBusiness{color}|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_lob_read_o4/srvd_a2x/sap/ztest_cbc_lob/0001/LineofBusiness]
+
+[{color:#ffffff}https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_lob_read_o4/srvd_a2x/sap/ztest_cbc_lob/0001/LineofBusinessText{color}|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_lob_read_o4/srvd_a2x/sap/ztest_cbc_lob/0001/LineofBusinessText]
+
+
+
+These are the ready OData Service URL for the Payment Partner.
+
+
+
+[{color:#ffffff}https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_pay_partner_read_o4/srvd_a2x/sap/ztest_cbc_pay_partner/0001/paymentpartner{color}|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_pay_partner_read_o4/srvd_a2x/sap/ztest_cbc_pay_partner/0001/paymentpartner]
+
+
+
+[{color:#ffffff}https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_pay_partner_read_o4/srvd_a2x/sap/ztest_cbc_pay_partner/0001/paymentpartnername{color}|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_pay_partner_read_o4/srvd_a2x/sap/ztest_cbc_pay_partner/0001/paymentpartnername]
+
+please check and update.","29/Aug/25 7:29 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:57bf3a73-3012-42a1-a509-f61f74712fb7] URLs validated, looks fine.","02/Sep/25 12:24 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;I have verified the functionalities, and I accept the user story.",,,,,,,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,24/Nov/25 5:22 PM
+"OData CBC service for Business Type No., Module That Created the Account, Accounting Function, Account Group Number",SAPRIMGMT-68290,292380,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,15/Aug/25 1:06 AM,24/Nov/25 5:21 PM,,24/Nov/25 5:21 PM,CORE,,0,PO_NK,"*As a* developer,
+
+*I would like* to create a web API OData V4 service
+
+*So that* I can read the “Business Type No., Module That Created the Account, Accounting Function, Account Group Number” information.
+
+*Scope*:
+
+This service is supposed to return all fields except for the change/create data.
+
+In order to be able to call up the ODATA service, a user must have the execution authorizations for the ODATA service and also the SAP authorizations for reading Customizing data.
+
++Acceptance Criteria+
+
+* On invocation of the created OData Services, I should receive the following different “Business Type No., Module That Created the Account, Accounting Function, Account Group Number”.",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@1195eafe,,,,,,,All Completed,Checklist: 4/4,100.0,"# Default checklist
+* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+* [done] Unit tests need to be created","​# Default checklist
+​* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+​* [done] Unit tests need to be created",,,Internal Tools,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwg:,,,,,,,,,,Dileep Kumar Bandi,712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 1,,,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-08-25 11:25:33.072,1_*:*_1_*:*_512547036_*|*_3_*:*_1_*:*_628148800_*|*_4_*:*_3_*:*_129187_*|*_5_*:*_1_*:*_70279042_*|*_6_*:*_3_*:*_7188886714_*|*_10004_*:*_1_*:*_384921545,"25/Aug/25 4:55 PM;712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] 
+
+*1*.*Business Type No:*
+
+      We are currently blocked on whether to return only bare minimum fields such    as:
+
+* ReinsurBusinessType
+* ReinsurBusinessTypeShortName
+* ReinsurBusinessTypeName
+
+or We need to expose all the remaining fields as well in the view such as
+
+* INAKT_FLAG - Inactive Data Record (Yes/No)
+* FRONTKZ - Fronting Indicator 
+* GARTKZ - Business Type Indicator 
+
+
+
+*2.Module That Created the Account:* 
+
+     We are currently blocked on whether to return only bare minimum fields such    as:
+
+* RTACategory
+* RTACategoryShortName
+* RTACategoryName
+
+or We need to expose all the remaining fields as well in the view such as
+
+* INAKT_FLAG - Inactive Data Record (Yes/No)
+
+    
+
+# *Accounting Function:*
+
+       This needs to be clarified and global field names are not available.
+
+# *Account Group Number:*
+
+*       Global field names are not available
+*       We need to expose all the remaining fields as well in the view such as 
+
+              GUELTVON - Validity Start Date 
+
+              GUELTBIS - Validity End Date
+
+              BUKRUEBKZ - Account Group Applies Across Company Codes
+
+               INAKT_FLAG - Inactive Data Record (Yes/No)           
+
+
+
+CC: [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] [~accountid:712020:9674f7df-d626-44f5-a153-cc98150148ad] ","25/Aug/25 6:16 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651] please expose bare minimum mentioned below
+
+*Business type*: ReinsurBusinessType, ReinsurBusinessTypeShortName, ReinsurBusinessTypeName, INAKT_FLAG, FRONTKZ, GARTKZ
+
+*Module That Created the Account:* 
+
+RTACategory, RTACategoryShortName, RTACategoryName, INAKT_FLAG 
+
+*Accounting Function:* Please expose bare minimum mentioned below
+
+Accounting Function source, Accounting Function short text, accounting Function text.
+
+*Account Group Number:* Accounting group source, accounting group short text, accounting group text, Validity Start Date, Validity End Date, Company Codes, INAKT_FLAG
+
+*Further*, naming convention for aforementioned Accounting Function and Account Group Number under Global Field list are missing which need to be created. We are working on this.","27/Aug/25 10:17 AM;712020:9674f7df-d626-44f5-a153-cc98150148ad;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] Hi Navin, could you please test the Business Type No URL which is mentioned below.
+
+URL list: 1.[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_bustype_read_o4/srvd_a2x/sap/ztest_cbc_businesstype/0001/ReinsurBusinessType|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_bustype_read_o4/srvd_a2x/sap/ztest_cbc_businesstype/0001/ReinsurBusinessType]
+
+2.[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_bustype_read_o4/srvd_a2x/sap/ztest_cbc_businesstype/0001/ReinsurBusinessTypeText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_bustype_read_o4/srvd_a2x/sap/ztest_cbc_businesstype/0001/ReinsurBusinessTypeText]
+
+
+
+Could you please test The Module That Created the Account URL which is mentioned below.
+
+URL list: 1.[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_rtacgry_read_o4/srvd_a2x/sap/ztest_cbc_rtacategory/0001/RTACategory|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_rtacgry_read_o4/srvd_a2x/sap/ztest_cbc_rtacategory/0001/RTACategory]
+
+2.[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_rtacgry_read_o4/srvd_a2x/sap/ztest_cbc_rtacategory/0001/RTACategoryText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_rtacgry_read_o4/srvd_a2x/sap/ztest_cbc_rtacategory/0001/RTACategoryText]
+
+
+
+Could you please test The Accounting Function URL which is mentioned below.
+
+URL list:    1.[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_acctfunction_read_o4/srvd_a2x/sap/ztest_cbc_acctfunction/0001/RTAAccountFunction|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_acctfunction_read_o4/srvd_a2x/sap/ztest_cbc_acctfunction/0001/RTAAccountFunction]
+
+2.[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_acctfunction_read_o4/srvd_a2x/sap/ztest_cbc_acctfunction/0001/RTAAccountFunctionText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_acctfunction_read_o4/srvd_a2x/sap/ztest_cbc_acctfunction/0001/RTAAccountFunctionText]
+
+
+
+Could you please test The Account Group Number URL which is mentioned below.
+
+URL list:
+
+1.[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_accountgroup_read_o4/srvd_a2x/sap/ztest_cbc_accountgroup/0001/RTAAccountGroupNum|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_accountgroup_read_o4/srvd_a2x/sap/ztest_cbc_accountgroup/0001/RTAAccountGroupNum]
+
+2[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_accountgroup_read_o4/srvd_a2x/sap/ztest_cbc_accountgroup/0001/RTAAccountGroupNumText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_cbc_accountgroup_read_o4/srvd_a2x/sap/ztest_cbc_accountgroup/0001/RTAAccountGroupNumText]
+
+
+
+CC : [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] [~accountid:712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651] ",28/Aug/25 10:23 AM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] Should the field name be RTAAccountFunctionSource or RTAAccountFunction?,28/Aug/25 2:26 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] we can keep field name as RTAAccountFunction only.,"29/Aug/25 7:58 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:9674f7df-d626-44f5-a153-cc98150148ad] validated URLs, looks fine.","02/Sep/25 12:24 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;I have verified the functionalities, and I accept the user story.",,,,,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,24/Nov/25 5:21 PM
+OData CBC Service for Treaty Group - Search - Identifier and Type-Ahead - (Account Type),SAPRIMGMT-68280,292016,Story,In Progress,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Balamurugan Natrayan,712020:18187fe5-0ec8-4f23-9ef1-54b6e07dd101,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,14/Aug/25 4:30 PM,23/Dec/25 6:57 PM,17/Dec/25 11:41 AM,,CORE,30/Dec/25 12:00 AM,0,,"*As a* developer of OData treaty group CBC services,
+
+*I would like* to display understandable identifiers for the respective fields in the damage search or link F4 help
+
+*So that* users of the BTP interface can work with understandable terms, i.e. *group category, status, reason for change*.
+
+*Note:* One service needs to be created for one field.
+
+*Scope*:
+
+The aim of this story is to provide a Web API OData V4 service that returns the fixed values, including a brief description of the group category, status, reason for change.
+
+This service is supposed to return all fields except for the change/create data.
+
+In order to be able to call up the ODATA service, a user must have the execution authorizations for the ODATA service and also the SAP authorizations for reading Customizing data.
+
+The corresponding service from the TEST_MSG_RI_CBC package can be used as a template (see also External_Communication_Customizing_BasicViews.xlsx).
+
++Scope+
+
+* A CBC service is available that outputs the customizing information from “group category, status, reason for change”.
+* The CBC service provides the corresponding texts of the customizing information.
+* Unit tests need to be created",,,,,,,,518400,57600,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@2bb22e27,,,,,,,Not Completed,Checklist: 0/3,0.0,"# Acceptance criteria
+* [open] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [open] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [open] Unit tests need to be created","​# Acceptance criteria
+​* [open] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [open] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [open] Unit tests need to be created",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwo:e,,,,,,,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 1,TechMonks 2025Q4 Sprint 1,TechMonks 2025Q4 Sprint 2,TechMonks 2025Q4 Sprint 3,TechMonks 2026Q1 Sprint 1,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-10-06 05:09:34.592,,"06/Oct/25 10:39 AM;712020:18187fe5-0ec8-4f23-9ef1-54b6e07dd101;Hi Navin,
+
+I have completed the OData services for Group Status, Group Category and Reason for Change.
+
+Provided the URL Links below. Kindly check and confirm.
+If you have queries, please reach out to me.
+
+Treaty group type or Category.
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_grptype_read_o4/srvd_a2x/sap/ztest_cbc_grptype_read/0001/?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_grptype_read_o4/srvd_a2x/sap/ztest_cbc_grptype_read/0001/?sap-client=700]
+
+Treaty group Status
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_grpstats_read_o4/srvd_a2x/sap/ztest_cbc_grpstatus_read/0001/?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_grpstats_read_o4/srvd_a2x/sap/ztest_cbc_grpstatus_read/0001/?sap-client=700]
+
+Reason for Change group
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_grpchgrs_read_o4/srvd_a2x/sap/ztest_cbc_grpchngrsn_read/0001/?sap-client=700|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_grpchgrs_read_o4/srvd_a2x/sap/ztest_cbc_grpchngrsn_read/0001/?sap-client=700]
+
+Regards
+Balamurugan Natrayan
+
+","13/Oct/25 1:32 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;Please rework as per the comments received from PP:
+
+*Reason for Change group*
+This service has the field ReinsurTreatyStatCategory which references a additional configuration. I would expect that the service return at least the description in addition to the code. It is a similar discussion we had with Anand last week for the estimation indicator and the field resolve.
+ 
+*Treaty group category*
+ReinsurExtname - Should not be available because it is my understanding that in OData we do not address Extension service
+ReinsurTreatyAcctgFrqcy - Description for the accounting frequency should be available
+ 
+for the following fields, I personally would have choosen a different name:
+      ""ReinsurGroupEstimateDataId""  - ReinsurGroupIsEstimateGrp
+      ""ReinsurGroupAccountsId"" :  - ReinsurGroupIsAccountingGrp
+      ""ReinsurGroupCurrAccStmntAllwId"" :  - ReinsurGroupIsCurrAccStmntGrp
+      ""ReinsurGroupChckCoBforTtyGrpId"" :  - ReinsurGroupChkMainCoB
+ 
+*Treaty group Status*
+      ""ReinsurGrpStatPostingAllwdId"" : - ReinsurGroupIsPostingAllowed
+      ""ReinsurGroupStatusCancelledId"" : - ReinsurGroupIsCancelled
+ 
+ 
+Please double check the names with e.g. CodeRed",13/Oct/25 1:35 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:18187fe5-0ec8-4f23-9ef1-54b6e07dd101] Above URLs reviewed. Need to check/rework as per the above comments from PP.,"16/Dec/25 6:10 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;*16-Dec-25*
+
+* Bala needs assistance with zephyr, will ask for help from team members
+* Bala will consult Akash, Aman, Keerthana in case of any doubts on IC standards
+* Bala estimates that this story still needs 8 story points in next sprint",,,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,In Progress,04/Dec/25 10:21 AM
+"OData CBC service for Exchange Rate Type for Original Currency, Exchange Rate Type for Account Currency",SAPRIMGMT-68196,290970,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,11/Aug/25 2:57 PM,24/Nov/25 5:24 PM,,24/Nov/25 5:24 PM,CORE,,0,,"*As a* developer,
+
+*I would like* to create a web API OData V4 service
+
+*So that* I can read Exchange Rate Type for Original Currency, Exchange Rate Type for Account Currency.
+
+*Scope*:
+
+This service is supposed to return all fields except for the change/create data.
+
+In order to be able to call up the ODATA service, a user must have the execution authorizations for the ODATA service and also the SAP authorizations for reading Customizing data.
+
+*Above two fields should be created under one API as they are of same kind (refer to rows 20-23 under the sheet).*
+
++Acceptance Criteria+
+
+* On invocation of the created OData Services, I should receive the following different Exchange Rate Type for Original Currency, Exchange Rate Type for Account Currency.
+",,,,,,,,,,,,,,SAPRIMGMT-68194,22/Aug/25 5:14 PM;3ff497ad-7a7e-4c79-84d2-4da0f5a6e55c;image-20250822-114435.png;https://msggroup.atlassian.net/rest/api/3/attachment/content/155849,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@1120b843,,,,,,,All Completed,Checklist: 4/4,100.0,"# Default checklist
+* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+* [done] Unit tests need to be created","​# Default checklist
+​* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+​* [done] Unit tests need to be created",,,Internal Tools,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwl:,,,,,,,,,,Siva Sankar Jinugu,712020:81bcabd1-5449-4de7-87e4-9705b255927d,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 1,,,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-08-22 11:44:53.21,1_*:*_2_*:*_248565092_*|*_3_*:*_1_*:*_1056942548_*|*_4_*:*_3_*:*_78942_*|*_5_*:*_1_*:*_73649292_*|*_6_*:*_3_*:*_7189067680_*|*_10004_*:*_2_*:*_512486724,"22/Aug/25 5:14 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Hi [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] ,
+I see that there was already an API service created for this ‘Exchange Rate Type’ under the package “/MSG/RI_CBC_EXRTP”. 
+
+
+!image-20250822-114435.png|width=2058,height=946,alt=""image-20250822-114435.png""!
+
+
+Are we duplicating that service as part of this story?","22/Aug/25 5:31 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] As discussed, since there is no behavior definition, we can create new service.","25/Aug/25 12:38 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Hi [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] , we are currently blocked on whether to return only bare minimum fields such as
+
+* Exchange Rate Type
+* Exchange Rate Type Usage
+
+or we need to expose all the remaining fields as well in the view such as
+
+* Reference Currency
+* Indicator: Calculation allowed with inverted exchange rate ?
+* Exch. rate type of av. rate used to determine buying rate
+* Exch.rate type of av. rate used to determine selling rate
+* Indicator: Exchange rate type uses fixed exchange rates
+* Indicator: Exchange rate type uses special translation model
+* Exchange Rates Without 11 Decimal Places
+* Ind.: Base curr. is ""from"" curr. in the exchange rate table
+
+
+
+CC: [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] , [~accountid:712020:1eae2558-d395-4095-96a0-16912a223ce0] ","25/Aug/25 2:55 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] please expose bare minimum mentioned below
+
+* Exchange Rate Type
+* Exchange Rate Type Usage","25/Aug/25 5:14 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] We are not able to find the Global Field name for the below mentioned field. Can you please assist us in getting those.
+
+
+|Field description |Field name|Global Technical name|Global Technical Expanded name|
+|Exchange Rate Type Usage|CURVW| | |
+
+CC : [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] , [~accountid:712020:1eae2558-d395-4095-96a0-16912a223ce0] ",25/Aug/25 9:59 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] We are working on this.,"26/Aug/25 9:21 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] , [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]  As per the user story we need to create cbc for “Exchange Rate Type for Original Currency”, “Exchange Rate Type for Account Currency”. But you are asking for “Exchange Rate Type Usage”, so what am i missing?","28/Aug/25 2:22 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;[~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] Since we are using the common API for two different fields (Exchange Rate Original Currency, Exchange Rate Type for Account Currency), I wanted to specify the field name as generic.","28/Aug/25 5:20 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] We have completed the implementation of API along with the test class and did Unit testing from our end. 
+ Here is the URL for your reference: {{/sap/opu/odata4/sap/zt_api_cbc_exchngrttyp_read_o4/srvd_a2x/sap/ztest_cbc_exchngrttyp_read/0001/}}
+ Can you please check from your end and provide feedback if there is any.
+
+CC: [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] , [~accountid:712020:1eae2558-d395-4095-96a0-16912a223ce0] ","29/Aug/25 8:14 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] Couldn’t find results from above URLs, however with further assistance from Akash could get below correct ones:
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/zt_api_cbc_exchngrttyp_read_o4/srvd_a2x/sap/ztest_cbc_exchngrttyp_read/0001/ExchangeRateType|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/zt_api_cbc_exchngrttyp_read_o4/srvd_a2x/sap/ztest_cbc_exchngrttyp_read/0001/ExchangeRateType]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/zt_api_cbc_exchngrttyp_read_o4/srvd_a2x/sap/ztest_cbc_exchngrttyp_read/0001/ExchangeRateTypeText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/zt_api_cbc_exchngrttyp_read_o4/srvd_a2x/sap/ztest_cbc_exchngrttyp_read/0001/ExchangeRateTypeText]
+
+Validation done, looks fine.","01/Sep/25 2:07 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;*FI:* We have similar kind of OData API Service for these two fields (Exchange Rate Type for Original Currency, Exchange Rate Type for Account Currency) built by another Team with ‘MSG’ namespace and that development was captured in the Package: “*/MSG/RI_CBC_EXRTP*”.
+
+CC: [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] , [~accountid:712020:1eae2558-d395-4095-96a0-16912a223ce0] , [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] ","02/Sep/25 12:25 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;I have verified the functionalities, and I accept the user story.",275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,24/Nov/25 5:24 PM
+OData CBC service for Origin Indicator for an Account/Payment,SAPRIMGMT-68195,290969,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,11/Aug/25 2:57 PM,24/Nov/25 5:23 PM,,24/Nov/25 5:23 PM,CORE,,0,,"*As a* developer,
+
+*I would like* to create a web API OData V4 service
+
+*So that* I can read the Origin Indicator for an Account/Payment.
+
+*Scope*:
+
+This service is supposed to return all fields except for the change/create data.
+
+In order to be able to call up the ODATA service, a user must have the execution authorizations for the ODATA service and also the SAP authorizations for reading Customizing data.
+
++Acceptance Criteria+
+
+* On invocation of the created OData Services, I should receive the following different Origin Indicator for an Account/Payment.
+
+
+GTFN
+
+!image-20250821-062627.png|width=732,height=504,alt=""image-20250821-062627.png""!",,,,,,,,,,,,,,SAPRIMGMT-68194,21/Aug/25 11:56 AM;7f9997ee-4133-477c-bd9a-765a78194404;image-20250821-062627.png;https://msggroup.atlassian.net/rest/api/3/attachment/content/155724,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@4164f6cb,,,,,,,All Completed,Checklist: 4/4,100.0,"# Default checklist
+* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+* [done] Unit tests need to be created","​# Default checklist
+​* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+​* [done] Unit tests need to be created",,,Internal Tools,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwk:,,,,,,,,,,Siva Sankar Jinugu,712020:81bcabd1-5449-4de7-87e4-9705b255927d,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 1,,,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-08-25 07:02:24.94,1_*:*_1_*:*_68315537_*|*_3_*:*_1_*:*_1656602339_*|*_4_*:*_2_*:*_67467_*|*_5_*:*_1_*:*_74408038_*|*_6_*:*_3_*:*_7189048127_*|*_10004_*:*_2_*:*_92355251,"25/Aug/25 12:32 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Hi [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] , we are currently blocked on whether to return only bare minimum fields such as 
+
+* Source Number
+* Source Number Short Text
+* Source Number Text 
+
+or we need to expose all the remaining fields as well in the view such as 
+
+* InactDataRec
+* NOManAC
+* LifeInd
+
+CC : [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] [~accountid:712020:1eae2558-d395-4095-96a0-16912a223ce0] 
+
+","25/Aug/25 2:48 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] please expose bare minimum mentioned below
+
+* Source Number
+* Source Number Short Text
+* Source Number Text
+* InactDataRec","25/Aug/25 3:54 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] Like we discussed that InactDataRec field is being used in other services as well, we are exposing that field as well along with the other fields.","25/Aug/25 5:12 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]  we are not able to find the below mentioned Global Field names. Can you please assist us in getting those.
+
+
+{adf:display=block}
+{""type"":""table"",""attrs"":{""isNumberColumnEnabled"":false,""layout"":""center"",""localId"":""21c6010e-85b3-41f5-a7fb-ad99db8bcf23""},""content"":[{""type"":""tableRow"",""content"":[{""type"":""tableCell"",""attrs"":{""colspan"":4},""content"":[{""type"":""paragraph"",""content"":[{""type"":""text"",""text"":""Origin Indicator""}]}]}]},{""type"":""tableRow"",""content"":[{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph"",""content"":[{""type"":""text"",""text"":""Field description ""}]}]},{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph"",""content"":[{""type"":""text"",""text"":""Field name""}]}]},{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph"",""content"":[{""type"":""text"",""text"":""Global Technical name""}]}]},{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph"",""content"":[{""type"":""text"",""text"":""Global Technical Expanded name""}]}]}]},{""type"":""tableRow"",""content"":[{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph"",""content"":[{""type"":""text"",""text"":""Source Number Short Text""}]}]},{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph"",""content"":[{""type"":""text"",""text"":""HERKKZ_KBEZ""}]}]},{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph""}]},{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph""}]}]},{""type"":""tableRow"",""content"":[{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph"",""content"":[{""type"":""text"",""text"":""Source Number Text""}]}]},{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph"",""content"":[{""type"":""text"",""text"":""HERKKZBEZ""}]}]},{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph""}]},{""type"":""tableCell"",""attrs"":{},""content"":[{""type"":""paragraph""}]}]}]}
+{adf}
+
+CC : [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] , [~accountid:712020:1eae2558-d395-4095-96a0-16912a223ce0] ",25/Aug/25 10:01 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] We are working on this.,"28/Aug/25 5:30 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] We have completed the implementation of API along with the test class and did Unit testing from our end. 
+ Here is the URL for your reference: {{/sap/opu/odata4/sap/ztest_api_cbc_oind_read_o4/srvd_a2x/sap/ztest_cbc_oind_read/0001/}}
+ Can you please check from your end and provide feedback if there is any.
+
+CC: [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] , [~accountid:712020:1eae2558-d395-4095-96a0-16912a223ce0]","29/Aug/25 8:22 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] validation done with the below URLs, looks fine.
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_oind_read_o4/srvd_a2x/sap/ztest_cbc_oind_read/0001/ROrigin|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_oind_read_o4/srvd_a2x/sap/ztest_cbc_oind_read/0001/ROrigin]
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_oind_read_o4/srvd_a2x/sap/ztest_cbc_oind_read/0001/ROriginText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_oind_read_o4/srvd_a2x/sap/ztest_cbc_oind_read/0001/ROriginText]","02/Sep/25 12:24 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;I have verified the functionalities, and I accept the user story.",,,,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,24/Nov/25 5:23 PM
+OData CBC service for Actual/Estimate Indicator,SAPRIMGMT-68194,290968,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,11/Aug/25 2:54 PM,24/Nov/25 5:17 PM,,24/Nov/25 5:17 PM,CORE,,0,PO_NK,"*Actual/Estimate Indicator*
+
+*As a* developer,
+
+*I would like* to create a web API OData V4 service
+
+*So that* I can read Actual/Estimate Indicator.
+
+*Scope*:
+
+This service is supposed to return all fields except for the change/create data.
+
+In order to be able to call up the ODATA service, a user must have the execution authorizations for the ODATA service and also the SAP authorizations for reading Customizing data.
+
++Acceptance Criteria+
+
+* On invocation of the created OData Services, I should receive the following different Actual/Estimate Indicator.
+
+
+",,Deepak Goenka,712020:a48d6697-10f0-4ab8-b3c8-0b305235071d,,,,,,,,,SAPRIMGMT-68195,SAPRIMGMT-68196,SAPRIMGMT-67861,25/Aug/25 2:39 PM;0b1cad21-d31c-4b4e-a985-1aa33ce234b1;image-20250825-090733.png;https://msggroup.atlassian.net/rest/api/3/attachment/content/155950,25/Aug/25 2:39 PM;0b1cad21-d31c-4b4e-a985-1aa33ce234b1;image-20250825-090858.png;https://msggroup.atlassian.net/rest/api/3/attachment/content/155949,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@2dbfe437,,,,,,,All Completed,Checklist: 4/4,100.0,"# Default checklist
+* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+* [done] Unit tests need to be created","​# Default checklist
+​* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+​* [done] Unit tests need to be created",,,Internal Tools,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwc:,,,,,,,,,,Akash Shankar,712020:57bf3a73-3012-42a1-a509-f61f74712fb7,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 1,,,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-08-25 09:09:38.716,1_*:*_2_*:*_68244124_*|*_3_*:*_2_*:*_1657636172_*|*_4_*:*_3_*:*_100506_*|*_5_*:*_1_*:*_73411664_*|*_6_*:*_3_*:*_7188690192_*|*_10004_*:*_1_*:*_92502137,"25/Aug/25 2:39 PM;712020:57bf3a73-3012-42a1-a509-f61f74712fb7;Hi [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]  , we are currently blocked on whether to return only bare
+
+minimum fields OData service or all the fields.
+
+for example, for the Actual and Estimate Indicator OData service
+
+we have 23 fields. so do we need to expose all 23 fields or just bare minimum.
+
+
+!image-20250825-090733.png|width=1256,height=544,alt=""image-20250825-090733.png""!
+
+ 
+
+right now, we have exposed only 4 fields.
+
+!image-20250825-090858.png|width=425,height=149,alt=""image-20250825-090858.png""!
+
+
+
+ 
+
+CC : [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] ","25/Aug/25 3:07 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:57bf3a73-3012-42a1-a509-f61f74712fb7] please expose bare minimum mentioned below:
+
+* Actual/Estimate Indicator
+* Actual/Estimate Indicator Short Text
+* Actual/Estimate Indicator Text","25/Aug/25 4:16 PM;712020:57bf3a73-3012-42a1-a509-f61f74712fb7;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] Like we discussed that INAKT_FLAG field is being used in other services as well, we are exposing that field as well along with the other fields.","26/Aug/25 4:59 PM;712020:57bf3a73-3012-42a1-a509-f61f74712fb7;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] These are the ready OData Service URL for the Actual/estimate Indicator.
+
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_actetind_read_o4/srvd/sap/ztest_cbc_actestind_read/0001/ActualEstimateIndicator|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_actetind_read_o4/srvd/sap/ztest_cbc_actestind_read/0001/ActualEstimateIndicator]
+
+ 
+
+[https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_actetind_read_o4/srvd/sap/ztest_cbc_actestind_read/0001/ActualEstimateIndicatorText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_actetind_read_o4/srvd/sap/ztest_cbc_actestind_read/0001/ActualEstimateIndicatorText]
+please check and update.","29/Aug/25 7:09 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:57bf3a73-3012-42a1-a509-f61f74712fb7] Have validated the URLs, looks fine.","02/Sep/25 12:24 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;I have verified the functionalities, and I accept the user story.",,,,,,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,24/Nov/25 5:17 PM
+OData CBC service for Account Status,SAPRIMGMT-67861,288457,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,29/Jul/25 6:51 PM,04/Dec/25 5:17 PM,11/Dec/25 12:05 PM,24/Nov/25 5:17 PM,CORE,,0,,"*Account Status*
+
+*As a* developer,
+
+*I would like* to create a web API OData V4 service
+
+*So that* I can read the Account Status information.
+
+*Scope*:
+
+This service is supposed to return all fields except for the change/create data.
+
+In order to be able to call up the ODATA service, a user must have the execution authorizations for the ODATA service and also the SAP authorizations for reading Customizing data.
+
++Acceptance Criteria+
+
+* On invocation of the created OData Services, I should receive the following different account statuses",,,,,,,,,,,,SAPRIMGMT-68194,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@611bb17f,,,,,,,All Completed,Checklist: 4/4,100.0,"# Default checklist
+* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+* [done] Unit tests need to be created","​# Default checklist
+​* [done] There is a read-only Web API OData V4 service that returns all treaty group ""category, status and reason for change"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+​* [done] Unit tests need to be created",,,Internal Tools,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bo1g:,,,,,,,,,,Dileep Kumar Bandi,712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 1,,,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-08-25 11:22:52.324,1_*:*_1_*:*_577517685_*|*_3_*:*_1_*:*_1660259726_*|*_4_*:*_2_*:*_123970_*|*_5_*:*_1_*:*_70357333_*|*_6_*:*_2_*:*_7188671822_*|*_10004_*:*_1_*:*_692560240,"25/Aug/25 4:52 PM;712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] we are currently blocked on whether to return only bare minimum fields such as:
+
+* RTAStatus
+* RTAStatusShortName
+* RTAStatusName
+
+or we need to expose all the remaining fields as well in the view such as
+
+* INAKT_FLAG - Inactive Data Record (Yes/No)
+
+
+
+CC: [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] [~accountid:712020:9674f7df-d626-44f5-a153-cc98150148ad] ","25/Aug/25 5:26 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651] please expose bare minimum mentioned below
+
+* RTAStatus
+* RTAStatusShortName
+* RTAStatusName
+* INAKT_FLAG - Inactive Data Record (Yes/No)",25/Aug/25 5:31 PM;712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] Sure Navin,"26/Aug/25 5:48 PM;712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]  Hi Navin, could you please test the Account status URL which is mentioned below.
+
+URL List:
+
+# [https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_acstatus_read_o4/srvd_a2x/sap/ztest_cbc_acctstatus/0001/RTAStatus|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_acstatus_read_o4/srvd_a2x/sap/ztest_cbc_acctstatus/0001/RTAStatus]
+# [https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_acstatus_read_o4/srvd_a2x/sap/ztest_cbc_acctstatus/0001/RTAStatusText|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_cbc_acstatus_read_o4/srvd_a2x/sap/ztest_cbc_acctstatus/0001/RTAStatusText]
+
+CC: [~accountid:712020:9674f7df-d626-44f5-a153-cc98150148ad] [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] ","29/Aug/25 7:41 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651] Validated URLs, looks fine.","02/Sep/25 12:23 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;I have verified the functionalities, and I accept the user story.","04/Dec/25 5:17 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;Development of this story was done in Z namespace as the team was new, hence the classification is “Internal Tools” there was a separate story to move it to msg namespace where all the process was followed",,,,,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,24/Nov/25 5:17 PM
+Analysis: Modeling & Architecture,SAPRIMGMT-67860,288454,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,29/Jul/25 6:42 PM,17/Dec/25 12:47 PM,17/Dec/25 12:47 PM,17/Dec/25 12:47 PM,CORE,,0,,"*As a* developer, of web services in respect of CBC for accounting related configuration,
+
+*I want to* understand technical requirement of this epic
+
+*So that* I can break into smaller user stories that can be delivered to the customer.
+
+*Action:* Table update for accounting related CBC under the sheet attached in the topic.
+
+*Analysis/work result:*
+
+We have to provide several read-only services, that return all fields (e. g. ID, Short, Long description and inactive Flag) for each specific configuration (exception Create and Change data are not returned). Therefore, we have created OData APIs for the following Accounting CBC services and have tested them. The results are as expected:
+
+For the following configurations separate ODATA services are needed.
+
+* {color:#36b37e}Origin Indicator for an Account/Payment{color} --> SAP_RI_MGMT-68653
+* {color:#36b37e}Account Status{color} --> SAP_RI_MGMT-68654
+* {color:#36b37e}Business Type No.{color} --> SAP_RI_MGMT-68654
+* {color:#ff5630}Module That Created the Account{color} - 23 Oct 2025: PP advised, since the values in that table are not all related to accounts and we currently are not sure if a value from this table is required in an Odata service as an input or output, we decided to not create a CBC service for this in the msg namespace and wait till we know what information we would need for an Odata service from this table and then build a service once we know. --> SAP_RI_MGMT-68654
+* {color:#36b37e}Accounting Function{color} --> SAP_RI_MGMT-68654
+* {color:#36b37e}Account Group Number{color} --> SAP_RI_MGMT-68654
+* {color:#36b37e}Actual/Estimate Indicator{color} --> SAP_RI_MGMT-68655
+* {color:#36b37e}Entry Code{color} --> SAP_RI_MGMT-68655
+* {color:#ff5630}Payment Partner {color}- This is a business object, as per PP this will be taken care later. --> SAP_RI_MGMT-68655
+* {color:#36b37e}Line of Business (LoB){color} --> SAP_RI_MGMT-68655
+* {color:#36b37e}Extension for Postings{color} --> SAP_RI_MGMT-68655
+* {color:#36b37e}Unique Accounting Unit Number{color} --> SAP_RI_MGMT-68655",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@6607ca7a,,,,,,,All Completed,Checklist: 4/4,100.0,"# Default checklist
+* [done] The questions regarding the technical implementation have been clarified and the architecture has been defined.
+* [done] Framework conditions and technical implications are coordinated between product management, team (Dev+PO) and architecture managers.
+* [done] The modeling/sectioning of the services has been completed.
+* [done] Analysis/work result must be documented","​# Default checklist
+​* [done] The questions regarding the technical implementation have been clarified and the architecture has been defined.
+​* [done] Framework conditions and technical implications are coordinated between product management, team (Dev+PO) and architecture managers.
+​* [done] The modeling/sectioning of the services has been completed.
+​* [done] Analysis/work result must be documented",,,Analysis,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwm:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 1,,,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-08-26 16:04:53.686,1_*:*_4_*:*_668970311_*|*_3_*:*_5_*:*_1147031677_*|*_4_*:*_5_*:*_268541711_*|*_6_*:*_5_*:*_9383214463_*|*_10004_*:*_1_*:*_693133093,25/Aug/25 11:54 AM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] Unable to move this user story into “Done” status under the active sprint.,26/Aug/25 9:34 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;Analysis complete,04/Dec/25 1:13 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;Marking it as done as Navin (PO) is out on emergency leave,17/Dec/25 12:17 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;Reopened to remove fixVersion,17/Dec/25 12:18 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;Removed fixVersion as that was not required in this story of type analysis,17/Dec/25 12:47 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;Removed fixversion as that is not required in stories of type analysis,,,,,,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,17/Dec/25 12:47 PM
+Odata service for Treaty Group of type Account Group - Search,SAPRIMGMT-67851,288251,Story,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,28/Jul/25 8:15 PM,18/Nov/25 5:14 PM,,,CORE,,0,PO_NK,"*As a* developer,
+
+*I would like* to search Treaty Groups of type “Account Group”
+
+*So that* I can fetch bundled treaties and their details using Odata services
+
+ 
+
+*Acceptance Criteria*
+
+* When Odata service is invoked with a valid treaty group number, company code, treaty number, group category, etc. (refer to the list in attached excel) then it should return all details of the treaty group
+* If we would like to search treaty group with invalid value, it should return with an error.
+* unit tests must be created
+
+ 
+
+*Implementation Note*:
+
+* List of search criteria for the Odata service is document at [https://msggroup.sharepoint.com/:f:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup?csf=1&web=1&e=hJC0dE|https://msggroup.sharepoint.com/:f:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup?csf=1&web=1&e=hJC0dE|smart-link]",,,,,,,,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@754bf3fb,,,,,,,Not Completed,Checklist: 0/6,0.0,"# Default checklist
+* [open] An OData service functionality is available to search for treaty group with defined criteria.
+* [open] Search criteria can be used on their own or in combination without knowing dependencies.
+* [open] A search can be executed without any given search criteria in order to receive all treaty group.
+* [open] External references can be used for the search even when they are incompletely given. E.g. Ext-Reference ID is filled and Party is empty
+* [open] The search does not find any treaty group that are marked as deleted.
+* [open] If we would like to search treaty group with invalid value, it should return with an error.","​# Default checklist
+​* [open] An OData service functionality is available to search for treaty group with defined criteria.
+​* [open] Search criteria can be used on their own or in combination without knowing dependencies.
+​* [open] A search can be executed without any given search criteria in order to receive all treaty group.
+​* [open] External references can be used for the search even when they are incompletely given. E.g. Ext-Reference ID is filled and Party is empty
+​* [open] The search does not find any treaty group that are marked as deleted.
+​* [open] If we would like to search treaty group with invalid value, it should return with an error.",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwp:x,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,To Do,28/Jul/25 8:15 PM
+Odata service for Treaty Group of type Account Group - Delete,SAPRIMGMT-67850,288249,Story,In Progress,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Siva Sankar Jinugu,712020:81bcabd1-5449-4de7-87e4-9705b255927d,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,28/Jul/25 8:13 PM,24/Dec/25 11:49 AM,24/Dec/25 11:50 AM,,CORE,15/Jan/26 12:00 AM,0,,"*As a* developer,
+
+*I would like* to delete Treaty Group of type Account Group
+
+*So that* I can remove treaty groups which are no longer needed
+
+*Notes for treaty group deletion:*
+
+* If the status of the treaty group is “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+* When the treaty group is deleted, it should be “marked for deletion” not actual delete from database. 
+* If the treaty assigned to the group is deleted, then treaty should be deleted on database level also. 
+* If the group period assigned to the treaty group is deleted, then Group period should be deleted on database level also. 
+* Update the History Tables 
+* Unit Test class needs to be implemented",,,,,,,,403200,316800,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@722a988d,,,,,,,Not Completed,Checklist: 0/7,0.0,"# Default checklist
+* [open] OData service functionality is available to change treaty group or set them deleted.
+* [open] OData service functionality is available to delete subordinated entities of a treaty group.
+* [open] If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+* [open] When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+* [open] Treaty group marked for deletion should not be returned as a part of search result.
+* [open] If we delete the whole treaty group, all dependent entries should exist on DB, and the header should be marked for deletion.
+* [open] If we delete lower-level entities such as period, treaty assignment; the corresponding all dependent objects should be removed from DB.","​# Default checklist
+​* [open] OData service functionality is available to change treaty group or set them deleted.
+​* [open] OData service functionality is available to delete subordinated entities of a treaty group.
+​* [open] If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+​* [open] When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+​* [open] Treaty group marked for deletion should not be returned as a part of search result.
+​* [open] If we delete the whole treaty group, all dependent entries should exist on DB, and the header should be marked for deletion.
+​* [open] If we delete lower-level entities such as period, treaty assignment; the corresponding all dependent objects should be removed from DB.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwo:h,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q4 Sprint 1,TechMonks 2025Q4 Sprint 2,TechMonks 2025Q4 Sprint 3,TechMonks 2026Q1 Sprint 1,,,20.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-11-07 05:04:32.139,,"07/Nov/25 10:34 AM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Deprioritizing this user story due to other Prio topics
+
+CC: [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d]  [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5] ",,,,,,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,In Progress,24/Dec/25 11:49 AM
+Odata service for Treaty Group of type Account Group - Update,SAPRIMGMT-67849,288248,Story,Open,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Dileep Kumar Bandi,712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,28/Jul/25 8:11 PM,16/Dec/25 6:54 PM,,,CORE,,0,,"*As a* developer,
+
+*I would like* to update Treaty Group of type Account Group
+
+*So that* I can amend any details if needed (refer to the list in attached excel).
+
+
+
+*Notes*:
+
+* Follow the proper breakup of user stories to subtasks, rather than doing every activity as part of main user story
+** e.g. IF you are writing test, create one subtask
+** IF you are creating new GTNC, create new subtask
+** If you are changing any existing code, create new subtask
+** If you are changing existing tests, create new subtask
+** If you are following sap standards, create new subtask
+** etc
+
+*Acceptance Criteria:*
+
+* When OData service is invoked with a valid treaty group number with changed information then we should be able to update the treaty group and return the treaty group with the changed information.
+* User should be able to add new group period
+* User should be able to add new treaty to existing group period
+* If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.
+* unit tests must also be written for the services",,,,,,,,230400,28800,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@6b1b1342,,,,,,,Not Completed,Checklist: 0/5,0.0,"# Default checklist
+* [open] OData service functionality is available to change treaty group and other related fields.
+* [open] OData service functionality is available to change subordinated entities of a treaty group.
+* [open] User should be able to add new group period
+* [open] User should be able to add new treaty to existing group period
+* [open] If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.","​# Default checklist
+​* [open] OData service functionality is available to change treaty group and other related fields.
+​* [open] OData service functionality is available to change subordinated entities of a treaty group.
+​* [open] User should be able to add new group period
+​* [open] User should be able to add new treaty to existing group period
+​* [open] If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0cqog:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 2,TechMonks 2025Q4 Sprint 1,,,,,20.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,,,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,To Do,08/Oct/25 11:43 AM
+Odata service for Treaty Group of type Account Group - Read,SAPRIMGMT-67844,288081,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,28/Jul/25 3:47 PM,24/Nov/25 5:14 PM,,24/Nov/25 5:14 PM,CORE,,0,,"*As a* developer,
+
+*I would like* to read Treaty Groups of type “Account Group”
+
+*So that* I can fetch bundled treaties and their details using Odata services
+
+
+
+*Acceptance Criteria*
+
+* When Odata service is invoked with a valid treaty group number, company code, treaty number, group category, etc. (refer to the list in attached excel) then it should return all details of the treaty group
+* If we would like to read treaty group with invalid value, it should return with an error.
+* unit tests must be created",,,,144000,300,,0%,403200,300,,,,,,24/Sep/25 4:52 PM;3ff497ad-7a7e-4c79-84d2-4da0f5a6e55c;image-20250924-111702.png;https://msggroup.atlassian.net/rest/api/3/attachment/content/159424,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@39fab5fd,,,,,,,All Completed,Checklist: 2/2,100.0,"# Default checklist
+* [done] OData service functionality is available to read existing treaty group including all subordinated entities.
+* [done] If we would like to read treaty group with invalid value, it should return with an error.","​# Default checklist
+​* [done] OData service functionality is available to read existing treaty group including all subordinated entities.
+​* [done] If we would like to read treaty group with invalid value, it should return with an error.",,,Internal Tools,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwo:i,,,,,,,,,,Siva Sankar Jinugu,712020:81bcabd1-5449-4de7-87e4-9705b255927d,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 1,TechMonks 2025Q3 Sprint 2,TechMonks 2025Q4 Sprint 1,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-09-24 11:22:49.749,1_*:*_1_*:*_1204649323_*|*_3_*:*_1_*:*_1837383319_*|*_4_*:*_3_*:*_518598655_*|*_5_*:*_1_*:*_69289746_*|*_6_*:*_3_*:*_4683721914_*|*_10004_*:*_1_*:*_1973155305,"24/Sep/25 4:52 PM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Hi [~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5],
+
+We have completed the development of Read Service along with the test classes. Please find the service URL below.
+Can you please check and provide your feedback.
+
+Service URL: {{/sap/opu/odata4/sap/ztest_api_tg_group_read_o4/srvd_a2x/sap/ztest_tg_group_read/0001/}} 
+
+
+FYI: We have added some test cases which we executed under the test group ‘TTYGRP_READ’ in the SAP Gateway Client.
+
+!image-20250924-111702.png|width=2004,height=317,alt=""image-20250924-111702.png""!
+
+ 
+
+
+CC: [~accountid:712020:9674f7df-d626-44f5-a153-cc98150148ad] , [~accountid:712020:a48d6697-10f0-4ab8-b3c8-0b305235071d] ",25/Sep/25 12:08 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:81bcabd1-5449-4de7-87e4-9705b255927d] [~accountid:712020:9674f7df-d626-44f5-a153-cc98150148ad] service URL has been validated. User story accepted.,,,,,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,Done,24/Nov/25 5:14 PM
+Odata service for Treaty Group of type Account Group - Create,SAPRIMGMT-67843,288078,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,28/Jul/25 3:38 PM,03/Dec/25 12:45 PM,,03/Dec/25 12:45 PM,CORE,,0,,"*As a* developer, 
+
+*I would like* to create Treaty Group of type Account Group
+
+*So that* I can bundle treaties to do load balancing for their accountants and assign treaty groups to accountants for accounting responsibilities.
+
+
+
+*Notes*:
+
+* Do we need to create treaty group only of type account group or others as well
+** As part of this user story, scope is limited to only account group type of treaty groups (other categories are forecast and estimate, development etc). 
+** As per PM, customer only wants it for account group
+* Follow the proper breakup of user stories to subtasks, rather than doing every activity as part of main user story
+** e.g. IF you are writing test, create one subtask
+** IF you are creating new GTNC, create new subtask
+** If you are changing any existing code, create new subtask
+** If you are changing existing tests, create new subtask
+** If you are following sap standars, create new subtask
+** etc
+
+
+
+*Acceptance Criteria*
+
+* When OData service is invoked with a valid treaty group information (refer to the list in attached excel) then it should be able to create a treaty group and return a treaty group number along with the passed information.
+* If we would like to create treaty group with invalid value, it should return with an error.
+* Unit tests should be created for the odata services",,,,,,,,57600,0,,,SAPRIMGMT-70261,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@7e075b66,,,,,,,All Completed,Checklist: 3/3,100.0,"# Default checklist
+* [done] OData service functionality is available to create new treaty group (all basic data).
+* [done] OData service functionality is available to create subordinated entities of a treaty group.
+* [done] If we would like to create treaty group with invalid value, it should return with an error.","​# Default checklist
+​* [done] OData service functionality is available to create new treaty group (all basic data).
+​* [done] OData service functionality is available to create subordinated entities of a treaty group.
+​* [done] If we would like to create treaty group with invalid value, it should return with an error.",,,Internal Tools,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwp:i,,,,,,,,,,Akash Shankar,712020:57bf3a73-3012-42a1-a509-f61f74712fb7,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 2,TechMonks 2025Q4 Sprint 1,,,,,20.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-09-23 11:14:11.342,1_*:*_1_*:*_416267014_*|*_3_*:*_1_*:*_1746282501_*|*_4_*:*_4_*:*_519230482_*|*_5_*:*_1_*:*_7309927_*|*_6_*:*_4_*:*_5594136570_*|*_10004_*:*_1_*:*_2765580303,"23/Sep/25 4:44 PM;712020:57bf3a73-3012-42a1-a509-f61f74712fb7;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]  Hi Navin, we have completed the OData service for creating a Treaty Group of type _Account Group_. Kindly validate it using the OData service URL.
+
+/sap/opu/odata4/sap/ztest_api_tg_grphdr_manage_o4/srvd_a2x/sap/ztest_tg_grphdr_manage/0001/
+
+[~accountid:712020:a125c622-db62-42db-bd2f-17f38b199b34] ","23/Sep/25 6:34 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;[~accountid:712020:57bf3a73-3012-42a1-a509-f61f74712fb7] validated with below URL, looks fine
+
+For read: [https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_tg_grphdr_manage_o4/srvd_a2x/sap/ztest_tg_grphdr_manage/0001/GroupHeader?$expand=_Grp($expand=_GrpAsgnmt)|https://vhostrd9.awscloud.msg.de:8443/sap/opu/odata4/sap/ztest_api_tg_grphdr_manage_o4/srvd_a2x/sap/ztest_tg_grphdr_manage/0001/GroupHeader?$expand=_Grp($expand=_GrpAsgnmt)]
+
+For Create: [http://vhostrd9.awscloud.msg.de:8001/sap/opu/odata4/sap/ztest_api_tg_grphdr_manage_o4/srvd_a2x/sap/ztest_tg_grphdr_manage/0001/GroupHeader|http://vhostrd9.awscloud.msg.de:8001/sap/opu/odata4/sap/ztest_api_tg_grphdr_manage_o4/srvd_a2x/sap/ztest_tg_grphdr_manage/0001/GroupHeader]",03/Dec/25 12:45 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;updated story points to 20,,,,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,Done,03/Dec/25 12:45 PM
+Analysis: Modeling & Architecture,SAPRIMGMT-67841,288054,Story,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,28/Jul/25 3:16 PM,17/Dec/25 12:32 PM,17/Dec/25 12:47 PM,17/Dec/25 12:32 PM,CORE,,0,,"*As a* developer, of web services in the Treaty Group environment, 
+
+*I want to* understand technical requirement of this epic 
+
+*So that* I can break into smaller user stories that can be delivered to the customer.
+
+*Action:* To download and update the table for “Treaty Group” of type “Account Group” related CBC wherein we can have all the fields.
+
+*Analysis/Work results:*
+
+* Updated tables and requirement for treaty group - account type under [Treaty_Group_Fields.xlsx|https://msggroup.sharepoint.com/:x:/r/sites/TEA-RI-Products/SAP%20Reinsurance%20Management%20Development/20_Product%20Definition/Supporting%20Docs/65880%20oData%20Services%20for%20TreatyGroup/Treaty_Group_Fields.xlsx?d=w9e713affb71147efaf93a94694a2581f&csf=1&web=1&e=jvcnJg]
+* Create Scenario: [CREATE.txt|https://msggroup-my.sharepoint.com/:t:/g/personal/thirukkumaran_mariappan_msg-global_com/IQC4yt7pPFzKT5djZnHV4FogAdI-hmF7erQEyCsjVsmmXZs?e=6739gr]",,,,,,,,57600,0,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@4d35d081,,,,,,,All Completed,Checklist: 5/5,100.0,"# Default checklist
+* [done] Result of analysis must be documented
+* [done] The questions regarding the technical implementation have been clarified and the architecture has been defined.
+* [done] Framework conditions and technical implications are coordinated between product management, team (Dev+PO) and architecture managers.
+* [done] The modeling/sectioning of the services has been completed.
+* [done] The interface for Accounts Type's CRUD functionalities have been modeled.","​# Default checklist
+​* [done] Result of analysis must be documented
+​* [done] The questions regarding the technical implementation have been clarified and the architecture has been defined.
+​* [done] Framework conditions and technical implications are coordinated between product management, team (Dev+PO) and architecture managers.
+​* [done] The modeling/sectioning of the services has been completed.
+​* [done] The interface for Accounts Type's CRUD functionalities have been modeled.",,,Analysis,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nein,,,,,,,,,2|x0bwwo:,,,,,,,,,,Thirukkumaran Mariappan,712020:a125c622-db62-42db-bd2f-17f38b199b34,,,,,,,,,,,,,,,,,,,,,,,,,TechMonks 2025Q3 Sprint 1,TechMonks 2025Q4 Sprint 3,,,,,13.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-11-16 16:38:00.369,1_*:*_1_*:*_689019770_*|*_3_*:*_1_*:*_1619220093_*|*_4_*:*_5_*:*_1535391971_*|*_5_*:*_1_*:*_423837_*|*_6_*:*_5_*:*_7622993741_*|*_10004_*:*_1_*:*_791831065,02/Sep/25 12:31 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;Modeling & architecture is completed,16/Nov/25 10:08 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;[~accountid:712020:a125c622-db62-42db-bd2f-17f38b199b34] document the analysis and then update the checklist and finally close this ticket,"04/Dec/25 4:28 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;As PO is on emergency leave, i am closing this ticket",05/Dec/25 1:06 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;Initial analysis recorded in the excel based on the fields invloved.,"17/Dec/25 12:19 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;Ticket was reopened to remove FixVersion as that is not required for user stories of type ""Analysis"" ",,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,Done,17/Dec/25 12:32 PM

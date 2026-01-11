@@ -7,261 +7,549 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        Int       @id @default(autoincrement())
-  email     String    @unique
-  password  String
-  name      String
-  role      String    @default("user") // admin, user, manager
-  avatar    String?
-  isActive  Boolean   @default(true)
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+model Epic {
+  id                  Int       @id @default(autoincrement())
+  issueKey            String    @unique // Issue key from Jira (e.g., "SAPRIMGMT-68926")
+  issueId             String    @unique // Jira issue ID
+  summary             String    // Epic summary/title
+  issueType           String    @default("Epic") // Issue type
+  status              String    // Status (New, In Progress, Done, etc.)
+  statusCategory      String?   // Status category
+  priority            String?   // Priority (Low, Medium, High, Highest)
+  resolution          String?   // Resolution if resolved
   
-  // Relations
-  assignedIssues Issue[]    @relation("AssignedTo")
-  createdIssues  Issue[]    @relation("CreatedBy")
-  teamMembers    TeamMember[]
-  projectMembers ProjectMember[]
-  comments       Comment[]
-  attachments    Attachment[]
-  workLogs       WorkLog[]
+  // Project information
+  projectKey          String    // Project key (e.g., "SAPRIMGMT")
+  projectName         String?   // Project name
+  projectType         String?   // Project type
+  projectLead         String?   // Project lead name
+  projectLeadId       String?   // Project lead ID
   
-  @@map("users")
+  // People
+  assignee            String?   // Assignee name
+  assigneeId          String?   // Assignee ID
+  reporter            String?   // Reporter name
+  reporterId          String?   // Reporter ID
+  creator             String?   // Creator name
+  creatorId           String?   // Creator ID
+  
+  // Dates
+  created             DateTime  // Created date
+  updated             DateTime  // Last updated date
+  lastViewed          DateTime? // Last viewed date
+  resolved            DateTime? // Resolved date
+  dueDate             DateTime? // Due date
+  
+  // Epic-specific fields
+  epicName            String?   // Epic name (from custom field)
+  epicStatus          String?   // Epic status (from custom field)
+  epicColor           String?   // Epic color (from custom field)
+  
+  // Estimates and time tracking
+  originalEstimate    Int?      // Original estimate (in seconds)
+  remainingEstimate   Int?      // Remaining estimate (in seconds)
+  timeSpent           Int?      // Time spent (in seconds)
+  workRatio           Float?    // Work ratio
+  storyPoints         Float?    // Story points
+  storyPointsOriginal Float?    // Original story points estimate
+  storyPointsRemaining Float?   // Remaining story points estimate
+  storyPointsRough    Float?    // Rough story points estimate
+  
+  // Additional metadata
+  description         String?   @db.Text // Epic description
+  environment         String?   @db.Text // Environment
+  fixVersions         String?   // Fix versions (comma-separated)
+  components          String?   // Components (comma-separated)
+  labels              String?   // Labels (comma-separated)
+  votes               Int       @default(0) // Number of votes
+  
+  // Team and organization
+  team                String?   // Team name
+  teamDevelopment     String?   // Development team
+  productOwner        String?   // Product owner
+  
+  // Custom fields (commonly used)
+  category            String?   // Category
+  complexity          String?   // Complexity
+  commitment          String?   // Commitment
+  customer            String?   // Customer
+  requestOrigin       String?   // Request origin
+  requestType         String?   // Request type
+  
+  // Timestamps
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  
+  @@map("epics")
+  @@index([projectKey])
+  @@index([status])
+  @@index([assigneeId])
+  @@index([team])
 }
 
-model Project {
-  id          Int      @id @default(autoincrement())
-  name        String
-  key         String   @unique // Project key like "PROJ"
-  description String?
-  status      String   @default("active") // active, archived, completed
-  startDate   DateTime?
-  endDate     DateTime?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+model Story {
+  id                  Int       @id @default(autoincrement())
+  issueKey            String    @unique // Issue key from Jira (e.g., "SAPRIMGMT-71118")
+  issueId             String    @unique // Jira issue ID
+  summary             String    // Story summary/title
+  issueType           String    @default("Story") // Issue type
+  status              String    // Status (New, In Progress, Done, etc.)
+  statusCategory      String?   // Status category
+  priority            String?   // Priority (Low, Medium, High, Highest)
+  resolution          String?   // Resolution if resolved
   
-  // Relations
-  issues      Issue[]
-  sprints     Sprint[]
-  members     ProjectMember[]
+  // Project information
+  projectKey          String    // Project key (e.g., "SAPRIMGMT")
+  projectName         String?   // Project name
+  projectType         String?   // Project type
+  projectLead         String?   // Project lead name
+  projectLeadId       String?   // Project lead ID
   
-  @@map("projects")
+  // People
+  assignee            String?   // Assignee name
+  assigneeId          String?   // Assignee ID
+  reporter            String?   // Reporter name
+  reporterId          String?   // Reporter ID
+  creator             String?   // Creator name
+  creatorId           String?   // Creator ID
+  resolvedBy          String?   // Resolved by name
+  resolvedById        String?   // Resolved by ID
+  
+  // Dates
+  created             DateTime  // Created date
+  updated             DateTime  // Last updated date
+  lastViewed          DateTime? // Last viewed date
+  resolved            DateTime? // Resolved date
+  dueDate             DateTime? // Due date
+  actualStart         DateTime? // Actual start date
+  actualEnd           DateTime? // Actual end date
+  plannedStart        DateTime? // Planned start date
+  plannedEnd          DateTime? // Planned end date
+  targetStart         DateTime? // Target start date
+  targetEnd           DateTime? // Target end date
+  
+  // Parent/Epic relationship
+  parentId            String?   // Parent issue ID
+  parentKey           String?   // Parent issue key (e.g., "SAPRIMGMT-68920")
+  parentSummary       String?   // Parent summary
+  
+  // Epic information (from custom fields)
+  epicName            String?   // Epic name
+  epicStatus          String?   // Epic status
+  epicColor           String?   // Epic color
+  
+  // Sprint information (multiple sprints stored as array)
+  sprints              String[]   @default([]) // Sprints array
+  
+  // Estimates and time tracking
+  originalEstimate    Int?      // Original estimate (in seconds)
+  remainingEstimate   Int?      // Remaining estimate (in seconds)
+  timeSpent           Int?      // Time spent (in seconds)
+  workRatio           Float?    // Work ratio
+  totalOriginalEstimate Int?    // Total original estimate (in seconds)
+  totalRemainingEstimate Int?   // Total remaining estimate (in seconds)
+  totalTimeSpent      Int?      // Total time spent (in seconds)
+  
+  // Story points
+  storyPoints         Float?    // Story points
+  storyPointsOriginal Float?    // Original story points estimate
+  storyPointsRemaining Float?   // Remaining story points estimate
+  storyPointsRough    Float?    // Rough story points estimate
+  storyPointsMagic    Float?    // Magic estimation story points
+  
+  // Additional metadata
+  description         String?   @db.Text // Story description
+  environment         String?   @db.Text // Environment
+  components          String?   // Components (comma-separated)
+  labels              String?   // Labels (comma-separated)
+  votes               Int       @default(0) // Number of votes
+  securityLevel       String?   // Security level
+  
+  // Attachments and links
+  attachments         String?   // Attachments (comma-separated or JSON)
+  inwardLinks         String?   // Inward issue links
+  outwardLinks        String?   // Outward issue links
+  
+  // Team and organization
+  team                String?   // Team name
+  teamDevelopment     String?   // Development team
+  productOwner        String?   // Product owner
+  
+  // Custom fields (commonly used)
+  category            String?   // Category
+  complexity          String?   // Complexity
+  commitment          String?   // Commitment
+  customer            String?   // Customer
+  requestOrigin       String?   // Request origin
+  requestType         String?   // Request type
+  issueOrigin         String?   // Issue origin
+  workCategory        String?   // Work category
+  
+  // Checklist and progress
+  checklistCompleted  String?   // Checklist completed status
+  checklistProgress   String?   // Checklist progress
+  checklistProgressPercent Float? // Checklist progress percentage
+  checklistText       String?   @db.Text // Checklist text
+  
+  // Development and testing
+  testAutomationRequired String? // Test automation required
+  testCases           String?   // Test cases
+  testPlan            String?   // Test plan
+  
+  // Dates from custom fields
+  dateApprovalDone    DateTime? // Date approval done
+  dateConceptDone     DateTime? // Date concept done
+  dateDevelopmentDone DateTime? // Date development done
+  dateTestDone        DateTime? // Date test done
+  dateGoLive          DateTime? // Date go live
+  
+  // Comments (stored as JSON or text)
+  comments            String?   @db.Text // Comments (JSON array or text)
+  
+  // Timestamps
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  
+  @@map("stories")
+  @@index([projectKey])
+  @@index([status])
+  @@index([assigneeId])
+  @@index([team])
+  @@index([parentKey])
+  @@index([created])
+  @@index([dueDate])
 }
 
-model Issue {
-  id          Int      @id @default(autoincrement())
-  key         String   @unique // Issue key like "PROJ-123"
-  summary     String
-  description String?
-  type        String   // bug, feature, task, story, epic
-  priority    String   @default("medium") // low, medium, high, critical
-  status      String   @default("to-do") // to-do, in-progress, in-review, done
-  storyPoints Int?
-  assigneeId  Int?
-  reporterId  Int
-  projectId   Int
-  sprintId    Int?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+model BugNewDev {
+  id                  Int       @id @default(autoincrement())
+  issueKey            String    @unique // Issue key from Jira (e.g., "SAPRIMGMT-70350")
+  issueId             String    @unique // Jira issue ID
+  summary             String    // Bug summary/title
+  issueType           String    @default("Bug (new development)") // Issue type
+  status              String    // Status (Open, In Progress, Close, etc.)
+  statusCategory      String?   // Status category
+  priority            String?   // Priority (Low, Medium, High, Highest)
+  resolution          String?   // Resolution if resolved
   
-  // Relations
-  assignee    User?    @relation("AssignedTo", fields: [assigneeId], references: [id])
-  reporter    User     @relation("CreatedBy", fields: [reporterId], references: [id])
-  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  sprint      Sprint?  @relation(fields: [sprintId], references: [id])
-  comments    Comment[]
-  attachments Attachment[]
-  workLogs    WorkLog[]
+  // Project information
+  projectKey          String    // Project key (e.g., "SAPRIMGMT")
+  projectName         String?   // Project name
+  projectType         String?   // Project type
+  projectLead         String?   // Project lead name
+  projectLeadId       String?   // Project lead ID
   
-  @@map("issues")
+  // People
+  assignee            String?   // Assignee name
+  assigneeId          String?   // Assignee ID
+  reporter            String?   // Reporter name
+  reporterId          String?   // Reporter ID
+  creator             String?   // Creator name
+  creatorId           String?   // Creator ID
+  resolvedBy          String?   // Resolved by name
+  resolvedById        String?   // Resolved by ID
+  
+  // Dates
+  created             DateTime  // Created date
+  updated             DateTime  // Last updated date
+  lastViewed          DateTime? // Last viewed date
+  resolved            DateTime? // Resolved date
+  dueDate             DateTime? // Due date
+  actualStart         DateTime? // Actual start date
+  actualEnd           DateTime? // Actual end date
+  plannedStart        DateTime? // Planned start date
+  plannedEnd          DateTime? // Planned end date
+  targetStart         DateTime? // Target start date
+  targetEnd           DateTime? // Target end date
+  
+  // Parent/Epic relationship
+  parentId            String?   // Parent issue ID
+  parentKey           String?   // Parent issue key (e.g., "SAPRIMGMT-67566")
+  parentSummary       String?   // Parent summary
+  
+  // Epic information (from custom fields)
+  epicName            String?   // Epic name
+  epicStatus          String?   // Epic status
+  epicColor           String?   // Epic color
+  
+  // Sprint information (multiple sprints stored as array)
+  sprints              String[]   @default([]) // Sprints array
+  
+  // Estimates and time tracking
+  originalEstimate    Int?      // Original estimate (in seconds)
+  remainingEstimate   Int?      // Remaining estimate (in seconds)
+  timeSpent           Int?      // Time spent (in seconds)
+  workRatio           Float?    // Work ratio
+  totalOriginalEstimate Int?    // Total original estimate (in seconds)
+  totalRemainingEstimate Int?   // Total remaining estimate (in seconds)
+  totalTimeSpent      Int?      // Total time spent (in seconds)
+  
+  // Story points
+  storyPoints         Float?    // Story points
+  storyPointsOriginal Float?    // Original story points estimate
+  storyPointsRemaining Float?   // Remaining story points estimate
+  storyPointsRough    Float?    // Rough story points estimate
+  storyPointsMagic    Float?    // Magic estimation story points
+  
+  // Additional metadata
+  description         String?   @db.Text // Bug description
+  environment         String?   @db.Text // Environment
+  components          String?   // Components (comma-separated)
+  labels              String?   // Labels (comma-separated)
+  votes               Int       @default(0) // Number of votes
+  securityLevel       String?   // Security level
+  
+  // Attachments and links
+  attachments         String?   // Attachments (comma-separated or JSON)
+  
+  // Team and organization
+  team                String?   // Team name
+  teamDevelopment     String?   // Development team
+  productOwner        String?   // Product owner
+  
+  // Custom fields (commonly used)
+  category            String?   // Category
+  complexity          String?   // Complexity
+  commitment          String?   // Commitment
+  customer            String?   // Customer
+  requestOrigin       String?   // Request origin
+  requestType         String?   // Request type
+  issueOrigin         String?   // Issue origin
+  workCategory        String?   // Work category
+  
+  // Checklist and progress
+  checklistCompleted  String?   // Checklist completed status
+  checklistProgress   String?   // Checklist progress
+  checklistProgressPercent Float? // Checklist progress percentage
+  checklistText       String?   @db.Text // Checklist text
+  
+  // Development and testing
+  testAutomationRequired String? // Test automation required
+  testCases           String?   // Test cases
+  testPlan            String?   // Test plan
+  
+  // Bug-specific fields
+  affectedArtifacts   String?   // Affected artifacts
+  affectedHardware    String?   // Affected hardware
+  affectedServices    String?   // Affected services
+  incidentId          String?   // Incident ID
+  incidentActive      String?   // Incident active status
+  majorIncident       String?   // Major incident flag
+  vulnerability       String?   // Vulnerability
+  
+  // Dates from custom fields
+  dateApprovalDone    DateTime? // Date approval done
+  dateConceptDone      DateTime? // Date concept done
+  dateDevelopmentDone DateTime? // Date development done
+  dateTestDone        DateTime? // Date test done
+  dateGoLive          DateTime? // Date go live
+  dateApprovalProductionEnv DateTime? // Date approval production env
+  dateApprovalStagingEnv DateTime? // Date approval staging env
+  dateApprovalTestEnv DateTime? // Date approval test env
+  
+  // SLA and response times
+  slaStartDate        DateTime? // SLA start date
+  slaTargetDate       DateTime? // SLA target date
+  timeToFirstResponse String?   // Time to first response
+  timeToResolution    String?   // Time to resolution
+  dateOfFirstResponse DateTime? // Date of first response
+  timeInStatus        String?   // Time in status
+  
+  // Satisfaction and quality
+  satisfactionRating  String?   // Satisfaction rating
+  satisfactionDate    DateTime? // Satisfaction date
+  sentiment           String?   // Sentiment
+  solutionApproach    String?   @db.Text // Solution approach
+  solutionProposal    String?   @db.Text // Solution proposal
+  solutionQuality     String?   // Solution quality
+  
+  // Comments (stored as JSON or text)
+  comments            String?   @db.Text // Comments (JSON array or text)
+  
+  // Timestamps
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  
+  @@map("bugs_new_dev")
+  @@index([projectKey])
+  @@index([status])
+  @@index([assigneeId])
+  @@index([team])
+  @@index([parentKey])
+  @@index([created])
+  @@index([dueDate])
+  @@index([epicName])
+  @@index([resolution])
 }
 
-model Sprint {
-  id          Int      @id @default(autoincrement())
-  name        String
-  goal        String?
-  startDate   DateTime
-  endDate     DateTime
-  status      String   @default("planned") // planned, active, completed, cancelled
-  projectId   Int
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+model Subtask {
+  id                  Int       @id @default(autoincrement())
+  issueKey            String    @unique // Issue key from Jira (e.g., "SAPRIMGMT-71319")
+  issueId             String    @unique // Jira issue ID
+  summary             String    // Subtask summary/title
+  issueType           String    @default("Sub-Task") // Issue type
+  status              String    // Status (Open, In Progress, Close, etc.)
+  statusCategory      String?   // Status category
+  priority            String?   // Priority (Low, Medium, High, Highest)
+  resolution          String?   // Resolution if resolved
   
-  // Relations
-  issues      Issue[]
-  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  // Project information
+  projectKey          String    // Project key (e.g., "SAPRIMGMT")
+  projectName         String?   // Project name
+  projectType         String?   // Project type
+  projectLead         String?   // Project lead name
+  projectLeadId       String?   // Project lead ID
   
-  @@map("sprints")
+  // People
+  assignee            String?   // Assignee name
+  assigneeId          String?   // Assignee ID
+  reporter            String?   // Reporter name
+  reporterId          String?   // Reporter ID
+  creator             String?   // Creator name
+  creatorId           String?   // Creator ID
+  resolvedBy          String?   // Resolved by name
+  resolvedById        String?   // Resolved by ID
+  
+  // Dates
+  created             DateTime  // Created date
+  updated             DateTime  // Last updated date
+  lastViewed          DateTime? // Last viewed date
+  resolved            DateTime? // Resolved date
+  dueDate             DateTime? // Due date
+  actualStart         DateTime? // Actual start date
+  actualEnd           DateTime? // Actual end date
+  plannedStart        DateTime? // Planned start date
+  plannedEnd          DateTime? // Planned end date
+  targetStart         DateTime? // Target start date
+  targetEnd           DateTime? // Target end date
+  
+  // Parent relationship (links to Story, Bug, or Epic)
+  parentId            String?   // Parent issue ID
+  parentKey           String?   // Parent issue key (e.g., "SAPRIMGMT-68280")
+  parentSummary       String?   // Parent summary
+  
+  // Epic information (from custom fields)
+  epicName            String?   // Epic name
+  epicStatus          String?   // Epic status
+  epicColor           String?   // Epic color
+  
+  // Sprint information (multiple sprints stored as array)
+  sprints              String[]   @default([]) // Sprints array
+  
+  // Estimates and time tracking
+  originalEstimate    Int?      // Original estimate (in seconds)
+  remainingEstimate    Int?      // Remaining estimate (in seconds)
+  timeSpent           Int?      // Time spent (in seconds)
+  workRatio           Float?    // Work ratio
+  totalOriginalEstimate Int?    // Total original estimate (in seconds)
+  totalRemainingEstimate Int?   // Total remaining estimate (in seconds)
+  totalTimeSpent      Int?      // Total time spent (in seconds)
+  
+  // Story points
+  storyPoints         Float?    // Story points
+  storyPointsOriginal Float?    // Original story points estimate
+  storyPointsRemaining Float?   // Remaining story points estimate
+  storyPointsRough    Float?    // Rough story points estimate
+  storyPointsMagic    Float?    // Magic estimation story points
+  
+  // Additional metadata
+  description         String?   @db.Text // Subtask description
+  environment         String?   @db.Text // Environment
+  components          String?   // Components (comma-separated)
+  labels              String?   // Labels (comma-separated)
+  votes               Int       @default(0) // Number of votes
+  securityLevel       String?   // Security level
+  watchers            String?   // Watchers (comma-separated)
+  watchersId          String?   // Watchers ID
+  
+  // Attachments and links
+  attachments         String?   // Attachments (comma-separated or JSON)
+  inwardLinksCloners  String?   // Inward issue links (Cloners)
+  outwardLinksCloners String?   // Outward issue links (Cloners)
+  inwardLinksRelates  String?   // Inward issue links (Relates)
+  
+  // Team and organization
+  team                String?   // Team name
+  teamDevelopment     String?   // Development team
+  productOwner        String?   // Product owner
+  
+  // Custom fields (commonly used)
+  category            String?   // Category
+  complexity          String?   // Complexity
+  commitment          String?   // Commitment
+  customer            String?   // Customer
+  requestOrigin       String?   // Request origin
+  requestType         String?   // Request type
+  issueOrigin         String?   // Issue origin
+  workCategory        String?   // Work category
+  
+  // Checklist and progress
+  checklistCompleted  String?   // Checklist completed status
+  checklistProgress   String?   // Checklist progress
+  checklistProgressPercent Float? // Checklist progress percentage
+  checklistText       String?   @db.Text // Checklist text
+  
+  // Development and testing
+  testAutomationRequired String? // Test automation required
+  testCases           String?   // Test cases
+  testPlan            String?   // Test plan
+  
+  // Dates from custom fields
+  dateApprovalDone    DateTime? // Date approval done
+  dateConceptDone     DateTime? // Date concept done
+  dateDevelopmentDone DateTime? // Date development done
+  dateTestDone        DateTime? // Date test done
+  dateGoLive          DateTime? // Date go live
+  dateApprovalProductionEnv DateTime? // Date approval production env
+  dateApprovalStagingEnv DateTime? // Date approval staging env
+  dateApprovalTestEnv DateTime? // Date approval test env
+  
+  // SLA and response times
+  slaStartDate        DateTime? // SLA start date
+  slaTargetDate       DateTime? // SLA target date
+  timeToFirstResponse String?   // Time to first response
+  timeToResolution    String?   // Time to resolution
+  dateOfFirstResponse DateTime? // Date of first response
+  timeInStatus        String?   // Time in status
+  
+  // Comments (stored as JSON or text)
+  comments            String?   @db.Text // Comments (JSON array or text)
+  
+  // Timestamps
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  
+  @@map("subtasks")
+  @@index([projectKey])
+  @@index([status])
+  @@index([assigneeId])
+  @@index([team])
+  @@index([parentKey])
+  @@index([created])
+  @@index([dueDate])
+  @@index([epicName])
+  @@index([resolution])
 }
 
-model Team {
-  id          Int      @id @default(autoincrement())
-  name        String
-  description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+model OAuthToken {
+  id                  Int       @id @default(autoincrement())
+  accountId           String    @unique // Atlassian account ID
+  accessToken         String    @db.Text // Encrypted access token
+  refreshToken         String?   @db.Text // Encrypted refresh token
+  expiresAt           DateTime  // Access token expiration
+  scope               String?   // Granted scopes
+  cloudId             String?   // Jira Cloud ID (site ID)
+  siteUrl             String?   // Jira site URL
   
-  // Relations
-  members     TeamMember[]
+  // User information
+  userAccountId       String?   // User account ID from Atlassian
+  userEmail           String?   // User email
+  userName            String?   // User name
   
-  @@map("teams")
-}
-
-model TeamMember {
-  id     Int @id @default(autoincrement())
-  userId Int
-  teamId Int
-  role   String @default("member") // member, lead, admin
+  // Timestamps
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
   
-  // Relations
-  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  team   Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
-  
-  @@unique([userId, teamId])
-  @@map("team_members")
-}
-
-model ProjectMember {
-  id        Int @id @default(autoincrement())
-  userId    Int
-  projectId Int
-  role      String @default("member") // member, lead, admin
-  
-  // Relations
-  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  
-  @@unique([userId, projectId])
-  @@map("project_members")
-}
-
-model Comment {
-  id        Int      @id @default(autoincrement())
-  content   String
-  userId    Int
-  issueId   Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  
-  // Relations
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  issue     Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
-  
-  @@map("comments")
-}
-
-model Attachment {
-  id        Int      @id @default(autoincrement())
-  filename  String
-  filepath  String
-  filesize  Int
-  mimetype  String
-  issueId   Int
-  uploadedBy Int
-  createdAt DateTime @default(now())
-  
-  // Relations
-  issue     Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
-  user      User     @relation(fields: [uploadedBy], references: [id], onDelete: Cascade)
-  
-  @@map("attachments")
-}
-
-model WorkLog {
-  id          Int      @id @default(autoincrement())
-  timeSpent   Int      // Time spent in seconds
-  description String?
-  userId      Int
-  issueId     Int
-  loggedAt    DateTime @default(now())
-  
-  // Relations
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  issue       Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
-  
-  @@map("work_logs")
-}
-
-// Jira Import Configuration
-model ImportConfig {
-  id                Int      @id @default(autoincrement())
-  teamName          String
-  projectKey        String   // Jira project key
-  jiraBaseUrl       String   // Jira instance URL
-  importStartDate   DateTime // Start date for data import
-  authType          String   @default("api") // "api" or "cookie"
-  authToken         String?  // Base64 encoded API token (for API auth)
-  cookies           String?  // Browser cookies (for cookie auth)
-  isActive          Boolean  @default(true)
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  
-  @@unique([teamName, projectKey])
-  @@map("import_configs")
-}
-
-// Jira Epic Data (imported from Jira)
-model JiraEpic {
-  id                  Int      @id @default(autoincrement())
-  jiraKey             String   @unique // Epic key from Jira (e.g., "PROJ-123")
-  summary             String
-  status              String
-  dueDate             DateTime?
-  priority            String?
-  fixVersions         String?  // Comma-separated fix versions
-  roughEstimate       Float?   // Story points
-  originalEstimate    Float?   // Story points
-  remainingEstimate   Float?   // Story points
-  teamName            String
-  projectKey          String
-  lastImported        DateTime @default(now())
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  
-  @@map("jira_epics")
-}
-
-// Jira Issue Data (imported from Jira)
-model JiraIssue {
-  id                  Int      @id @default(autoincrement())
-  jiraKey             String   @unique // Issue key from Jira (e.g., "PROJ-123")
-  issueType           String   // Task, Story, Bug, etc.
-  summary             String
-  status              String
-  dueDate             DateTime?
-  created             DateTime
-  updated             DateTime
-  resolved            DateTime?
-  resolution          String?
-  storyPoints         Float?
-  epicLink            String?  // Link to parent epic
-  backlogPriority     Float?   // Backlog priority
-  sprintState         String?  // active, closed, future
-  lastAssignedSprint  String?  // Name of last assigned sprint
-  sprintStartDate     DateTime?
-  sprintEndDate       DateTime?
-  teamName            String
-  projectKey          String
-  lastImported        DateTime @default(now())
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  
-  @@map("jira_issues")
-}
-
-// Import Log for tracking import activities
-model ImportLog {
-  id          Int      @id @default(autoincrement())
-  teamName    String
-  projectKey  String
-  importType  String   // "epic", "issue", "full"
-  status      String   // "started", "completed", "failed"
-  startTime   DateTime
-  endTime     DateTime?
-  recordsProcessed Int @default(0)
-  errorMessage String?
-  createdAt   DateTime @default(now())
-  
-  @@map("import_logs")
+  @@map("oauth_tokens")
+  @@index([accountId])
+  @@index([userAccountId])
 }

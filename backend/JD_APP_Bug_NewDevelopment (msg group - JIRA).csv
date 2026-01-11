@@ -1,0 +1,383 @@
+Summary,Issue key,Issue id,Issue Type,Status,Project key,Project name,Project type,Project lead,Project lead id,Project description,Project url,Priority,Resolution,Assignee,Assignee Id,Reporter,Reporter Id,Creator,Creator Id,Created,Updated,Last Viewed,Resolved,Components,Due date,Votes,Description,Environment,Original estimate,Remaining Estimate,Time Spent,Work Ratio,Σ Original Estimate,Σ Remaining Estimate,Σ Time Spent,Security Level,Attachment,Custom field (Actual end),Custom field (Actual start),Custom field (Affected artifacts),Custom field (Affected hardware),Custom field (Affected services),Custom field (Approvals),Custom field (BAdI-Interface changed),Custom field (Binding period),Custom field (Category),Custom field (Change reason),Custom field (Change risk),Custom field (Change type),Custom field (Checklist Completed),Custom field (Checklist Progress),Custom field (Checklist Progress %),Custom field (Checklist Text),Custom field (Checklist Text (view-only)),Custom field (Clarification (external)),Custom field (Clarification (internal)),Custom field (Classification (Issue)),Custom field (Classification (Ticket)),Custom field (Committment),Custom field (Complexity),Custom field (Contact),Custom field (Contact (Customer)),Custom field (Customer),Custom field (Customer (information)),Custom field (Data Dictionary changed),Custom field (Date (Approval Production Env)),Custom field (Date (Approval Staging Env)),Custom field (Date (Approval Test Env)),Custom field (Date (Approval done)),Custom field (Date (Concept done)),Custom field (Date (Delivery) - DUPLICATE),Custom field (Date (Development done)),Custom field (Date (Go Live)),Custom field (Date (Test done)),Custom field (Deadline (approval)),Custom field (Deadline (internal)),Custom field (Deadline (questions)),Custom field (Decision),Custom field (Decision maker),Custom field (Development),Custom field (Duration (expected)),Custom field (Effort),Custom field (Effort (person days)),Custom field (Effort (person hours)),Custom field (Epic Color),Custom field (Epic Name),Custom field (Epic Status),Custom field (Estimate (person days)),Custom field (Estimate (person hours)),Custom field (Estimate (t-shirt sizes)),Custom field (Estimation (assumption)),Custom field (External ID),Custom field (External attachment),Custom field (External link),Custom field (Focus Areas),Custom field (Goals),Custom field (HP-QC Creator),Custom field (HP-QC Driver),Custom field (HP-QC ID),Custom field (HP-QC Processor),Custom field (Implementation plan),Custom field (Imported Issue),Custom field (Incident ID),Custom field (Incident active),Custom field (Issue color),Custom field (Issue origin),Custom field (Last assignee),Custom field (Last automatic update),Custom field (Locked forms),Custom field (Major incident),Custom field (Manual completed),Custom field (Open forms),Custom field (PSP element),Custom field (Planned end),Custom field (Planned start),Custom field (Priority (customer)),Custom field (Product owner),Custom field (Project overview key),Custom field (Project overview status),Custom field (Rank),Custom field (Relevant for manual),Custom field (Reported version),Custom field (Repository (Revision)),Custom field (Request Origin),Custom field (Request Type),Custom field (Request language),Custom field (Request number),Custom field (Request participants),Custom field (Requester),Custom field (Resolved by),Custom field (Resolved by)Id,Custom field (Responders),Custom field (Rough estimation),Custom field (SAP IC Accessibility),Custom field (SAP IC Business Configuration),Custom field (SAP IC Functional Correctness),Custom field (SAP IC Globalization),Custom field (SAP IC Integration),Custom field (SAP IC Licensing),Custom field (SAP IC Operations & Support),Custom field (SAP IC Performance),Custom field (SAP IC Security),Custom field (SAP IC Software Lifecycle),Custom field (SAP IC UX Consistency),Custom field (SAP IC User Assistance),Custom field (SAP Notes),Custom field (SLA Start date),Custom field (SLA Target date),Satisfaction rating,Custom field (Satisfaction date),Custom field (Sentiment),Custom field (Serviceklasse (migrated)),Custom field (Solution approach),Custom field (Solution proposal),Custom field (Solution quality),Sprint,Sprint,Custom field (Start date),Custom field (Story Points),Custom field (Story Points (magic estimation)),Custom field (Story Points (original estimation)),Custom field (Story Points (remaining estimation)),Custom field (Story Points (rough estimation)),Custom field (Story point estimate),Custom field (Subject),Custom field (Submitted forms),Custom field (Supporter),Custom field (System),Custom field (System (customer)),Custom field (System name),Custom field (Target end),Custom field (Target start),Custom field (Team),Custom field (Team (Development)),Custom field (Test automation required),Custom field (Test cases),Custom field (Test plan),Custom field (Time to first response),Custom field (Time to resolution),Custom field (Total forms),Custom field (Transfer order),Custom field (Vulnerability),Custom field (Work category),Custom field ([CHART] Date of First Response),Custom field ([CHART] Time in Status),Comment,Comment,Comment,Comment,Parent,Parent key,Parent summary,Status Category,Status Category Changed
+CORE - CBC Accounting Entry Code - Missing fields in CBC service,SAPRIMGMT-70350,344405,Bug (new development),Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,,,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,05/Nov/25 11:22 AM,17/Dec/25 12:58 PM,17/Dec/25 12:58 PM,17/Dec/25 12:58 PM,CORE,25/Nov/25 12:00 AM,0,"Need to expose the description for following fields,
+
+*Need to add the list, preparation in progress.",,,,,,316800,0,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@20a2888c,,,,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0dsc5:v,,,,Internal,,,,,,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,,,,,,,,,,,,,,,,,,,,,,"+*Current functional status:*+
+
+# Following fields are not exposed in the Entry Code accounting CBC service,
+## ReinsurEntryCodeSignShortName
+## ReinsurEntryCodeSignName 
+## ReinsurEntryCodeRsrvShortName
+## ReinsurEntryCodeReserveName
+## ReinsurEntryCodeTypeShortName
+## ReinsurEntryCodeTypeName
+## ReinsurEntryCodeCarryFwdName
+## ReinsurFundRtntnOrRelShortName
+## ReinsurFundRtntnOrRelName
+## ReinsurCurAcctPostingShortName
+## ReinsurCurAccountPostingName
+## ReinsurEntrCodeFundTypShrtName
+## ReinsurEntryCodeFundTypeName
+## ReinsurEntryCodeAccrDefrlName
+## ReinsurEntrCdOpngRsrvShortName
+## ReinsurEntrCodeOpngReserveName
+## ReinsurEntrCdClsgRsrvShortName
+## ReinsurEntrCodeClsgReserveName
+## einsurCededEntryCodeShortName
+## ReinsurCededEntryCodeName
+## ReinsurPrtfloEntrCodeShortName
+## ReinsurPrtfloEntryCodeName
+
++*Target functional status:*+
+
+Above mentioned missing fields needs to be exposed.
+
++*Technical description of the change:*+
+
+# Created Basic views to expose the fields from the table
+# Created Interface views to expose the fields from the Basic views
+# Created Consumption views to expose the fields from the Interface views
+# Newly created Consumption views have been used in Entry Code CBC service to expose the requested fields.
+
++*Test description (alternatively: Zephyr test process):*+
+
++*SAP Product Standards*+ (i) 
+The [SAP Product Standards|https://msggroup.sharepoint.com/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9F421DF9-6457-42FA-BD7E-94238BC74531%7D&file=SAP%20RM%20-%20Product%20Standard%20Requirements.xlsx&action=default&mobileredirect=true] must be observed when making changes to existing system behavior.
+All contact persons regarding product standards can be found in this [overview|https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Roles-and-Responsibilities.aspx#product-standard-owners-and-co-owners].
+
++*Affected correction requests:*+",,,TechMonks 2025Q4 Sprint 2,TechMonks 2025Q4 Sprint 3,,2.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-12-03 06:48:19.009,1_*:*_1_*:*_169965113_*|*_3_*:*_2_*:*_1615553514_*|*_4_*:*_2_*:*_118680857_*|*_5_*:*_2_*:*_311250_*|*_6_*:*_2_*:*_1729861701,03/Dec/25 12:18 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;reopened to update solution approach,05/Dec/25 12:02 PM;712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a;Updated the solution information and got it reviewed by Navin.,17/Dec/25 12:55 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;Reopening to remove fixversion from subtask,17/Dec/25 12:58 PM;712020:a48d6697-10f0-4ab8-b3c8-0b305235071d;It was reopened to remove fixversion from a subtask as that was wrongly set,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,17/Dec/25 12:58 PM
+CORE - CBC Accounting Business Type - Missing fields in CBC service,SAPRIMGMT-70349,344404,Bug (new development),Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,05/Nov/25 11:10 AM,05/Dec/25 12:06 PM,,05/Dec/25 12:01 PM,CORE,25/Nov/25 12:00 AM,0,"Need to expose the description for the field ReinsurBusinessTypeValue.
+
+Following tables will provide the required description details,
+
+Table: /MSG/RGARTKZ
+Field: GARTKZ - Business Type Indicator
+
+Table: /MSG/RGARTKZBEZ
+Field: GARTKZ_KBEZ - Business Type (Short Name) 
+Field: GARTKZBEZ - Name (Long Name)",,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@293a6c44,,,,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0dsc5:r,,,,Internal,,,,,,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,,,,,,,,,,,,,,,,,,,,,,"+*Current functional status:*+ 
+
+# Following fields are not exposed in the Business Type accounting CBC service,
+## Business Type Indicator Short Name
+## Business Type Indicator Name
+
++*Target functional status:*+
+
+Above mentioned missing fields needs to be exposed.
+
++*Technical description of the change:*+
+
+# Created following objects to expose the missing fields in the CBC service,
+## Created Basic view for following tables,
+### /MSG/RGARTKZ - Business Type Indicator
+### /MSG/RGARTKZBEZ - Business Type Indicator
+# Created Interface views to expose the fields from the Basic views
+# Created Consumption views to expose the fields from the Interface views
+# Newly created Consumption views have been used in Business Type CBC service to expose following fields,
+## Business Type Indicator Short Name
+## Business Type Indicator Name      
+
++*Test description (alternatively: Zephyr test process):*+
+
++*SAP Product Standards*+ (i) 
+The [SAP Product Standards|https://msggroup.sharepoint.com/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9F421DF9-6457-42FA-BD7E-94238BC74531%7D&file=SAP%20RM%20-%20Product%20Standard%20Requirements.xlsx&action=default&mobileredirect=true] must be observed when making changes to existing system behavior.
+All contact persons regarding product standards can be found in this [overview|https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Roles-and-Responsibilities.aspx#product-standard-owners-and-co-owners].
+
++*Affected correction requests:*+
+
+# RD9K044156 - FS-RI 809: E 67566 CORE - Initial Development
+# RD9K045075 - FS-RI 809: E 67566 CORE - Correction Request",,,TechMonks 2025Q4 Sprint 2,TechMonks 2025Q4 Sprint 3,,2.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-12-03 06:48:11.555,1_*:*_1_*:*_105177997_*|*_3_*:*_2_*:*_1271730543_*|*_4_*:*_1_*:*_113597220_*|*_5_*:*_1_*:*_354921444_*|*_6_*:*_1_*:*_691438995,"07/Nov/25 10:20 AM;712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a;[~accountid:712020:8ccf6a77-b6ef-4aa4-a3b2-c98e5a8ea651] 
+Please use the below name to create Basic views.
+
+/MSG/I_BusinessTypeValueB
+/MSG/I_BusinessTypeValueTxtB",03/Dec/25 12:18 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;reopened to update solution approach,05/Dec/25 12:01 PM;712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a;Updated the solution information and got it reviewed by Navin.,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,05/Dec/25 12:01 PM
+CORE - CBC Accounting Actual/Estimate Indicator - Missing fields in CBC service,SAPRIMGMT-70341,344237,Bug (new development),Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,04/Nov/25 4:40 PM,05/Dec/25 12:06 PM,12/Dec/25 3:06 PM,05/Dec/25 12:00 PM,CORE,25/Nov/25 12:00 AM,0,"Need to expose the description for the field ReinsurActlEstIndResolveType.
+
+Following tables will provide the required description details,
+
+Table: /MSG/RRESOTYP - Estimate Account Reversal Method
+Field: RESOLVE_TYPE
+
+Table: /MSG/RRESOTYPBEZ - Estimate Account Reversal Method
+Field: RESOLVE_TYP_KBEZ - Short Name
+Field: RESOLVE_TYPBEZ - Long Name",,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@57849d,,,,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0dsc5:i,,,,Internal,,,,,,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,,,,,,,,,,,,,,,,,,,,,,"+*Current functional status:*+
+
+# Following fields are not exposed in the Estimate Indicator accounting CBC service,
+## Resolve Type Short Name
+## Resolve Type Name
+
++*Target functional status:*+
+
+Above mentioned missing fields needs to be exposed.
+
++*Technical description of the change:*+
+
+# Created following objects to expose the missing fields in the CBC service,
+## Created Basic view for following tables,
+### /MSG/RRESOTYP - Estimate Account Reversal Method
+### /MSG/RRESOTYPBEZ - Estimate Account Reversal Method
+# Created Interface views to expose the fields from the Basic views
+# Created Consumption views to expose the fields from the Interface views
+# Newly created Consumption views have been used in Business Type CBC service to expose following fields,
+## Resolve Type Short Name
+## Resolve Type Name
+
++*Test description (alternatively: Zephyr test process):*+
+
++*SAP Product Standards*+ (i) 
+The [SAP Product Standards|https://msggroup.sharepoint.com/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9F421DF9-6457-42FA-BD7E-94238BC74531%7D&file=SAP%20RM%20-%20Product%20Standard%20Requirements.xlsx&action=default&mobileredirect=true] must be observed when making changes to existing system behavior.
+All contact persons regarding product standards can be found in this [overview|https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Roles-and-Responsibilities.aspx#product-standard-owners-and-co-owners].
+
++*Affected correction requests:*+",,,TechMonks 2025Q4 Sprint 2,TechMonks 2025Q4 Sprint 3,,2.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-12-03 06:48:03.125,1_*:*_2_*:*_931558747_*|*_3_*:*_4_*:*_776482573_*|*_4_*:*_1_*:*_113591700_*|*_5_*:*_2_*:*_90039297_*|*_6_*:*_1_*:*_691785716,"07/Nov/25 10:21 AM;712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a;Hi [~accountid:712020:18187fe5-0ec8-4f23-9ef1-54b6e07dd101] 
+
+Please use below name to create Basic Views,
+/MSG/I_EstResolveTypeValueB
+/MSG/I_EstResolveTypeValueTxtB",03/Dec/25 12:18 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;reopened to update solution approach,05/Dec/25 12:00 PM;712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a;Updated the solution information and got it reviewed by Navin.,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,05/Dec/25 12:00 PM
+CORE - CBC Accounting LoB - Missing fields in CBC service,SAPRIMGMT-70339,344228,Bug (new development),Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,Done,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,04/Nov/25 4:09 PM,05/Dec/25 12:07 PM,16/Dec/25 12:54 PM,05/Dec/25 11:59 AM,CORE,25/Nov/25 12:00 AM,0,"Following fields are missing in the CBC service,
+
+# ReinsurHierarchyNodeIsLeaf
+# ReinsurHierarchyNodeIsInactive
+# ReinsurHierarchyNodeIsTopNode
+
+The missing fields are available in the standard basic view {{/MSG/I_RLineOfBusinessBasic}}",,,,,,288000,0,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@13761c60,,,,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0dsc5:,,,,Internal,,,,,,Anand Dhandapani,712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a,,,,,,,,,,,,,,,,,,,,,,"+*Current functional status:*+
+
+# Following fields are not exposed in the Line of Business accounting CBC service,
+## ReinsurHierarchyNodeIsLeaf
+## ReinsurHierarchyNodeIsInactive
+## ReinsurHierarchyNodeIsTopNode
+
++*Target functional status:*+
+
+Above mentioned missing fields needs to be exposed.
+
++*Technical description of the change:*+
+
+# Missing fields are available in the following Basic view, 
+## /MSG/I_RLineOfBusinessBasic
+# Adjusted the Interface views to expose the missing fields
+# Adjusted the Consumption views to expose the missing fields.
+
++*Test description (alternatively: Zephyr test process):*+
+
++*SAP Product Standards*+ (i) 
+The [SAP Product Standards|https://msggroup.sharepoint.com/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9F421DF9-6457-42FA-BD7E-94238BC74531%7D&file=SAP%20RM%20-%20Product%20Standard%20Requirements.xlsx&action=default&mobileredirect=true] must be observed when making changes to existing system behavior.
+All contact persons regarding product standards can be found in this [overview|https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Roles-and-Responsibilities.aspx#product-standard-owners-and-co-owners].
+
++*Affected correction requests:*+",,,TechMonks 2025Q4 Sprint 2,TechMonks 2025Q4 Sprint 3,,2.0,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-11-11 05:16:49.729,1_*:*_1_*:*_239727833_*|*_3_*:*_3_*:*_400731486_*|*_4_*:*_1_*:*_113589193_*|*_5_*:*_1_*:*_1214246305_*|*_6_*:*_1_*:*_691951332,11/Nov/25 10:46 AM;712020:81bcabd1-5449-4de7-87e4-9705b255927d;Bug fixing has been completed.,03/Dec/25 12:17 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;reopened to update solution approach,05/Dec/25 11:58 AM;712020:0adc7f3b-7af2-4338-98a1-5a78f9b4ee3a;Updated the solution information and got it reviewed by Navin.,,275023,SAPRIMGMT-67566,CORE - CBC services for accounting related configuration,Done,05/Dec/25 11:59 AM
+CORE - Odata Treaty Group: Posting allowed period status without assigned treaty,SAPRIMGMT-69599,337847,Bug (new development),Open,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Thirukkumaran Mariappan,712020:a125c622-db62-42db-bd2f-17f38b199b34,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,13/Oct/25 7:10 PM,13/Oct/25 7:14 PM,18/Dec/25 1:37 PM,,CORE,,0,"It must not be possible to use a posting allowed status on a treaty group period if for the treaty group period no treaty is assigned. Status 10 on RD9 700 has flag posting allowed.
+
+Example request
+
+
+{noformat}--batch
+content-type: multipart/mixed; boundary=changeset
+
+--changeset
+content-type: application/http
+content-id: ""Entry1""
+
+POST /sap/opu/odata4/sap/ztest_api_tg_grphdr_manage_o4/srvd_a2x/sap/ztest_tg_grphdr_manage/0001/GroupHeader HTTP/1.1
+Content-Type: application/json
+Accept:application/json;odata.metadata=minimal;IEEE754Compatible=true
+Accept-Language:de-DE
+
+{
+  ""ReinsurGroupText"": ""TME Test Service"",
+  ""ReinsurGroupType"": ""1"",
+  ""ReinsurGroupCompanyCode"": ""ISR1"",
+  ""_Grp"": [ {
+          ""ReinsurGroupStartDate"" : ""2023-01-01"",
+          ""ReinsurGroupStatus"" : ""10"",
+          ""ReinsurGroupChngRsn"" : ""2""
+    },
+    {
+          ""ReinsurGroupStartDate"" : ""2022-01-01"",
+          ""ReinsurGroupStatus"" : ""2"",
+          ""ReinsurGroupChngRsn"" : ""2""
+    } ]
+
+}
+
+--changeset--
+
+--batch--{noformat}
+
+
+
+",,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@982fb9a,,,,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0d624:,,,,Internal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"*+Current functional status:+*
+
+*+Target functional status:+*
+
+*+Technical description of the change:+*
+
+*+Test description (alternatively: Zephyr test process):+*
+
+*+SAP Product Standards+* (i) 
+The [SAP Product Standards|https://msggroup.sharepoint.com/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9F421DF9-6457-42FA-BD7E-94238BC74531%7D&file=SAP%20RM%20-%20Product%20Standard%20Requirements.xlsx&action=default&mobileredirect=true] must be observed when making changes to existing system behavior.
+All contact persons regarding product standards can be found in this [overview|https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Roles-and-Responsibilities.aspx#product-standard-owners-and-co-owners].
+
+*+Affected correction requests:+*
+
+",,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,To Do,13/Oct/25 7:10 PM
+CORE - Odata Treaty Group: Configuration for group header treaty mandatory not considered,SAPRIMGMT-69597,337821,Bug (new development),Open,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Thirukkumaran Mariappan,712020:a125c622-db62-42db-bd2f-17f38b199b34,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,13/Oct/25 5:57 PM,13/Oct/25 7:13 PM,18/Dec/25 1:37 PM,,CORE,,0,If I set the flag TTY (Y/N) for the group category in the configuration to mandatory it is still possible to create a treaty group through the odata service without group header treaty. There should be a check which prevents this based on the configuration.,,,,,,,,,,13/Oct/25 5:58 PM;12b1aaa8-07aa-466b-8613-3d5673ef13f8;Screenshot 2025-10-13 142708.png;https://msggroup.atlassian.net/rest/api/3/attachment/content/160708,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@716f8060,,,,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0d5z0:,,,,Internal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"*+Current functional status:+*
+
+*+Target functional status:+*
+
+*+Technical description of the change:+*
+
+*+Test description (alternatively: Zephyr test process):+*
+
+*+SAP Product Standards+* (i) 
+The [SAP Product Standards|https://msggroup.sharepoint.com/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9F421DF9-6457-42FA-BD7E-94238BC74531%7D&file=SAP%20RM%20-%20Product%20Standard%20Requirements.xlsx&action=default&mobileredirect=true] must be observed when making changes to existing system behavior.
+All contact persons regarding product standards can be found in this [overview|https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Roles-and-Responsibilities.aspx#product-standard-owners-and-co-owners].
+
+*+Affected correction requests:+*
+
+",,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,To Do,13/Oct/25 5:57 PM
+CORE - Odata Treaty Group: Create does not populate field /MSG/RGRP_HD-GRP_TXT_CPT,SAPRIMGMT-69595,337787,Bug (new development),Open,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Thirukkumaran Mariappan,712020:a125c622-db62-42db-bd2f-17f38b199b34,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,13/Oct/25 4:11 PM,04/Dec/25 3:42 PM,18/Dec/25 1:37 PM,,CORE,,0,"A treaty group created with the odata service is not found during search on the SAP GUI when a description is used for search.
+Reason seems to be that the field /MSG/RGRP_HD-GRP_TXT_CPT is not populated it should receive GRP_TXT in uppercase.
+
+Compare on RD9 700 group 2085. T-code /MSG/R_VG2: If I search e.g. with group number 208* the group is returned. If I only search with TME Test* in the field description the group 2085 is not part of the search result",,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@257edb4,,,,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0d5tw:,,,,Internal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"*+Current functional status:+*
+
+*+Target functional status:+*
+
+*+Technical description of the change:+*
+
+*+Test description (alternatively: Zephyr test process):+*
+
+*+SAP Product Standards+* (i) 
+The [SAP Product Standards|https://msggroup.sharepoint.com/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9F421DF9-6457-42FA-BD7E-94238BC74531%7D&file=SAP%20RM%20-%20Product%20Standard%20Requirements.xlsx&action=default&mobileredirect=true] must be observed when making changes to existing system behavior.
+All contact persons regarding product standards can be found in this [overview|https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Roles-and-Responsibilities.aspx#product-standard-owners-and-co-owners].
+
+*+Affected correction requests:+*
+
+",,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,04/Dec/25 3:42 PM;712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]: This bug seems not fixed,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,To Do,13/Oct/25 4:11 PM
+CORE - Odata Treaty Group: Only account groups must be created,SAPRIMGMT-69589,337755,Bug (new development),Open,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Thirukkumaran Mariappan,712020:a125c622-db62-42db-bd2f-17f38b199b34,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,13/Oct/25 2:31 PM,04/Dec/25 2:23 PM,18/Dec/25 1:37 PM,,CORE,,0,"The Odata service to create treaty groups should only support creation of treaty groups with category account groups. An account group category is identified by the flag account set in the group category configuration. Currently only group category 1 is supported which is not an account group.
+Request works although not a category account group provided
+
+
+{noformat}--batch
+content-type: multipart/mixed; boundary=changeset
+
+--changeset
+content-type: application/http
+content-id: ""Entry1""
+
+POST /sap/opu/odata4/sap/ztest_api_tg_grphdr_manage_o4/srvd_a2x/sap/ztest_tg_grphdr_manage/0001/GroupHeader HTTP/1.1
+Content-Type: application/json
+Accept:application/json;odata.metadata=minimal;IEEE754Compatible=true
+Accept-Language:de-DE
+
+{
+
+  ""ReinsurGroupText"": ""TME Test Service"",
+  ""ReinsurGroupType"": ""1"",
+  ""ReinsurTreatyInternalID"": ""1059441"",
+  ""ReinsurGroupCompanyCode"": ""ISR1""
+
+}
+
+--changeset--
+
+--batch-- {noformat}
+
+Request fails although a account group was provided 
+
+
+{noformat}--batch
+content-type: multipart/mixed; boundary=changeset
+
+--changeset
+content-type: application/http
+content-id: ""Entry1""
+
+POST /sap/opu/odata4/sap/ztest_api_tg_grphdr_manage_o4/srvd_a2x/sap/ztest_tg_grphdr_manage/0001/GroupHeader HTTP/1.1
+Content-Type: application/json
+Accept:application/json;odata.metadata=minimal;IEEE754Compatible=true
+Accept-Language:de-DE
+
+{
+
+  ""ReinsurGroupText"": ""TME Test Service"",
+  ""ReinsurGroupType"": ""ACC"",
+  ""ReinsurTreatyInternalID"": ""1059441"",
+  ""ReinsurGroupCompanyCode"": ""ISR1""
+
+}
+
+--changeset--
+
+--batch--{noformat}",,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@d366877,,,,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0d5p0:,,,,Internal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"*+Current functional status:+*
+
+*+Target functional status:+*
+
+*+Technical description of the change:+*
+
+*+Test description (alternatively: Zephyr test process):+*
+
+*+SAP Product Standards+* (i) 
+The [SAP Product Standards|https://msggroup.sharepoint.com/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9F421DF9-6457-42FA-BD7E-94238BC74531%7D&file=SAP%20RM%20-%20Product%20Standard%20Requirements.xlsx&action=default&mobileredirect=true] must be observed when making changes to existing system behavior.
+All contact persons regarding product standards can be found in this [overview|https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Roles-and-Responsibilities.aspx#product-standard-owners-and-co-owners].
+
+*+Affected correction requests:+*
+
+",,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,"04/Dec/25 2:12 PM;712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]: I created two new group categories which have the flag accounting set but I cannot use them to create groups. It is 6 and 7 on RD9. 
+{
+
+  ""ReinsurGroupText"": ""TME Test Service"",
+  ""ReinsurGroupType"": ""7"",
+  ""ReinsurTreatyInternalID"": ""1059441"",
+  ""ReinsurGroupCompanyCode"": ""ISR1"",
+  ""_Grp"": [ {
+          ""ReinsurGroupStartDate"" : ""2023-01-01"",
+          ""ReinsurGroupStatus"" : ""9"",
+          ""ReinsurGroupChngRsn"" : ""2""
+    },
+    {
+          ""ReinsurGroupStartDate"" : ""2022-01-01"",
+          ""ReinsurGroupStatus"" : ""2"",
+          ""ReinsurGroupChngRsn"" : ""2""
+    } ]
+
+}","04/Dec/25 2:23 PM;712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]: It seems kind of random if the request goes successfully through with the accounting group group types ACC, 6 and 7. 6 never works. ACC and 7 sometimes work sometimes not, somebody should check the coding around group type….",,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,To Do,13/Oct/25 2:31 PM
+CORE - Odata Treaty Group: External numbering not applied,SAPRIMGMT-69588,337747,Bug (new development),Open,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Thirukkumaran Mariappan,712020:a125c622-db62-42db-bd2f-17f38b199b34,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,13/Oct/25 2:23 PM,04/Dec/25 2:34 PM,18/Dec/25 1:37 PM,,CORE,,0,"When I send a create request with an external number for a treaty group, the external number is not used instead an internal number is applied.
+Request used: /sap/opu/odata4/sap/ztest_api_tg_grphdr_manage_o4/srvd_a2x/sap/ztest_tg_grphdr_manage/0001/$batch
+
+--batch
+content-type: multipart/mixed; boundary=changeset
+
+--changeset
+content-type: application/http
+content-id: ""Entry1""
+
+POST /sap/opu/odata4/sap/ztest_api_tg_grphdr_manage_o4/srvd_a2x/sap/ztest_tg_grphdr_manage/0001/GroupHeader HTTP/1.1
+Content-Type: application/json
+Accept:application/json;odata.metadata=minimal;IEEE754Compatible=true
+Accept-Language:de-DE
+
+{
+  {color:#ff5630}""ReinsurGroupInt"": ""TME_1001"",{color}
+  ""ReinsurGroupText"": ""TME Test Service"",
+  ""ReinsurGroupType"": ""1"",
+  ""ReinsurTreatyInternalID"": ""1059441"",
+  ""ReinsurGroupCompanyCode"": ""ISR1""
+
+}
+
+--changeset--
+
+--batch--
+",,,,,,,,,,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@3d50f4ce,,,,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,No,,,,,,,,,2|x0d5nw:,,,,Internal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"*+Current functional status:+*
+
+*+Target functional status:+*
+
+*+Technical description of the change:+*
+
+*+Test description (alternatively: Zephyr test process):+*
+
+*+SAP Product Standards+* (i) 
+The [SAP Product Standards|https://msggroup.sharepoint.com/sites/TEA-RI-Products/_layouts/15/Doc.aspx?sourcedoc=%7B9F421DF9-6457-42FA-BD7E-94238BC74531%7D&file=SAP%20RM%20-%20Product%20Standard%20Requirements.xlsx&action=default&mobileredirect=true] must be observed when making changes to existing system behavior.
+All contact persons regarding product standards can be found in this [overview|https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Roles-and-Responsibilities.aspx#product-standard-owners-and-co-owners].
+
+*+Affected correction requests:+*
+
+",,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,04/Dec/25 2:34 PM;712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584;[~accountid:712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5]: This bug does not seem to be fixed. I am not able to provide an external number. ,,,,288026,SAPRIMGMT-67838,CORE - OData Services for Treaty Group - Account Groups,To Do,13/Oct/25 2:23 PM

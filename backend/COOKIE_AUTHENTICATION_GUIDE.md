@@ -25,6 +25,18 @@ This guide explains how to use browser cookies for Jira authentication when API 
 3. Click on your Jira domain (e.g., `https://your-domain.atlassian.net`)
 
 ### Step 4: Copy Cookie Values
+
+#### Quick Method (Recommended) - Using Console Script
+1. While on your Jira page, press `F12` to open Developer Tools
+2. Go to the **Console** tab
+3. Copy and paste this script, then press Enter:
+   ```javascript
+   (function(){const c=document.cookie.split(';').map(x=>x.trim()).filter(x=>x).join('; ');if(c){navigator.clipboard.writeText(c).then(()=>alert('✅ Cookies copied! ('+c.split(';').length+' cookies)\n\nPaste them in the form above.')).catch(()=>{const t=document.createElement('textarea');t.value=c;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);alert('✅ Cookies copied! ('+c.split(';').length+' cookies)\n\nPaste them in the form above.');});}else{alert('❌ No cookies found. Make sure you are on your Jira domain.');}})();
+   ```
+4. The cookies will be automatically copied to your clipboard
+5. Paste them into the cookie field in the dashboard
+
+#### Manual Method
 1. You'll see a list of cookies with Name and Value columns
 2. Copy the **entire cookie string** in this format:
    ```

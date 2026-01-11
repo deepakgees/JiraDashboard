@@ -36,17 +36,15 @@ const cleanupOldLogs = () => {
 // Run cleanup on startup
 cleanupOldLogs();
 
-// Custom format: [ISO_TIMESTAMP] [LEVEL]     MESSAGE
-const customLogFormat = winston.format.printf(({ level, message, ...meta }) => {
+// Custom format: [ISO_TIMESTAMP] [LEVEL] MESSAGE
+const customLogFormat = winston.format.printf(({ level, message }) => {
   // Convert level to uppercase and remove color codes
   const levelUpper = level.toUpperCase().replace(/\u001b\[[0-9;]*m/g, '');
   // Use ISO timestamp with milliseconds
   const isoTime = new Date().toISOString();
-  // Format: [ISO_TIMESTAMP] [LEVEL]     MESSAGE (5 spaces after level)
-  const metaString = Object.keys(meta).length > 0 && Object.keys(meta).some(key => key !== 'service') 
-    ? ' ' + JSON.stringify(meta) 
-    : '';
-  return `[${isoTime}] [${levelUpper}]     ${message}${metaString}`;
+  // Format: [ISO_TIMESTAMP] [LEVEL] MESSAGE (1 space after level)
+  // Metadata is excluded - only the message is logged
+  return `[${isoTime}] [${levelUpper}] ${message}`;
 });
 
 // Define log format for file transport

@@ -5,10 +5,12 @@ export interface JiraConfig {
   baseUrl: string;
   authToken?: string;
   cookies?: string;
+  accessToken?: string; // OAuth access token
+  accountId?: string; // OAuth account ID
   projectKey: string;
   teamName: string;
   importStartDate: string;
-  authType: 'api' | 'cookie';
+  authType: 'api' | 'cookie' | 'oauth';
 }
 
 export interface JiraEpicData {
@@ -52,6 +54,70 @@ export class JiraService {
   private client: AxiosInstance;
   private config: JiraConfig;
 
+  /**
+   * Sanitize cookie string by removing invalid characters for HTTP headers
+   * Removes newlines, carriage returns, and other control characters
+   * Ensures proper semicolon-separated format
+   * Strips cookie attributes (Path, Domain, Secure, HttpOnly, etc.)
+   */
+  private sanitizeCookieString(cookieString: string): string {
+    if (!cookieString) {
+      return '';
+    }
+    
+    // Remove newlines, carriage returns, and other control characters
+    // Replace line breaks with semicolons (common when copying from browser)
+    let sanitized = cookieString
+      .replace(/\r\n/g, '; ')  // Replace Windows line breaks with semicolon+space
+      .replace(/\n/g, '; ')   // Replace Unix line breaks with semicolon+space
+      .replace(/\r/g, '; ')   // Replace carriage returns with semicolon+space
+      .replace(/[\x00-\x1F\x7F]/g, '') // Remove other control characters
+      .trim();                 // Remove leading/trailing whitespace
+    
+    // Split by semicolon and process each cookie
+    const cookieParts = sanitized.split(';').map(part => part.trim()).filter(part => part);
+    const validCookies: string[] = [];
+    
+    for (const part of cookieParts) {
+      // Skip cookie attributes (Path, Domain, Secure, HttpOnly, SameSite, Expires, Max-Age)
+      const lowerPart = part.toLowerCase();
+      if (lowerPart.startsWith('path=') || 
+          lowerPart.startsWith('domain=') || 
+          lowerPart === 'secure' || 
+          lowerPart === 'httponly' ||
+          lowerPart.startsWith('samesite=') ||
+          lowerPart.startsWith('expires=') ||
+          lowerPart.startsWith('max-age=')) {
+        continue; // Skip cookie attributes
+      }
+      
+      // Only include parts that look like cookies (have = sign and value)
+      if (part.includes('=') && part.split('=').length >= 2) {
+        // Extract just the name=value part (in case there are attributes after =)
+        const nameValue = part.split('=')[0] + '=' + part.split('=').slice(1).join('=').split(',')[0].trim();
+        validCookies.push(nameValue);
+      }
+    }
+    
+    // Join valid cookies with semicolon and space
+    sanitized = validCookies.join('; ');
+    
+    // Normalize spacing
+    sanitized = sanitized
+      .replace(/;\s*;/g, ';')  // Remove duplicate semicolons
+      .replace(/;\s+/g, '; ')  // Ensure single space after semicolon
+      .replace(/\s+;/g, '; ')   // Ensure single space before semicolon (if any)
+      .replace(/\s+/g, ' ')     // Replace multiple spaces with single space
+      .trim();
+    
+    // Remove trailing semicolon if present
+    if (sanitized.endsWith(';')) {
+      sanitized = sanitized.slice(0, -1).trim();
+    }
+    
+    return sanitized;
+  }
+
   constructor(config: JiraConfig) {
     this.config = config;
     
@@ -64,25 +130,67 @@ export class JiraService {
     // Set authentication based on type
     if (config.authType === 'api' && config.authToken) {
       headers['Authorization'] = `Basic ${config.authToken}`;
+    } else if (config.authType === 'oauth' && config.accessToken) {
+      headers['Authorization'] = `Bearer ${config.accessToken}`;
     } else if (config.authType === 'cookie' && config.cookies) {
-      headers['Cookie'] = config.cookies;
+      // Sanitize cookie string to remove invalid characters
+      const sanitizedCookies = this.sanitizeCookieString(config.cookies);
+      
+      // Validate that cookies contain at least one valid cookie (has = sign)
+      if (!sanitizedCookies || !sanitizedCookies.includes('=')) {
+        logger.warn('Invalid cookie format - no cookie values found', {
+          cookieLength: sanitizedCookies.length,
+          cookiePreview: sanitizedCookies.substring(0, 50)
+        });
+        throw new Error('Invalid cookie format. Cookies must be in the format "name1=value1; name2=value2"');
+      }
+      
+      headers['Cookie'] = sanitizedCookies;
+      
+      // Log cookie header (first 100 chars only for security) - using info level so it shows in logs
+      logger.info('Setting Cookie header for Jira authentication', {
+        cookieLength: sanitizedCookies.length,
+        cookieCount: sanitizedCookies.split(';').length,
+        cookiePreview: sanitizedCookies.substring(0, 100) + (sanitizedCookies.length > 100 ? '...' : ''),
+        hasJSESSIONID: sanitizedCookies.includes('JSESSIONID'),
+        hasCloudSession: sanitizedCookies.includes('cloud.session.token'),
+        cookieNames: sanitizedCookies.split(';').map(c => c.split('=')[0].trim()).filter(c => c)
+      });
     }
 
     this.client = axios.create({
       baseURL: config.baseUrl,
       headers,
       timeout: 30000,
-      withCredentials: config.authType === 'cookie', // Important for cookie-based auth
+      // Note: withCredentials is browser-only and doesn't work in Node.js
+      // For server-side requests, we use the Cookie header directly
     });
 
     // Add request/response interceptors for logging
     this.client.interceptors.request.use(
       (config) => {
-        logger.debug('Jira API Request', {
+        const logData: any = {
           method: config.method?.toUpperCase(),
           url: config.url,
-          baseURL: config.baseURL
-        });
+          baseURL: config.baseURL,
+          authType: this.config.authType
+        };
+        
+        // Log cookie header info (not the actual value for security)
+        if (config.headers && config.headers['Cookie']) {
+          const cookieHeader = config.headers['Cookie'] as string;
+          logData.hasCookieHeader = true;
+          logData.cookieHeaderLength = cookieHeader.length;
+          logData.cookieHeaderPreview = cookieHeader.substring(0, 50) + (cookieHeader.length > 50 ? '...' : '');
+        }
+        
+        // Log authorization header info (not the actual value for security)
+        if (config.headers && config.headers['Authorization']) {
+          logData.hasAuthHeader = true;
+        }
+        
+        // Use info level for request logging so it shows in logs
+        logger.info('Jira API Request', JSON.stringify(logData));
         return config;
       },
       (error) => {
@@ -101,12 +209,37 @@ export class JiraService {
         return response;
       },
       (error) => {
-        logger.error('Jira API Response Error', {
+        const errorLog: any = {
           status: error.response?.status,
           statusText: error.response?.statusText,
           url: error.config?.url,
-          message: error.message
-        });
+          baseURL: error.config?.baseURL,
+          method: error.config?.method?.toUpperCase(),
+          message: error.message,
+          authType: this.config.authType
+        };
+        
+        // Log request headers info (for debugging)
+        if (error.config?.headers) {
+          const headers = error.config.headers;
+          if (headers['Cookie']) {
+            const cookieHeader = headers['Cookie'] as string;
+            errorLog.cookieHeaderLength = cookieHeader.length;
+            errorLog.cookieHeaderPreview = cookieHeader.substring(0, 100) + (cookieHeader.length > 100 ? '...' : '');
+            errorLog.cookieCount = cookieHeader.split(';').length;
+            errorLog.cookieNames = cookieHeader.split(';').map(c => c.split('=')[0].trim()).filter(c => c);
+          }
+          if (headers['Authorization']) {
+            errorLog.hasAuthHeader = true;
+          }
+        }
+        
+        // Log response data if available (might contain error details)
+        if (error.response?.data) {
+          errorLog.responseDataPreview = JSON.stringify(error.response.data).substring(0, 200);
+        }
+        
+        logger.error('Jira API Response Error', JSON.stringify(errorLog));
         return Promise.reject(error);
       }
     );
@@ -129,17 +262,43 @@ export class JiraService {
         user: response.data
       };
     } catch (error: any) {
-      logger.error('Jira connection test failed', {
+      // Enhanced error logging for debugging
+      const errorDetails: any = {
         error: error.message,
         status: error.response?.status,
-        authType: this.config.authType
-      });
+        statusText: error.response?.statusText,
+        authType: this.config.authType,
+        url: error.config?.url,
+        baseURL: error.config?.baseURL
+      };
+      
+      // Log request headers info (for debugging cookie issues)
+      if (error.config?.headers) {
+        const headers = error.config.headers;
+        if (headers['Cookie']) {
+          const cookieHeader = headers['Cookie'] as string;
+          errorDetails.cookieHeaderLength = cookieHeader.length;
+          errorDetails.cookieHeaderPreview = cookieHeader.substring(0, 50) + (cookieHeader.length > 50 ? '...' : '');
+        }
+        if (headers['Authorization']) {
+          errorDetails.hasAuthHeader = true;
+        }
+      }
+      
+      // Log response headers if available (might contain clues about auth failure)
+      if (error.response?.headers) {
+        errorDetails.responseHeaders = Object.keys(error.response.headers);
+      }
+      
+      logger.error('Jira connection test failed', errorDetails);
       
       let message = 'Connection failed';
       if (error.response?.status === 401) {
-        message = this.config.authType === 'cookie' 
-          ? 'Invalid or expired cookies. Please refresh your browser session and copy new cookies.'
-          : 'Invalid API credentials. Please check your email and API token.';
+        if (this.config.authType === 'cookie') {
+          message = 'Invalid or expired cookies. Please refresh your browser session and copy new cookies. Make sure you copied all cookies from your browser, including session cookies like JSESSIONID.';
+        } else {
+          message = 'Invalid API credentials. Please check your email and API token.';
+        }
       } else if (error.response?.status === 403) {
         message = 'Access forbidden. Please check your permissions.';
       } else if (error.code === 'ECONNREFUSED') {
@@ -456,8 +615,24 @@ export function validateJiraConfig(config: Partial<JiraConfig>): string[] {
     errors.push('Jira base URL must start with http or https');
   }
 
-  if (!config.authToken) {
-    errors.push('Authentication token is required');
+  // Validate authentication based on auth type
+  if (config.authType === 'api') {
+    if (!config.authToken) {
+      errors.push('Authentication token is required for API authentication');
+    }
+  } else if (config.authType === 'oauth') {
+    if (!config.accessToken && !config.accountId) {
+      errors.push('Access token or account ID is required for OAuth authentication');
+    }
+  } else if (config.authType === 'cookie') {
+    if (!config.cookies) {
+      errors.push('Cookies are required for cookie authentication');
+    }
+  } else {
+    // Default to API auth for backward compatibility
+    if (!config.authToken) {
+      errors.push('Authentication token is required');
+    }
   }
 
   if (!config.projectKey) {

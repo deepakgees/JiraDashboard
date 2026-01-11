@@ -1,0 +1,473 @@
+Summary,Issue key,Issue id,Issue Type,Status,Project key,Project name,Project type,Project lead,Project lead id,Project description,Project url,Priority,Resolution,Assignee,Assignee Id,Reporter,Reporter Id,Creator,Creator Id,Created,Updated,Last Viewed,Resolved,Fix versions,Components,Due date,Votes,Labels,Labels,Labels,Labels,Description,Environment,Watchers,Watchers Id,Original estimate,Remaining Estimate,Time Spent,Work Ratio,Σ Original Estimate,Σ Remaining Estimate,Σ Time Spent,Security Level,Outward issue link (Derives),Attachment,Custom field (Actual end),Custom field (Actual start),Custom field (Affected artifacts),Custom field (Affected hardware),Custom field (Affected services),Custom field (Approvals),Custom field (BAdI-Interface changed),Custom field (Binding period),Custom field (Category),Custom field (Change reason),Custom field (Change risk),Custom field (Change type),Custom field (Checklist Completed),Custom field (Checklist Progress),Custom field (Checklist Progress %),Custom field (Checklist Text),Custom field (Checklist Text (view-only)),Custom field (Clarification (external)),Custom field (Clarification (internal)),Custom field (Classification (Issue)),Custom field (Classification (Ticket)),Custom field (Committment),Custom field (Complexity),Custom field (Contact),Custom field (Contact (Customer)),Custom field (Customer),Custom field (Customer (information)),Custom field (Data Dictionary changed),Custom field (Date (Approval Production Env)),Custom field (Date (Approval Staging Env)),Custom field (Date (Approval Test Env)),Custom field (Date (Approval done)),Custom field (Date (Concept done)),Custom field (Date (Delivery) - DUPLICATE),Custom field (Date (Development done)),Custom field (Date (Go Live)),Custom field (Date (Test done)),Custom field (Deadline (approval)),Custom field (Deadline (internal)),Custom field (Deadline (questions)),Custom field (Decision),Custom field (Decision maker),Custom field (Development),Custom field (Duration (expected)),Custom field (Effort),Custom field (Effort (person days)),Custom field (Effort (person hours)),Custom field (Epic Color),Custom field (Epic Name),Custom field (Epic Status),Custom field (Estimate (person days)),Custom field (Estimate (person hours)),Custom field (Estimate (t-shirt sizes)),Custom field (Estimation (assumption)),Custom field (External ID),Custom field (External attachment),Custom field (External link),Custom field (Focus Areas),Custom field (Goals),Custom field (HP-QC Creator),Custom field (HP-QC Driver),Custom field (HP-QC ID),Custom field (HP-QC Processor),Custom field (Implementation plan),Custom field (Imported Issue),Custom field (Incident ID),Custom field (Incident active),Custom field (Issue color),Custom field (Issue origin),Custom field (Last assignee),Custom field (Last automatic update),Custom field (Locked forms),Custom field (Major incident),Custom field (Manual completed),Custom field (Open forms),Custom field (PSP element),Custom field (PSP element (request)),Custom field (Planned end),Custom field (Planned start),Custom field (Priority (customer)),Custom field (Product owner),Custom field (Project overview key),Custom field (Project overview status),Custom field (Rank),Custom field (Relevant for manual),Custom field (Reported version),Custom field (Repository (Revision)),Custom field (Request Origin),Custom field (Request Type),Custom field (Request language),Custom field (Request number),Custom field (Request participants),Custom field (Requester),Custom field (Resolved by),Custom field (Responders),Custom field (Rough estimation),Custom field (SAP IC Accessibility),Custom field (SAP IC Business Configuration),Custom field (SAP IC Functional Correctness),Custom field (SAP IC Globalization),Custom field (SAP IC Integration),Custom field (SAP IC Licensing),Custom field (SAP IC Operations & Support),Custom field (SAP IC Performance),Custom field (SAP IC Security),Custom field (SAP IC Software Lifecycle),Custom field (SAP IC UX Consistency),Custom field (SAP IC User Assistance),Custom field (SAP Notes),Custom field (SLA Start date),Custom field (SLA Target date),Satisfaction rating,Custom field (Satisfaction date),Custom field (Sentiment),Custom field (Serviceklasse (migrated)),Custom field (Solution approach),Custom field (Solution proposal),Custom field (Solution quality),Custom field (Start date),Custom field (Story Points),Custom field (Story Points (magic estimation)),Custom field (Story Points (original estimation)),Custom field (Story Points (remaining estimation)),Custom field (Story Points (rough estimation)),Custom field (Story point estimate),Custom field (Subject),Custom field (Submitted forms),Custom field (Supporter),Custom field (System),Custom field (System (customer)),Custom field (System name),Custom field (Target end),Custom field (Target start),Custom field (Team),Custom field (Team (Development)),Custom field (Test automation required),Custom field (Test cases),Custom field (Test plan),Custom field (Time to first response),Custom field (Time to resolution),Custom field (Total forms),Custom field (Transfer order),Custom field (Vulnerability),Custom field (Work category),Custom field ([CHART] Date of First Response),Custom field ([CHART] Time in Status),Comment,Status Category,Status Category Changed
+CORE - OData Services for Treaty Group - Other group without any flag,SAPRIMGMT-68926,332892,Epic,New,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,17/Sep/25 4:51 PM,05/Jan/26 11:05 AM,18/Dec/25 5:35 PM,,8.8 Initial Shipment,CORE,,0,Assumed,IB_Collaboration,PM-TME,PO_NK,"*As a* developer,
+
+*I want to* call an OData service of SAP RM in order to create, read, update and delete Treaty Groups with a group category without flag estimate, accounting or print group.
+
+*So that* I am able to build an app to access all Treaty Group of type with such a category.
+
++*Goal of our customer*+
+
+* Bundling treaties for consistent modeling across multiple treaties with similar characteristics purpose: It can be used to group treaties as an input source for treaty calculation rules
+* Build Fiori UIs for treaty groups with such a category using clean core, RESTful OData APIs instead of the heavier BAPI-based approach
+* Ability to search for value help of each field for type-ahead functionality
+
+
+
+
+
+*Scope of this epic* 
+
+* Following odata services required 
+** Create (13)
+*** IC standard, error scenario handling, parent-child handling requires extra effort
+*** history tables?
+*** any authorization checks
+** Read (5)
+*** 
+** Up (10)
+** de (13)
+* ",,,,,,,,,,,,SAPRIMGMT-65880,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@1a2b4e9a,,,,,,,Not Completed,Checklist: 0/8,0.0,"# SAPRIMGMT | DoR | Epic
+* [open] SAP Product Standards: All Epic/Topic Discussion relevant requirements have been evaluated and may be incorporated into requirements.
+* [open] Architecture: Technical and business architecture have been clarified with product management and technical experts. S4 only: Any adjustments of the Architecture Concept Document (ACD) were discussed with the team.
+* [open] S4 only: Deprecation process / simplification catalog relevance has been incorporated into requirements.
+* [open] Fix Version/s: Relevant releases have been clarified / planned.
+* [open] Administrative stuff: Epic fields have been filled properly (labels (IB, PM, PO), components, request origin, commitment, team)
+* [open] Topic Assignment: Relevant topic(s) is/are assigned (Epic <<derives>> Topic; Topic <<is derived by>> Epic)
+* [open] Terminology: New terms (as far as known so far) have been incorporated into the terminology.
+* [open] Performance with mass data: The team has decided whether the Epic is relevant for mass data. If so, the performance and memory consumption has to be validated with mass data tests.","​# SAPRIMGMT | DoR | Epic
+​* [open] SAP Product Standards: All Epic/Topic Discussion relevant requirements have been evaluated and may be incorporated into requirements.
+​* [open] Architecture: Technical and business architecture have been clarified with product management and technical experts. S4 only: Any adjustments of the Architecture Concept Document (ACD) were discussed with the team.
+​* [open] S4 only: Deprecation process / simplification catalog relevance has been incorporated into requirements.
+​* [open] Fix Version/s: Relevant releases have been clarified / planned.
+​* [open] Administrative stuff: Epic fields have been filled properly (labels (IB, PM, PO), components, request origin, commitment, team)
+​* [open] Topic Assignment: Relevant topic(s) is/are assigned (Epic <<derives>> Topic; Topic <<is derived by>> Epic)
+​* [open] Terminology: New terms (as far as known so far) have been incorporated into the terminology.
+​* [open] Performance with mass data: The team has decided whether the Epic is relevant for mass data. If so, the performance and memory consumption has to be validated with mass data tests.",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,ghx-label-3,CORE - OData Services for Treaty Group - Other group without any flag,To Do,,,,,,,,,,,,,,,,,,yellow,,,,,,nein,,,,,,,,,,2|x0cmsc:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,To Do,17/Sep/25 4:51 PM
+CORE - OData Services for Treaty Group - Print Group,SAPRIMGMT-68923,332884,Epic,Evaluation,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,17/Sep/25 4:39 PM,05/Jan/26 11:06 AM,06/Jan/26 10:26 AM,,8.8 Initial Shipment,CORE,30/Jun/26 12:00 AM,0,Assumed,IB_Collaboration,PM-TME,PO_NK,"*As a* developer,
+
+*I want to* call an OData service of SAP RM in order to create, read, update and delete Treaty Groups of type “*Print Group*”.
+
+*So that* I am able to build an app to access all Treaty Group of type Print Group.
+
+ *Note*: All checks related to the Print group type must be implemented, for that the additional table including all checks need to be supported.
+
++*Goal of our customer*+
+
+* Bundling treaties for statement of account: The billing/open item print can be started for a Treaty Group (Print Group); only invoices for contracts of this Print Group will be printed. (Transaction /MSG/R_ADR)
+* Build Fiori UIs for treaty groups with Forecast and Estimation category using clean core, RESTful OData APIs instead of the heavier BAPI-based approach
+* Ability to search for value help of each field for type-ahead functionality
+
+*FAQs*
+
+* If a treaty is cancelled or close, can we assign the same under a treaty group - it doesn't matter treaty is cancelled or closed or active, it should not be an issue for treaty assignment. Also, treaty assignment rule doesn't mention anything about this restriction so it should be fine.
+
+Here is the rule for treaty assignment to group period:
+
+[https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/0e2039e91fb04efea915b996c475e8b8/a20d445382e50750e10000000a44176d.html|https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/0e2039e91fb04efea915b996c475e8b8/a20d445382e50750e10000000a44176d.html|smart-link]  in the first section prerequisites
+
+* Purpose of Transaction /MSG/R_ADR: Under this transaction we can take print of statement of account (SOA) related to a treaty group of type print group “({color:#ff991f}or for an individual treaty as well - this is only FYI as we are now only worried about treaty group{color})”. So whatever treaty(ies) we assign under a treaty group of print group that would be eligible for print for an SOA.",,,,,,,,,,,,SAPRIMGMT-65880,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@4b4e21eb,,,,,,,Not Completed,Checklist: 0/34,0.0,"# SAPRIMGMT | DoR | Epic
+* [open] SAP Product Standards: All Epic/Topic Discussion relevant requirements have been evaluated and may be incorporated into requirements.
+* [open] Architecture: Technical and business architecture have been clarified with product management and technical experts. S4 only: Any adjustments of the Architecture Concept Document (ACD) were discussed with the team.
+* [open] S4 only: Deprecation process / simplification catalog relevance has been incorporated into requirements.
+* [open] Fix Version/s: Relevant releases have been clarified / planned.
+* [open] Administrative stuff: Epic fields have been filled properly (labels (IB, PM, PO), components, request origin, commitment, team)
+* [open] Topic Assignment: Relevant topic(s) is/are assigned (Epic <<derives>> Topic; Topic <<is derived by>> Epic)
+* [open] Terminology: New terms (as far as known so far) have been incorporated into the terminology.
+* [open] Performance with mass data: The team has decided whether the Epic is relevant for mass data. If so, the performance and memory consumption has to be validated with mass data tests.
+# Acceptance criteria
+--- Creation of Treaty Group
+* [open] OData service functionality is available to create new treaty group (all basic data).
+* [open] OData service functionality is available to create subordinated entities of a treaty group.
+* [open] If we would like to create treaty group with invalid value, it should return with an error.
+--- Change/Update of Treaty Group
+* [open] OData service functionality is available to change treaty group and other related fields.
+* [open] OData service functionality is available to change subordinated entities of a treaty group.
+* [open] User should be able to add new group period
+* [open] User should be able to add new treaty to existing group period
+* [open] If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.
+--- Deletion of Treaty Group
+* [open] OData service functionality is available to change treaty group or set them deleted.
+* [open] OData service functionality is available to delete subordinated entities of a treaty group.
+* [open] If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+* [open] When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+* [open] Treaty group marked for deletion should not be returned as a part of search result.
+* [open] If the treaty assigned to the group is deleted, it should be deleted on database level also. Similar for group period as well.
+--- Read of Treaty Group
+* [open] OData service functionality is available to read existing treaty group including all subordinated entities.
+* [open] If we would like to read treaty group with invalid value, it should return with an error.
+--- Search of Treaty Group
+* [open] An OData service functionality is available to search for treaty group with defined criteria.
+* [open] Search criteria can be used on their own or in combination without knowing dependencies.
+* [open] A search can be executed without any given search criteria in order to receive all treaty group.
+* [open] External references can be used for the search even when they are incompletely given. E.g. Ext-Reference ID is filled and Party is empty
+* [open] The search does not find any treaty group that are marked as deleted.
+* [open] If we would like to search treaty group with invalid value, it should return with an error.
+--- General
+* [open] The existing checks are executed during treaty group creation in the same way as BAPI/APIs/UIs.
+* [open] Authority checks regarding treaty group and other relevant business objects are respected.
+* [open] The system provides error messages or deals with errors in a defined way.
+* [open] The extensibility of the functionality in a SAP standard way must be ensured.","​# SAPRIMGMT | DoR | Epic
+​* [open] SAP Product Standards: All Epic/Topic Discussion relevant requirements have been evaluated and may be incorporated into requirements.
+​* [open] Architecture: Technical and business architecture have been clarified with product management and technical experts. S4 only: Any adjustments of the Architecture Concept Document (ACD) were discussed with the team.
+​* [open] S4 only: Deprecation process / simplification catalog relevance has been incorporated into requirements.
+​* [open] Fix Version/s: Relevant releases have been clarified / planned.
+​* [open] Administrative stuff: Epic fields have been filled properly (labels (IB, PM, PO), components, request origin, commitment, team)
+​* [open] Topic Assignment: Relevant topic(s) is/are assigned (Epic <<derives>> Topic; Topic <<is derived by>> Epic)
+​* [open] Terminology: New terms (as far as known so far) have been incorporated into the terminology.
+​* [open] Performance with mass data: The team has decided whether the Epic is relevant for mass data. If so, the performance and memory consumption has to be validated with mass data tests.
+
+​# Acceptance criteria
+​--- Creation of Treaty Group
+​* [open] OData service functionality is available to create new treaty group (all basic data).
+​* [open] OData service functionality is available to create subordinated entities of a treaty group.
+​* [open] If we would like to create treaty group with invalid value, it should return with an error.
+​--- Change/Update of Treaty Group
+​* [open] OData service functionality is available to change treaty group and other related fields.
+​* [open] OData service functionality is available to change subordinated entities of a treaty group.
+​* [open] User should be able to add new group period
+​* [open] User should be able to add new treaty to existing group period
+​* [open] If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.
+​--- Deletion of Treaty Group
+​* [open] OData service functionality is available to change treaty group or set them deleted.
+​* [open] OData service functionality is available to delete subordinated entities of a treaty group.
+​* [open] If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+​* [open] When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+​* [open] Treaty group marked for deletion should not be returned as a part of search result.
+​* [open] If the treaty assigned to the group is deleted, it should be deleted on database level also. Similar for group period as well.
+​--- Read of Treaty Group
+​* [open] OData service functionality is available to read existing treaty group including all subordinated entities.
+​* [open] If we would like to read treaty group with invalid value, it should return with an error.
+​--- Search of Treaty Group
+​* [open] An OData service functionality is available to search for treaty group with defined criteria.
+​* [open] Search criteria can be used on their own or in combination without knowing dependencies.
+​* [open] A search can be executed without any given search criteria in order to receive all treaty group.
+​* [open] External references can be used for the search even when they are incompletely given. E.g. Ext-Reference ID is filled and Party is empty
+​* [open] The search does not find any treaty group that are marked as deleted.
+​* [open] If we would like to search treaty group with invalid value, it should return with an error.
+​--- General
+​* [open] The existing checks are executed during treaty group creation in the same way as BAPI/APIs/UIs.
+​* [open] Authority checks regarding treaty group and other relevant business objects are respected.
+​* [open] The system provides error messages or deals with errors in a defined way.
+​* [open] The extensibility of the functionality in a SAP standard way must be ensured.
+",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,ghx-label-3,CORE - OData Services for Treaty Group - Print Group,To Do,,,,,,,,,,,,,,,,,,yellow,,,,,,nein,,,,,,,,,,2|x0cmr8:,,,,Customer,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,In Progress,06/Nov/25 11:50 AM
+"CORE - OData Services for Treaty Group - Forecast and Estimation, Development Pattern",SAPRIMGMT-68920,332859,Epic,Evaluation,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,17/Sep/25 4:11 PM,05/Jan/26 11:07 AM,05/Jan/26 11:45 AM,,8.8 Initial Shipment,CORE,30/Jun/26 12:00 AM,0,Assumed,IB_Collaboration,PM-TME,PO_NK,"*As a* developer,
+
+*I want to* call an OData service of SAP RM in order to create, read, update and delete Treaty Groups of type “*Forecast and Estimation, Development Pattern*”.
+
+*So that* I am able to build an app to access all Treaty Group of type forecast and estimation, development pattern.
+
+ *Note*: All checks related to the F&E, DP group type must be implemented, for that the additional table including all checks need to be supported.
+
++*Goal of our customer*+
+
+* Bundling treaties for prognosis purpose: A forecast and estimation rule forms the basis for every forecast or estimation calculation. In this rule, you enter the data to be used by the system as a basis for the forecast or estimation and also specify how the system is to analyze this data in the calculation.
+* Build Fiori UIs for treaty groups with Forecast and Estimation, DP category using clean core, RESTful OData APIs instead of the heavier BAPI-based approach
+* Ability to search for value help of each field for type-ahead functionality",,,,,,,,,,,,SAPRIMGMT-65880,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@bd1e195,,,,,,,Not Completed,Checklist: 6/34,18.0,"# SAPRIMGMT | DoR | Epic
+* [open] SAP Product Standards: All Epic/Topic Discussion relevant requirements have been evaluated and may be incorporated into requirements.
+* [done] Architecture: Technical and business architecture have been clarified with product management and technical experts. S4 only: Any adjustments of the Architecture Concept Document (ACD) were discussed with the team.
+* [done] S4 only: Deprecation process / simplification catalog relevance has been incorporated into requirements.
+* [done] Fix Version/s: Relevant releases have been clarified / planned.
+* [done] Administrative stuff: Epic fields have been filled properly (labels (IB, PM, PO), components, request origin, commitment, team)
+* [done] Topic Assignment: Relevant topic(s) is/are assigned (Epic <<derives>> Topic; Topic <<is derived by>> Epic)
+* [done] Terminology: New terms (as far as known so far) have been incorporated into the terminology.
+* [open] Performance with mass data: The team has decided whether the Epic is relevant for mass data. If so, the performance and memory consumption has to be validated with mass data tests.
+# Acceptance criteria
+--- Creation of Treaty Group
+* [open] OData service functionality is available to create new treaty group (all basic data).
+* [open] OData service functionality is available to create subordinated entities of a treaty group.
+* [open] If we would like to create treaty group with invalid value, it should return with an error.
+--- Change/Update of Treaty Group
+* [open] OData service functionality is available to change treaty group and other related fields.
+* [open] OData service functionality is available to change subordinated entities of a treaty group.
+* [open] User should be able to add new group period
+* [open] User should be able to add new treaty to existing group period
+* [open] If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.
+--- Deletion of Treaty Group
+* [open] OData service functionality is available to change treaty group or set them deleted.
+* [open] OData service functionality is available to delete subordinated entities of a treaty group.
+* [open] If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+* [open] When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+* [open] Treaty group marked for deletion should not be returned as a part of search result.
+* [open] If the treaty assigned to the group is deleted, it should be deleted on database level also. Similar for group period as well.
+--- Read of Treaty Group
+* [open] OData service functionality is available to read existing treaty group including all subordinated entities.
+* [open] If we would like to read treaty group with invalid value, it should return with an error.
+--- Search of Treaty Group
+* [open] An OData service functionality is available to search for treaty group with defined criteria.
+* [open] Search criteria can be used on their own or in combination without knowing dependencies.
+* [open] A search can be executed without any given search criteria in order to receive all treaty group.
+* [open] External references can be used for the search even when they are incompletely given. E.g. Ext-Reference ID is filled and Party is empty
+* [open] The search does not find any treaty group that are marked as deleted.
+* [open] If we would like to search treaty group with invalid value, it should return with an error.
+--- General
+* [open] The existing checks are executed during treaty group creation in the same way as BAPI/APIs/UIs.
+* [open] Authority checks regarding treaty group and other relevant business objects are respected.
+* [open] The system provides error messages or deals with errors in a defined way.
+* [open] The extensibility of the functionality in a SAP standard way must be ensured.","​# SAPRIMGMT | DoR | Epic
+​* [open] SAP Product Standards: All Epic/Topic Discussion relevant requirements have been evaluated and may be incorporated into requirements.
+​* [done] Architecture: Technical and business architecture have been clarified with product management and technical experts. S4 only: Any adjustments of the Architecture Concept Document (ACD) were discussed with the team.
+​* [done] S4 only: Deprecation process / simplification catalog relevance has been incorporated into requirements.
+​* [done] Fix Version/s: Relevant releases have been clarified / planned.
+​* [done] Administrative stuff: Epic fields have been filled properly (labels (IB, PM, PO), components, request origin, commitment, team)
+​* [done] Topic Assignment: Relevant topic(s) is/are assigned (Epic <<derives>> Topic; Topic <<is derived by>> Epic)
+​* [done] Terminology: New terms (as far as known so far) have been incorporated into the terminology.
+​* [open] Performance with mass data: The team has decided whether the Epic is relevant for mass data. If so, the performance and memory consumption has to be validated with mass data tests.
+
+​# Acceptance criteria
+​--- Creation of Treaty Group
+​* [open] OData service functionality is available to create new treaty group (all basic data).
+​* [open] OData service functionality is available to create subordinated entities of a treaty group.
+​* [open] If we would like to create treaty group with invalid value, it should return with an error.
+​--- Change/Update of Treaty Group
+​* [open] OData service functionality is available to change treaty group and other related fields.
+​* [open] OData service functionality is available to change subordinated entities of a treaty group.
+​* [open] User should be able to add new group period
+​* [open] User should be able to add new treaty to existing group period
+​* [open] If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.
+​--- Deletion of Treaty Group
+​* [open] OData service functionality is available to change treaty group or set them deleted.
+​* [open] OData service functionality is available to delete subordinated entities of a treaty group.
+​* [open] If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+​* [open] When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+​* [open] Treaty group marked for deletion should not be returned as a part of search result.
+​* [open] If the treaty assigned to the group is deleted, it should be deleted on database level also. Similar for group period as well.
+​--- Read of Treaty Group
+​* [open] OData service functionality is available to read existing treaty group including all subordinated entities.
+​* [open] If we would like to read treaty group with invalid value, it should return with an error.
+​--- Search of Treaty Group
+​* [open] An OData service functionality is available to search for treaty group with defined criteria.
+​* [open] Search criteria can be used on their own or in combination without knowing dependencies.
+​* [open] A search can be executed without any given search criteria in order to receive all treaty group.
+​* [open] External references can be used for the search even when they are incompletely given. E.g. Ext-Reference ID is filled and Party is empty
+​* [open] The search does not find any treaty group that are marked as deleted.
+​* [open] If we would like to search treaty group with invalid value, it should return with an error.
+​--- General
+​* [open] The existing checks are executed during treaty group creation in the same way as BAPI/APIs/UIs.
+​* [open] Authority checks regarding treaty group and other relevant business objects are respected.
+​* [open] The system provides error messages or deals with errors in a defined way.
+​* [open] The extensibility of the functionality in a SAP standard way must be ensured.
+",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,ghx-label-4,"CORE - OData Services for Treaty Group - Forecast and Estimation, Development Pattern",To Do,,,,,,,,,,,,,,,,,,dark_blue,,,,,,nein,,,Product Owner,,,,,,,2|x0cmnw:,,,,Customer,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,In Progress,17/Oct/25 1:18 PM
+CORE - OData Services for Treaty Group - Account Groups,SAPRIMGMT-67838,288026,Epic,In Progress,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Medium,,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,Navin Kumar,712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5,28/Jul/25 1:58 PM,22/Dec/25 12:56 PM,18/Dec/25 3:00 PM,,8.8 Initial Shipment,CORE,31/Mar/26 12:00 AM,0,Assumed,IB_Collaboration,PM-TME,PO_NK,"*As a* developer, 
+
+*I want to* call an OData service of SAP RM in order to create, read, update and delete Treaty Groups of type “*Account Group*”.
+
+*So that* I am able to build an app to access all Treaty Group of type accounting group.
+
+
+
++*Goal of our customer*+
+
+* Bundling treaties for accounting purpose: Customers use this category to do kind of a load balancing for their accountants and assign treaty groups to accountants for accounting responsibilities.
+* Build Fiori UIs for treaty groups with accounting group category using lightweight, RESTful OData APIs instead of the heavier BAPI-based approach
+* Ability to search for value help of each field for type-ahead functionality
+
+*FAQs*:
+
+# If CBC services are required for Treaty Group? If yes, details of those CBC services?
+
+   >> This is kind of the fields in the tables, the CBC services would be applicable if does not exist already. CBC services required for group category, status, reason for change.",,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,,,,,144000,300,,,SAPRIMGMT-65880,,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@39b07b2f,,,,,,,Not Completed,Checklist: 7/34,21.0,"# SAPRIMGMT | DoR | Epic
+* [open] SAP IC Standards: All Epic/Topic Discussion relevant requirements have been evaluated and may be incorporated into requirements.
+* [done] Architecture: Technical and business architecture have been clarified with product management and technical experts. S4 only: Any adjustments of the Architecture Concept Document (ACD) were discussed with the team.
+* [done] S4 only: Deprecation process / simplification catalog relevance has been incorporated into requirements.
+* [done] Fix Version/s: Relevant releases have been clarified / planned.
+* [done] Administrative stuff: Epic fields have been filled properly (labels (IB, PM, PO), components, request origin, commitment, team)
+* [done] Topic Assignment: Relevant topic(s) is/are assigned (Epic <<derives>> Topic; Topic <<is derived by>> Epic)
+* [done] Terminology: New terms (as far as known so far) have been incorporated into the terminology.
+* [done] Performance with mass data: The team has decided whether the Epic is relevant for mass data. If so, the performance and memory consumption has to be validated with mass data tests.
+# Acceptance criteria
+--- Creation of Treaty Group
+* [open] OData service functionality is available to create new treaty group (all basic data).
+* [open] OData service functionality is available to create subordinated entities of a treaty group.
+* [open] If we would like to create treaty group with invalid value, it should return with an error.
+--- Change/Update of Treaty Group
+* [open] OData service functionality is available to change treaty group and other related fields.
+* [open] OData service functionality is available to change subordinated entities of a treaty group.
+* [open] User should be able to add new group period
+* [open] User should be able to add new treaty to existing group period
+* [open] If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.
+--- Deletion of Treaty Group
+* [open] OData service functionality is available to change treaty group or set them deleted.
+* [open] OData service functionality is available to delete subordinated entities of a treaty group.
+* [open] If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+* [open] When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+* [open] Treaty group marked for deletion should not be returned as a part of search result.
+* [open] If the treaty assigned to the group is deleted, it should be deleted on database level also. Similar for group period as well.
+--- Read of Treaty Group
+* [open] OData service functionality is available to read existing treaty group including all subordinated entities.
+* [open] If we would like to read treaty group with invalid value, it should return with an error.
+--- Search of Treaty Group
+* [open] An oData service functionality is available to search for treaty group with defined criteria.
+* [open] Search criteria can be used on their own or in combination without knowing dependencies.
+* [open] A search can be executed without any given search criteria in order to receive all treaty group.
+* [open] External references can be used for the search even when they are incompletely given. E.g. Ext-Reference ID is filled and Party is empty
+* [open] The search does not find any treaty group that are marked as deleted.
+* [open] If we would like to search treaty group with invalid value, it should return with an error.
+--- General
+* [open] The existing checks are executed during treaty group creation in the same way as BAPI/APIs/UIs.
+* [open] Authority checks regarding treaty group and other relevant business objects are respected.
+* [open] The system provides error messages or deals with errors in a defined way.
+* [open] The extensibility of the functionality in a SAP standard way must be ensured.","​# SAPRIMGMT | DoR | Epic
+​* [open] SAP IC Standards: All Epic/Topic Discussion relevant requirements have been evaluated and may be incorporated into requirements.
+​* [done] Architecture: Technical and business architecture have been clarified with product management and technical experts. S4 only: Any adjustments of the Architecture Concept Document (ACD) were discussed with the team.
+​* [done] S4 only: Deprecation process / simplification catalog relevance has been incorporated into requirements.
+​* [done] Fix Version/s: Relevant releases have been clarified / planned.
+​* [done] Administrative stuff: Epic fields have been filled properly (labels (IB, PM, PO), components, request origin, commitment, team)
+​* [done] Topic Assignment: Relevant topic(s) is/are assigned (Epic <<derives>> Topic; Topic <<is derived by>> Epic)
+​* [done] Terminology: New terms (as far as known so far) have been incorporated into the terminology.
+​* [done] Performance with mass data: The team has decided whether the Epic is relevant for mass data. If so, the performance and memory consumption has to be validated with mass data tests.
+
+​# Acceptance criteria
+​--- Creation of Treaty Group
+​* [open] OData service functionality is available to create new treaty group (all basic data).
+​* [open] OData service functionality is available to create subordinated entities of a treaty group.
+​* [open] If we would like to create treaty group with invalid value, it should return with an error.
+​--- Change/Update of Treaty Group
+​* [open] OData service functionality is available to change treaty group and other related fields.
+​* [open] OData service functionality is available to change subordinated entities of a treaty group.
+​* [open] User should be able to add new group period
+​* [open] User should be able to add new treaty to existing group period
+​* [open] If user tries to update treaty group “marked for deletion”, an appropriate error should be returned.
+​--- Deletion of Treaty Group
+​* [open] OData service functionality is available to change treaty group or set them deleted.
+​* [open] OData service functionality is available to delete subordinated entities of a treaty group.
+​* [open] If the status of the treaty group as “posting allowed”, it cannot be deleted. Otherwise, it can be deleted.
+​* [open] When the treaty group is deleted, it should be “marked for deletion” not actual delete from database.
+​* [open] Treaty group marked for deletion should not be returned as a part of search result.
+​* [open] If the treaty assigned to the group is deleted, it should be deleted on database level also. Similar for group period as well.
+​--- Read of Treaty Group
+​* [open] OData service functionality is available to read existing treaty group including all subordinated entities.
+​* [open] If we would like to read treaty group with invalid value, it should return with an error.
+​--- Search of Treaty Group
+​* [open] An oData service functionality is available to search for treaty group with defined criteria.
+​* [open] Search criteria can be used on their own or in combination without knowing dependencies.
+​* [open] A search can be executed without any given search criteria in order to receive all treaty group.
+​* [open] External references can be used for the search even when they are incompletely given. E.g. Ext-Reference ID is filled and Party is empty
+​* [open] The search does not find any treaty group that are marked as deleted.
+​* [open] If we would like to search treaty group with invalid value, it should return with an error.
+​--- General
+​* [open] The existing checks are executed during treaty group creation in the same way as BAPI/APIs/UIs.
+​* [open] Authority checks regarding treaty group and other relevant business objects are respected.
+​* [open] The system provides error messages or deals with errors in a defined way.
+​* [open] The extensibility of the functionality in a SAP standard way must be ensured.
+",,,New development,,,,,,,,,,,,,,,,,,,,,,,,,,,,ghx-label-9,CORE - OData Services for Treaty Group - Account Groups,To Do,,,L (101-200PD),,,,,,,,,,,,,,,orange,,,,,,nein,,,Team,,,,,,,2|x0bmos:,,,,Customer,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,,,,In Progress,17/Sep/25 2:34 PM
+CORE - CBC services for accounting related configuration,SAPRIMGMT-67566,275023,Epic,Close,SAPRIMGMT,SAP Reinsurance Management for SAP S/4HANA,software,Stefan Zuber,712020:53ad4aa4-3c3b-4a42-b593-cee27582f42f,,https://msggroup.sharepoint.com/sites/TEA-RI-Products/SitePages/Home.aspx,Highest,Done,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,Torsten Meyer,712020:2a75b46b-2c7e-4af4-b1d6-0649e2cfc584,14/Jul/25 12:21 PM,05/Dec/25 1:25 PM,15/Dec/25 9:18 PM,05/Dec/25 12:48 PM,8.7 Initial Shipment,CORE,31/Dec/25 12:00 AM,0,IB_Collaboration,PM-TME,PO_NK,,"*As a* developer,
+
+*I want to* call an OData service of SAP RM for accounting related configuration
+
+*So that* I am able to provide CBC services to create accounts.
+
+ +*Goal of our customer*+
+
+* A client which wants to use SAP Reinsurance Management OData services and built own UIs needs the respective CBC services. The scope of this epic is to develop the missing CBC services to create accounts and postings. 
+
++*Note*+
+
+These CBC services will be provided to version 8.7 only. No downport to earlier version(s).
+
+*Compare the linked excel for details*
+
+*In General*
+
+All services must be implemented according to SAP specifications (e. g. naming conventions based on global field name catalog) and also based on the msg internal specifications (see [+Webansicht+|https://msggroup.sharepoint.com/sites/TEA-RI-Products/_layouts/OneNote.aspx?id=%2Fsites%2FTEA-RI-Products%2FSiteAssets%2FReinsurance%20Products%20Notebook&wd=target%28Knowledge%20and%20How%20To%27s.one%7C4FED1063-C757-422E-B82A-AD3CC01FFD3B%2FRAP%20Development%7CEA754599-7AA3-4331-9AAF-0714CBFA525E%2F%29])
+
+The RAP Model uses different View levels that have to be implemented for each new ODATA service: 
+
+# Database
+
+# Basic Views
+
+# RAP I View
+
+# RAP C View
+
+# ODATA Service
+
+all ODATAs must be documented in all relevant documents (e. g. Security Guide, User Guide, Release Notes, SAP Business Accelerator [https://api.sap.com/api/API_BUSINESS_PARTNER/resource/Email_Address|https://api.sap.com/api/API_BUSINESS_PARTNER/resource/Email_Address|smart-link] )
+
+Security Standards from SAP must be fulfilled.
+
+FAQs:
+
+13 August 2025
+
+# There are some CBC fields (total 6) wherein requirement has been marked Business Object, what does this mean?
+
+   >> From the CBC accounting topic perspective, we should first focus on the priority one and two and the business objects we look at later in because they are on the treaty, for example, the section and the involvement number. There may already be some services existing which can read part of the treaty. So we don't need to do anything new there, so we should for now ignore these.
+
+Business Object: Means, *it's not really configuration, but it's an application data*. So these fields belong either to risk manager participations or to treaty fields. So that's why PP wrote the business object because we probably have to do business object modelling for them if they don't exist.
+
+# Do we need separate service for each field or we can have all fields under one service?
+
+   >> We need to create one service for each field if they are of different type from each other.
+
+# Is any field depended on the other field (input parameters)?
+
+   >> If we build a service later on where we can create accounts and postings, there will be dependencies between these fields. But since we only create services to read the configuration, we do not need to worry currently about the dependencies between the fields. Because that would be kind of a service which then is allowing us to create an account, change an account, add postings, and that's kind of stuff. The current asked to do is that we create the customizing services which are independent from anything. Once we use these configuration services within, for example an Odata service to create accounts, there will be dependencies between the fields but this needs to be defined then in that account creation, account update Odata service.
+
+# What is the difference between these GUID, ORIG_GUID, BR_GUID fields? 
+
+   >> GUID: Participation to which the account belongs to
+ORIG_GUID: The Original participation provides the participation to which the initial source account was posted. Assume we have Intercompany retrocession through company code chains in RM. The account started on participation A in company code 1, was there retroceded to participation B and participation B is linked to company code 2 and in Company Code 2 we have retrocession in 2 to participation C
+
+Account A1 is posted to part A has all three GUIDs referencing A
+
+Account A1 is transferred to part B which creates account A2
+GUID: B, ORIG_GUID = BR_GUID = A
+
+Account A2 is transferred to part C as account A3:
+GUID = C, BR_GUID = B, ORIG_GUID=A
+
+!image-20250819-152654.png|width=1024,height=576,alt=""image-20250819-152654.png""!
+
+
+
+*ODATA services that transfers detailed information about S4 (FS-RI, SAP) some configurations*:
+
+We have to provide several read-only services, that return all fields (e. g. ID, Short, Long description and inactive Flag)  for each specific configuration (exception Create and Change data are not returned)
+
+For the following configurations separate ODATA services are needed.
+
+* {color:#36b37e}Origin Indicator for an Account/Payment{color} --> SAP_RI_MGMT-68653
+* {color:#36b37e}Account Status{color} --> SAP_RI_MGMT-68654
+* {color:#36b37e}Business Type No.{color} --> SAP_RI_MGMT-68654
+* {color:#ff5630}Module That Created the Account{color} - 23 Oct 2025: PP advised, since the values in that table are not all related to accounts and we currently are not sure if a value from this table is required in an Odata service as an input or output, we decided to not create a CBC service for this in the msg namespace and wait till we know what information we would need for an Odata service from this table and then build a service once we know. --> SAP_RI_MGMT-68654
+* {color:#36b37e}Accounting Function{color} --> SAP_RI_MGMT-68654
+* {color:#36b37e}Account Group Number{color} --> SAP_RI_MGMT-68654
+* {color:#36b37e}Actual/Estimate Indicator{color} --> SAP_RI_MGMT-68655
+* {color:#36b37e}Entry Code{color} --> SAP_RI_MGMT-68655
+* {color:#ff5630}Payment Partner {color}- This is a business object, as per PP this will be taken care later. --> SAP_RI_MGMT-68655
+* {color:#36b37e}Line of Business (LoB){color} --> SAP_RI_MGMT-68655
+* {color:#36b37e}Extension for Postings{color} --> SAP_RI_MGMT-68655
+* {color:#36b37e}Unique Accounting Unit Number{color} --> SAP_RI_MGMT-68655",,Akash Shankar,712020:57bf3a73-3012-42a1-a509-f61f74712fb7,,,,,,,,,SAPRIMGMT-67565,19/Aug/25 8:57 PM;4adee847-3850-4a08-b68b-f0adbd95a5b7;image-20250819-152654.png;https://msggroup.atlassian.net/rest/api/3/attachment/content/155613,,,,,,com.atlassian.servicedesk.plugins.approvals.internal.customfield.ApprovalsCFValue@404d41a1,,,,,,,All Completed,Checklist: 12/12,100.0,"# SAPRIMGMT | DoR | Epic
+* [done] SAP IC Standards: All Epic/Topic Discussion relevant requirements have been evaluated and may be incorporated into requirements.
+* [done] Architecture: Technical and business architecture have been clarified with product management and technical experts. S4 only: Any adjustments of the Architecture Concept Document (ACD) were discussed with the team.
+* [done] S4 only: Deprecation process / simplification catalog relevance has been incorporated into requirements.
+* [done] Fix Version/s: Relevant releases have been clarified / planned.
+* [done] Administrative stuff: Epic fields have been filled properly (labels (IB, PM, PO), components, request origin, commitment, team)
+* [done] Topic Assignment: Relevant topic(s) is/are assigned (Epic <<derives>> Topic; Topic <<is derived by>> Epic)
+* [done] Terminology: New terms (as far as known so far) have been incorporated into the terminology.
+* [done] Performance with mass data: The team has decided whether the Epic is relevant for mass data. If so, the performance and memory consumption has to be validated with mass data tests.
+# Acceptance cirteria
+--- CBC Services
+* [done] There is a read-only Web API OData V4 service that returns all fields for the required CBC services for accounting"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+* [done] Unit tests need to be created","​# SAPRIMGMT | DoR | Epic
+​* [done] SAP IC Standards: All Epic/Topic Discussion relevant requirements have been evaluated and may be incorporated into requirements.
+​* [done] Architecture: Technical and business architecture have been clarified with product management and technical experts. S4 only: Any adjustments of the Architecture Concept Document (ACD) were discussed with the team.
+​* [done] S4 only: Deprecation process / simplification catalog relevance has been incorporated into requirements.
+​* [done] Fix Version/s: Relevant releases have been clarified / planned.
+​* [done] Administrative stuff: Epic fields have been filled properly (labels (IB, PM, PO), components, request origin, commitment, team)
+​* [done] Topic Assignment: Relevant topic(s) is/are assigned (Epic <<derives>> Topic; Topic <<is derived by>> Epic)
+​* [done] Terminology: New terms (as far as known so far) have been incorporated into the terminology.
+​* [done] Performance with mass data: The team has decided whether the Epic is relevant for mass data. If so, the performance and memory consumption has to be validated with mass data tests.
+
+​# Acceptance cirteria
+​--- CBC Services
+​* [done] There is a read-only Web API OData V4 service that returns all fields for the required CBC services for accounting"" customizing data, including all texts. Any existing fields for change/create data are not taken into account.
+​* [done] To call the Web API OData V4 service, a user must have the execution authorizations for the Web API OData V4 service and also the SAP authorizations for reading customizing data.
+​* [done] The required fields have been entered into the Global Field Name Catalog and have been approved.
+​* [done] Unit tests need to be created
+",,,New development,,no,,,,MR,,,,,,,,,,,,,,,,,,,,,,ghx-label-5,CORE - CBC services for accounting related configuration,To Do,,,L (101-200PD),"T-shirt size is not very accurate at the moment, as agile dashboard is not working properly and team is quite new and the estimations are not very accurate",,,,,,,,,,,,,,dark_teal,,,,,,nein,,,Team,,,,,,,2|x0bca8:,,,,Customer,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Produktion,,,,TechMonks,,,,,,,Kein,,,2025-12-05 07:18:01.848,1_*:*_2_*:*_759717573_*|*_3_*:*_1_*:*_0_*|*_10034_*:*_2_*:*_9513_*|*_10004_*:*_1_*:*_2076108134_*|*_10039_*:*_1_*:*_3385102012,"05/Dec/25 12:48 PM;712020:bc81b095-4abb-4efe-90ae-1dff178c8bc5;Hi Torsten,
+
+We have completed this EPIC. Kindly review.",Done,05/Dec/25 12:48 PM
